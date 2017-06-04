@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>css写图案</title>
+	<style type="text/css">
+        body { padding-left: 20px; }
+        p { margin: 50px 0; }
+        /*正方形*/
+        #square { width: 100px; height: 100px; background: red; }
+        /*正框*/
+        #square-frame { width: 100px; height: 100px; background: #fff; border: 3px solid red; }
+        /*长方形*/
+        #rectangle { width: 200px; height: 100px; background: red; }
+        /*实心圆*/
+        #perfect-circle { width: 200px; height: 200px; background-color: red; border-radius: 100px; }
+        /*圈*/
+        #circle { width: 200px; height: 200px; background-color: white; border-radius: 100px; border: 3px red solid; }
+        /*椭圆*/
+        #ellipse { width: 200px; height: 100px; background-color: red; border-radius: 100px / 50px; }
+        /*左上三角*/
+        #triangle-topleft { width: 0; height: 0; border-top: 100px solid red; border-right: 100px solid transparent; }
+        /*右上三角*/
+        #triangle-topright { width: 0; height: 0; border-top: 100px solid red; border-left: 100px solid transparent; }
+        /*左下三角*/
+        #triangle-bottomleft { width: 0; height: 0; border-bottom: 100px solid red; border-right: 100px solid transparent; }
+        /*右下三角*/
+        #triangle-bottomright { width: 0; height: 0; border-bottom: 100px solid red; border-left: 100px solid transparent; }
+        /*左三角*/
+        #triangle-left { width: 0; height: 0; border: 100px solid transparent; border-left: 100px solid red; }
+        /*右三角*/
+        #triangle-right { width: 0; height: 0; border: 100px solid transparent; border-right: 100px solid red; }
+        /*上三角*/
+        #triangle-top { width: 0; height: 0; border: 100px solid transparent; border-top: 100px solid red; }
+        /*下三角*/
+        #triangle-bottom { width: 0; height: 0; border: 100px solid transparent; border-bottom: 100px solid red; }
+        /*平行四边形*/
+        #parallelogram { width: 150px; height: 100px; -webkit-transform: skew(20deg); -moz-transform: skew(20deg); -ms-transform: skew(20deg); -o-transform: skew(20deg); transform: skew(20deg); background: red; }
+        /*梯形*/
+        #trapezoid { border-bottom: 100px solid red; border-left: 50px solid transparent; border-right: 50px solid transparent; height: 0; width: 100px; }
+        /*五角星*/
+        #star-five { position: relative; display: block; margin: 50px 0; color: red; width: 0; height: 0; border-right: 100px solid transparent; border-bottom: 70px solid red; border-left:  100px solid transparent; -moz-transform: rotate(35deg); -webkit-transform: rotate(35deg); -ms-transform: rotate(35deg); -o-transform: rotate(35deg); transform: rotate(35deg); }
+        #star-five:before { content: ''; position: absolute; top: -45px; left: -65px; display: block; width: 0; height: 0; border-bottom: 80px solid red; border-left: 30px solid transparent; border-right: 30px solid transparent; -webkit-transform: rotate(-35deg); -moz-transform: rotate(-35deg); -ms-transform: rotate(-35deg); -o-transform: rotate(-35deg); transform: rotate(-35deg); }
+        #star-five:after { content: ''; position: absolute; top: 3px; left: -105px; display: block; color: red; width: 0; height: 0; border-right: 100px solid transparent; border-bottom: 70px solid red; border-left: 100px solid transparent; -webkit-transform: rotate(-70deg); -moz-transform: rotate(-70deg); -ms-transform: rotate(-70deg); -o-transform: rotate(-70deg); transform: rotate(-70deg); }
+        /*六角星*/
+        #star-six { position: relative; width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 100px solid red; }
+        #star-six:after { content: ""; position: absolute; top: 30px; left: -50px; width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-top: 100px solid red; }
+        /*八角星*/
+        #burst-8 { position: relative; width: 80px; height: 80px; background: red; -webkit-transform: rotate(20deg); -moz-transform: rotate(20deg); -ms-transform: rotate(20deg); -o-transform: rotate(20eg); transform: rotate(20deg); }
+        #burst-8:before { content: ""; position: absolute; top: 0; left: 0; height: 80px; width: 80px; background: red; -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); -ms-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg); }
+        /*十二角星*/
+        #burst-12 { position: relative; width: 80px; height: 80px; background-color: red; text-align: center; }
+        #burst-12:before,
+        #burst-12:after { content: ""; position: absolute; top: 0; left: 0; width: 80px; height: 80px; background-color: red; }
+        #burst-12:before { -webkit-transform:rotate(30deg); -moz-transform:rotate(30deg); -ms-transform:rotate(30deg); -o-transform:rotate(30deg); transform:rotate(30deg); }
+        #burst-12:after { -webkit-transform:rotate(60deg); -moz-transform:rotate(60deg); -ms-transform:rotate(60deg); -o-transform:rotate(60deg); transform:rotate(60deg); }
+        /*五边形*/
+        #pentagon { position: relative; width: 54px; border-width: 50px 18px 0; border-style: solid; border-color: red transparent; }
+        #pentagon:before { content: ""; position: absolute; height: 0; width: 0; top: -85px; left: -18px; border-width: 0 45px 35px; border-style: solid; border-color: transparent transparent red; }
+        /*六边形*/
+        #hexagon { position: relative; width: 100px; height: 55px; background: red; }
+        #hexagon:before { content: ""; position: absolute; top: -25px; left: 0; width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 25px solid red; }
+        #hexagon:after { content: ""; position: absolute; bottom: -25px; left: 0; width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-top: 25px solid red; }
+        /*八边形*/
+        #octagon{ position: relative; width: 100px; height: 100px; background-color: red; }
+        #octagon:before { content: ""; position: absolute; top: 0; left: 0; width: 42px; height: 0; border-left: 29px solid #fff; border-right: 29px solid #fff; border-bottom: 29px solid red; }
+        #octagon:after { content: ""; position: absolute; left: 0; bottom: 0; width: 42px; height: 0; border-left: 29px solid #fff; border-right: 29px solid #fff; border-top: 29px solid red; }
+        /*桃心*/
+        #heart { position: relative; width: 100px; height: 90px; }
+        #heart:before,
+        #heart:after { position: absolute; content: ""; left: 50px; top: 0; width: 50px; height: 80px; background: red; border-radius: 50px 50px 0 0; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); -webkit-transform-origin: 0 100%; -moz-transform-origin: 0 100%; -ms-transform-origin: 0 100%; -o-transform-origin: 0 100%; transform-origin: 0 100%; }
+        #heart:after { left: 0; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); -webkit-transform-origin: 100% 100%; -moz-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; -o-transform-origin: 100% 100%; transform-origin: 100% 100%; }
+        /*无限大符号*/
+        #infinity { position: relative; width: 212px; height: 100px; }
+        #infinity:before,
+        #infinity:after { content: ""; position: absolute; top: 0; left: 0; width: 60px; height: 60px; border: 20px solid red; border-radius: 50px 50px 0 50px; -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -ms-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform: rotate(-45deg); }
+        #infinity:after { left: auto; right: 0; border-radius: 50px 50px 50px 0; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
+        /*蛋*/
+        #egg { display: block; width: 126px; height: 180px; background-color: red; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+        /*提示对话框*/
+        #talkbubble { position: relative; width: 120px; height: 80px; background: red; border-radius: 10px; }
+        #talkbubble:before { content:""; position: absolute; right: 100%; top: 26px; width: 0; height: 0; border-top: 13px solid transparent; border-right: 26px solid red; border-bottom: 13px solid transparent; }
+        /*食豆人*/
+        #pacman { width: 0; height: 0; border-right: 60px solid transparent; border-left: 60px solid red; border-top: 60px solid red; border-bottom: 60px solid red; border-top-left-radius: 60px; border-top-right-radius: 60px; border-bottom-left-radius: 60px; border-bottom-right-radius: 60px; }
+        /*钻石*/
+        #diamond { position: relative; width: 50px; height: 0; margin: 20px 0 50px 0; border-style: solid; border-color: transparent transparent red transparent; border-width: 0 25px 25px 25px; }
+        #diamond:after { content: ""; position: absolute; top: 25px; left: -25px; width: 0; height: 0; border-style: solid; border-color: red transparent transparent transparent; border-width: 70px 50px 0 50px; }
+        /*八卦*/
+        #yin-yang { position: relative; width: 96px; height: 48px; background: #fff; border-color: red; border-style: solid; border-width: 2px 2px 50px 2px; border-radius: 100%; }
+        #yin-yang:before { content: ""; position: absolute; top: 50%; left: 0; width: 12px; height: 12px; background: #fff; border: 18px solid red; border-radius: 100%; }
+        #yin-yang:after { content: ""; position: absolute; top: 50%; left: 50%; width: 12px; height: 12px; background: red; border: 18px solid #fff; border-radius:100%; }
+    </style>
+</head>
+<body>
+    <p>正方形</p>
+    <div id="square"></div>
+    <p>正方形</p>
+    <div id="square-frame"></div>
+    <p>长方形</p>
+    <div id="rectangle"></div>
+    <p>实心圆</p>
+    <div id="perfect-circle"></div>
+    <p>圈</p>
+    <div id="circle"></div>
+    <p>椭圆</p>
+    <div id="ellipse"></div>
+    <p>左上三角</p>
+    <div id="triangle-topleft"></div>
+    <p>右上三角</p>
+    <div id="triangle-topright"></div>
+    <p>左下三角</p>
+    <div id="triangle-bottomleft"></div>
+    <p>右下三角</p>
+    <div id="triangle-bottomright"></div>
+    <p>左三角</p>
+    <div id="triangle-left"></div>
+    <p>右三角</p>
+    <div id="triangle-right"></div>
+    <p>上三角</p>
+    <div id="triangle-top"></div>
+    <p>下三角</p>
+    <div id="triangle-bottom"></div>
+    <p>平行四边形</p>
+    <div id="parallelogram"></div>
+    <p>梯形</p>
+    <div id="trapezoid"></div>
+    <p>五角星</p>
+    <div id="star-five"></div>
+    <p>六角星</p>
+    <div id="star-six"></div>
+    <p>八角星</p>
+    <div id="burst-8"></div>
+    <p>十二角星</p>
+    <div id="burst-12"></div>
+    <p>五边形</p>
+    <div id="pentagon"></div>
+    <p>六边形</p>
+    <div id="hexagon"></div>
+    <p>八边形</p>
+    <div id="octagon"></div>
+    <p>桃心</p>
+    <div id="heart"></div>
+    <p>无限大符号</p>
+    <div id="infinity"></div>
+    <p>蛋</p>
+    <div id="egg"></div>
+    <p>提示对话框</p>
+    <div id="talkbubble"></div>
+    <p>食豆人</p>
+    <div id="pacman"></div>
+    <p>钻石</p>
+    <div id="diamond"></div>
+    <p>八卦</p>
+    <div id="yin-yang"></div>
+</body>
+</html>
