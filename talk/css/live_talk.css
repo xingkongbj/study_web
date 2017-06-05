@@ -1,0 +1,51 @@
+@charset "utf-8";
+html { height: 100%; }
+body { overflow: hidden; height: 100%; background-color: #242221; }
+/*滑块*/
+::-webkit-scrollbar-thumb { height: 40px; border-radius: 5px; background-color: #524e4e; }
+::-webkit-scrollbar-thumb:hover { background-color: #898888; }
+::-webkit-scrollbar-thumb:active { background-color: #949494; }
+.main { position: absolute; top: 0; left: 0; right: 0; bottom: 40px; overflow: hidden; }
+/*锁定按钮*/
+.main .scroll { position: absolute; bottom: 40px; right: 22px; width: 26px; height: 26px; background: url("../images/unlock.png") 0 0 no-repeat; z-index: 10; cursor: pointer; }
+.main .scroll.lock { background: url("../images/lock.png") 0 0 no-repeat; }
+.main .scroll:hover { background-position: 0 -26px; }
+.main .scroll:active { background-position: 0 -52px; }
+.main .scroll.disable ,
+.main .scroll.disable:hover ,
+.main .scroll.disable:active { background-position: 0 -78px; }
+/*聊天信息*/
+.content { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow-y: scroll; overflow-x: hidden; }
+.content .line { padding: 4px 0; }
+.content .line .tit { font-size: 14px; line-height: 24px; padding: 0 10px; -webkit-user-select: text; }
+.content .line .tit .name { color: #c6c6c6; vertical-align: top; }
+.content .line .cont { line-height: 24px; color: #ffbb00; word-wrap: break-word; vertical-align: top; -webkit-user-select: text; }
+.content .line .cont img { display: inline-block; width: 24px; height: 24px; vertical-align: top; -webkit-user-select: none; }
+.content .line .heart { display: inline-block; position: relative; width: 10px; height: 10px; vertical-align: middle; margin-left: 10px; -webkit-transform: rotate(45deg); background-color: red; }
+.content .line .heart::before,
+.content .line .heart::after { display: inline-block; content: ''; position: absolute; width: 10px; height: 10px; border-radius: 50%; background-color: red; }
+.content .line .heart::before { bottom: 0; left: -6px; }
+.content .line .heart::after { top: -6px; right: 0; }
+/*底部发送栏*/
+.talk { position: absolute; left: 0; right: 0; bottom: 0; height: 32px; border: 4px solid #4a4a4a; }
+.talk .face { float: left; width: 32px; height: 32px; background: url("../images/face.png") no-repeat 0 0; cursor: pointer; }
+.talk .face:hover { background-position: 0 -32px; }
+.talk .face.act { background-position: 0 -64px; }
+.talk .face.act:hover { background-position: 0 -96px; }
+.act::after { content: ''; display: inline-block; width: 0; height: 0; position: absolute; bottom: 20px; left: 8px; border-width: 8px; border-style: solid; border-color: #fff transparent transparent; }
+#msg_content { position: absolute; left: 34px; right: 52px; top: 0; bottom: 0; height: 32px; font-size: 14px; line-height: 32px; color: #ccc; background-color: #242221; border: none 0; resize: none; font-family: "microsoft yahei","SimSun"; white-space: nowrap; overflow: hidden; }
+#msg_content img{ width: 24px; height: 24px; margin: 4px 2px 4px; vertical-align: top; }
+.talk .send { float: right; width: 50px; height: 32px; background-color: #fb4e52; color: #fff; font-size: 12px; line-height: 32px; text-align: center; }
+.talk .send:hover { background-color: #ff6d70; cursor: pointer; }
+.talk .send:active { background-color: #fb4e52; }
+.talk .send.disable { background-color: #888; color: #fff; cursor: default; }
+/*表情*/
+.emoji_box { position: absolute; left: 5px; bottom: 40px; z-index: 10; display: none; width: 272px; height: 175px; border: 5px solid #fff; background-color: #fff; border-radius: 5px; overflow-y: auto; }
+#emoji_list { width: 261px; border-left: 1px solid #f1f1f1; border-top: 1px solid #f1f1f1; }
+#emoji_list li { float: left; width: 28px; height: 28px; border-right: 1px solid #f1f1f1; border-bottom: 1px solid #f1f1f1; cursor: pointer; }
+#emoji_list li:hover { background-color: #e4faf6; }
+#emoji_list li img{ display: inline-block; width: 24px; height: 24px; margin: 2px; vertical-align: top; }
+/*滑块*/
+.emoji_box ::-webkit-scrollbar-thumb { height: 40px; border-radius: 5px; background-color: #d7d7d7; }
+.emoji_box ::-webkit-scrollbar-thumb:hover { background-color: #999999; }
+.emoji_box ::-webkit-scrollbar-thumb:active { background-color: #949494; }
