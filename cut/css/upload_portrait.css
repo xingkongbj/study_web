@@ -1,0 +1,29 @@
+@charset "utf-8";
+body { width: 520px; height: 400px; overflow: hidden; }
+.upload_portrait { width: 470px; margin: 0 auto; }
+.upload_portrait .box .left { float: left; position: relative; width: 350px; height: 260px; border: 1px solid #eee; margin-right: 16px; background: #F3F3F5 url("../images/default.jpg") center no-repeat; }
+.upload_portrait .box .left .shade { background-color: rgba(0,0,0,0.6); position: absolute; left: 0; top: 0; }
+.upload_portrait .box .left .shade img { position: absolute; left: 0; top: 0; z-index: -1; visibility: hidden; }
+.upload_portrait .box .left .cut { position: absolute; left: 0; top: 0; margin-left: -1px; margin-top: -1px; width: 100px; height: 100px; border: 1px solid red; cursor: move; display: none; }
+.upload_portrait .cut em { display: block; width: 5px; height: 5px; background-color: red; position: absolute; }
+.upload_portrait .cut .l { left: -3px; top: 50%; margin-top: -3px; cursor: w-resize; }
+.upload_portrait .cut .t { top: -3px; left: 50%; margin-left: -3px; cursor: n-resize; }
+.upload_portrait .cut .r { right: -3px; top: 50%; margin-top: -3px; cursor: e-resize; }
+.upload_portrait .cut .b { bottom: -3px; left: 50%; margin-left: -3px; cursor: s-resize; }
+.upload_portrait .cut .lt { left: -3px; top: -3px; cursor: nw-resize; }
+.upload_portrait .cut .rt { right: -3px; top: -3px; cursor: ne-resize; }
+.upload_portrait .cut .lb { left: -3px; bottom: -3px; cursor: sw-resize; }
+.upload_portrait .cut .rb { right: -3px; bottom: -3px; cursor: se-resize; }
+.upload_portrait .box .left .cut div { overflow: hidden; }
+.upload_portrait .box .left .cut div .img { display: block; }
+
+
+.upload_portrait .box .right { float: left; width: 102px; height: 262px; }
+.upload_portrait .box .right p { font-size: 14px; line-height: 16px; color: #333; }
+.upload_portrait .box .right .d100x100 { width: 100px; height: 100px; border: 1px solid #eee; overflow: hidden;  margin-top: 8px; background: url("../images/default.jpg") center no-repeat; background-size: 100% 100%; }
+.upload_portrait .box .right .d60x60 { width: 60px; height: 60px; border: 1px solid #eee; overflow: hidden;  margin-top: 16px; background: url("../images/default.jpg") center no-repeat; background-size: 100% 100%; }
+.upload_portrait .box .right .d40x40 { width: 40px; height: 40px; border: 1px solid #eee; overflow: hidden; margin-top: 16px; background: url("../images/default.jpg") center no-repeat; background-size: 100% 100%; }
+.upload_portrait .box .right .img { display: block; }
+.upload_portrait .button { line-height: 28px; padding-top: 20px; text-align: center; }
+.upload_portrait .button .confirm { display: inline-block; width: 86px; height: 26px; font-size: 14px; line-height: 26px; color: #fff; text-align: center; margin: 0 24px; border: 1px solid #39d7ba; background-color: #39d7ba; border-radius: 12px; }
+.upload_portrait .button .confirm:hover { border: 1px solid #40e4c6; background-color: #40e4c6; cursor: pointer; }
