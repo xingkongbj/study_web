@@ -4,17 +4,17 @@
 
 - [http.Agent 类](#httpagent-类)
 - [http.ClientRequest 类](#httpclientrequest-类)
-- [http.Server 类]()
-- [http.ServerResponse 类]()
-- [http.IncomingMessage 类]()
-- [http.METHODS]()
-- [http.STATUS_CODES]()
-- [http.createServer]()
-- [http.get]()
-- [http.globalAgent]()
-- [http.request]()
+- [http.Server 类](#httpserver-类)
+- [http.ServerResponse 类](#httpserverresponse-类)
+- [http.IncomingMessage 类](#httpincomingmessage-类)
+- [http.METHODS](#httpmethods)
+- [http.STATUS_CODES](#httpstatus_codes)
+- [http.createServer](#httpcreateserverrequestlistener)
+- [http.get](#httpgetoptions-callback)
+- [http.globalAgent](#httpglobalagent)
+- [http.request](#httprequestoptions-callback)
 
-# http.Agent类
+# http.Agent 类
 
 ## new Agent([options])
 
