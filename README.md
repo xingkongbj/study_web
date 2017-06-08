@@ -6,7 +6,7 @@
 
 ## 目录
 
-- [cut ---- 头像剪裁 Demo](./tree/master/cut)
+- [cut ---- 头像剪裁 Demo](tree/master/cut)
 - [talk ---- 聊天框带表情 Demo](./tree/master/talk)
 - [前端 ---- 前端相关知识](./tree/master/前端)
 - [服务器 ---- 服务器及后台相关知识](./tree/master/服务器)
