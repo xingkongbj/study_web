@@ -2,17 +2,121 @@
 
 ### 目录
 
+- [http]()
 - [http.Agent 类](#httpagent-类)
+    - [new Agent([options])]()
+    - [agent.createConnection(options[, callback])]()
+    - [agent.destroy()]()
+    - [agent.freeSockets]()
+    - [agent.getName(options)]()
+    - [agent.maxFreeSockets]()
+    - [agent.maxSockets]()
+    - [agent.requests]()
+    - [agent.sockets]()
 - [http.ClientRequest 类](#httpclientrequest-类)
+    - ['abort' 事件]()
+    - ['aborted' 事件]()
+    - ['connect' 事件]()
+    - ['continue' 事件]()
+    - ['response' 事件]()
+    - ['socket' 事件]()
+    - ['upgrade' 事件]()
+    - [request.abort()]()
+    - [request.aborted]()
+    - [request.end([data][, encoding][, callback])]()
+    - [request.flushHeaders()]()
+    - [request.setNoDelay([noDelay])]()
+    - [request.setSocketKeepAlive([enable][, initialDelay])]()
+    - [request.setTimeout(timeout[, callback])]()
+    - [request.write(chunk[, encoding][, callback])]()
 - [http.Server 类](#httpserver-类)
+    - ['checkContinue' 事件]()
+    - ['checkExpectation' 事件]()
+    - ['clientError' 事件]()
+    - ['close' 事件]()
+    - ['connect' 事件]()
+    - [connection' 事件]()
+    - ['request' 事件]()
+    - ['upgrade' 事件]()
+    - [server.close([callback])]()
+    - [server.listen(handle[, callback])]()
+    - [server.listen(path[, callback])]()
+    - [server.listen([port][, hostname][, backlog][, callback])]()
+    - [server.listening]()
+    - [server.maxHeadersCount]()
+    - [server.setTimeout([msecs][, callback])]()
+    - [server.timeout]()
+    - [server.keepAliveTimeout]()
 - [http.ServerResponse 类](#httpserverresponse-类)
+    - ['close' 事件]()
+    - ['finish' 事件]()
+    - [response.addTrailers(headers)]()
+    - [response.end([data][, encoding][, callback])]()
+    - [response.finished]()
+    - [response.getHeader(name)]()
+    - [response.getHeaderNames()]()
+    - [response.getHeaders()]()
+    - [response.hasHeader(name)]()
+    - [response.headersSent]()
+    - [response.removeHeader(name)]()
+    - [response.sendDate]()
+    - [response.setHeader(name, value)]()
+    - [response.setTimeout(msecs[, callback])]()
+    - [response.statusCode]()
+    - [response.statusMessage]()
+    - [response.write(chunk[, encoding][, callback])]()
+    - [response.writeContinue()]()
+    - [response.writeHead(statusCode[, statusMessage][, headers])]()
 - [http.IncomingMessage 类](#httpincomingmessage-类)
+    - ['aborted' 事件]()
+    - ['close' 事件]()
+    - [message.destroy([error])]()
+    - [message.headers]()
+    - [message.httpVersion]()
+    - [message.method]()
+    - [message.rawHeaders]()
+    - [message.rawTrailers]()
+    - [message.setTimeout(msecs, callback)]()
+    - [message.socket]()
+    - [message.statusCode]()
+    - [message.statusMessage]()
+    - [message.trailers]()
+    - [message.url]()
 - [http.METHODS](#httpmethods)
 - [http.STATUS_CODES](#httpstatus_codes)
-- [http.createServer](#httpcreateserverrequestlistener)
-- [http.get](#httpgetoptions-callback)
+- [http.createServer([requestListener])](#httpcreateserverrequestlistener)
+- [http.get(options[, callback])](#httpgetoptions-callback)
 - [http.globalAgent](#httpglobalagent)
 - [http.request(options[, callback])](#httprequestoptions-callback)
+
+# http
+
+要使用 HTTP 服务器与客户端，需要 `require('http')`。
+
+Node.js 中的 HTTP 接口被设计成支持协议的许多特性。 比如，大块编码的消息。 这些接口不缓冲完整的请求或响应，用户能够以流的形式处理数据。
+
+HTTP 消息头由一个对象表示，例如：
+
+    { 'content-length': '123',
+      'content-type': 'text/plain',
+      'connection': 'keep-alive',
+      'host': 'mysite.com',
+      'accept': '*/*' }
+
+键名是小写的，键值不能修改。
+
+为了支持各种可能的 HTTP 应用，Node.js 的 HTTP API 是非常底层的。 它只涉及流处理与消息解析。 它把一个消息解析成消息头和消息主体，但不解析具体的消息头或消息主体。
+
+查看 message.headers 了解如何处理重复的消息头。
+
+接收到的原始消息头保存在 `rawHeaders` 属性中，它是一个 `[key, value, key2, value2, ...]` 数组。 例如，上面的消息头对象有一个类似以下的 `rawHeaders` 列表：
+
+    [ 'ConTent-Length', '123456',
+      'content-LENGTH', '123',
+      'content-type', 'text/plain',
+      'CONNECTION', 'keep-alive',
+      'Host', 'mysite.com',
+      'accepT', '*/*' ]
 
 # http.Agent 类
 
@@ -217,7 +321,15 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
 
 # http.METHODS
 
+- < Array >
+
+返回解析器支持的 HTTP 方法的列表。
+
 # http.STATUS_CODES
+
+- < Object >
+
+返回标准的 HTTP 响应状态码的集合，以及各自的简短描述。 例如，`http.STATUS_CODES[404] === 'Not Found'`。
 
 # http.createServer([requestListener])
 
@@ -230,6 +342,131 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
 
 # http.get(options[, callback])
 
+- options < Object > | < string >  `options` 同 http.request()， `method` 默认为 `GET`。 从原型继承的属性将被忽略。
+- callback < Function >
+- 返回: < http.ClientRequest >
+
+因为大多数请求都是 GET 请求且不带请求主体，所以 Node.js 提供了该便捷方法。 该方法与 http.request() 唯一的区别是它设置请求方法为 GET 且自动调用 ·req.end()·。 注意，响应数据必须在回调中被消耗，原因详见 http.ClientRequest 章节。
+
+·callback· 被调用时只传入一个参数，该参数是 http.IncomingMessage 的一个实例。
+
+一个获取 JSON 的例子：
+
+    http.get('http://nodejs.org/dist/index.json', (res) => {
+        const { statusCode } = res;
+        const contentType = res.headers['content-type'];
+        
+        let error;
+        if (statusCode !== 200) {
+            error = new Error('请求失败。\n' +
+                               `状态码: ${statusCode}`);
+        } else if (!/^application\/json/.test(contentType)) {
+            error = new Error('无效的 content-type.\n' +
+                              `期望 application/json 但获取的是 ${contentType}`);
+        }
+        if (error) {
+            console.error(error.message);
+            // 消耗响应数据以释放内存
+            res.resume();
+            return;
+        }
+        
+        res.setEncoding('utf8');
+        let rawData = '';
+        res.on('data', (chunk) => { rawData += chunk; });
+        res.on('end', () => {
+            try {
+                const parsedData = JSON.parse(rawData);
+                console.log(parsedData);
+            } catch (e) {
+                console.error(e.message);
+            }
+        });
+    }).on('error', (e) => {
+        console.error(`错误: ${e.message}`);
+    });
+
 # http.globalAgent
 
+- < http.Agent >
+
+`Agent` 的全局实例，作为所有 HTTP 客户端请求的默认 `Agent`。
+
 # http.request(options[, callback])
+
+- `options` < Object > | < string >
+    - `protocol` < string > 使用的协议。默认为 `http:`。
+    - `host` < string > 请求发送至的服务器的域名或 IP 地址。默认为 `localhost`。
+    - `hostname` < string > `host` 的别名。为了支持 url.parse()，`hostname` 优于 `host`。
+    - `family` < number > 当解析 `host` 和 `hostname` 时使用的 IP 地址族。 有效值是 `4` 或 `6`。当未指定时，则同时使用 IP v4 和 v6。
+    - `port` < number > 远程服务器的端口。默认为 `80`。
+    - `localAddress` < string > 为网络连接绑定的本地接口。
+    - `socketPath` < string > Unix 域 Socket（使用 host:port 或 socketPath）。
+    - `method` < string > 指定 HTTP 请求方法的字符串。默认为 `'GET'`。
+    - `path` < string > 请求的路径。默认为 `'/'`。 应包括查询字符串（如有的话）。如 `'/index.html?page=12'`。 当请求的路径中包含非法字符时，会抛出异常。 目前只有空字符会被拒绝，但未来可能会变化。
+    - `headers` < Object > 包含请求头的对象。
+    - `auth` < string > 基本身份验证，如 `'user:password'` 用来计算 `Authorization` 请求头。
+    - `agent` < http.Agent > | < boolean > 控制 Agent 的行为。 可能的值有：
+        - `undefined` (默认): 对该主机和端口使用 http.globalAgent。
+        - `Agent` 对象：显式地使用传入的 `Agent`。
+        - `false`: 创建一个新的使用默认值的 `Agent`。
+    - `createConnection` < Function > 当不使用 `agent` 选项时，为请求创建一个 socket 或流。 这可以用于避免仅仅创建一个自定义的 `Agent` 类来覆盖默认的 `createConnection` 函数。详见 agent.createConnection()。
+    - `timeout` < number >: 指定 socket 超时的毫秒数。 它设置了 socket 等待连接的超时时间。
+- `callback` < Function >
+- 返回: < http.ClientRequest >
+
+Node.js 为每台服务器维护多个连接来进行 HTTP 请求。 该函数允许显式地发出请求。
+
+`options` 可以是一个对象或一个字符串。 如果 `options` 是一个字符串，它会被自动使用 url.parse() 解析。
+
+可选的 `callback` 参数会作为单次监听器被添加到 'response' 事件。
+
+`http.request()` 返回一个 http.ClientRequest 类的实例。 `ClientRequest` 实例是一个可写流。 如果需要通过 POST 请求上传一个文件，则写入到 `ClientRequest` 对象。
+
+例子：
+
+    const postData = querystring.stringify({
+        'msg' : 'Hello World!'
+    });
+    
+    const options = {
+        hostname: 'www.google.com',
+        port: 80,
+        path: '/upload',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': Buffer.byteLength(postData)
+        }
+    };
+    
+    const req = http.request(options, (res) => {
+        console.log(`状态码: ${res.statusCode}`);
+        console.log(`响应头: ${JSON.stringify(res.headers)}`);
+        res.setEncoding('utf8');
+        res.on('data', (chunk) => {
+            console.log(`响应主体: ${chunk}`);
+        });
+        res.on('end', () => {
+            console.log('响应中已无数据。');
+        });
+    });
+    
+    req.on('error', (e) => {
+        console.error(`请求遇到问题: ${e.message}`);
+    });
+    
+    // 写入数据到请求主体
+    req.write(postData);
+    req.end();
+
+注意，在例子中调用了 `req.end()`。 使用 `http.request()` 必须总是调用 `req.end()` 来表明请求的结束，即使没有数据被写入请求主体。
+
+如果请求过程中遇到任何错误（DNS 解析错误、TCP 级的错误、或实际的 HTTP 解析错误），则在返回的请求对象中会触发 `'error'` 事件。 对于所有的 `'error'` 事件，如果没有注册监听器，则抛出错误。
+
+以下是需要注意的几个特殊的请求头。
+
+- 发送 `'Connection: keep-alive'` 会通知 Node.js，服务器的连接应一直持续到下一个请求。
+- 发送 `'Content-Length'` 请求头会禁用默认的块编码。
+- 发送 `'Expect'` 请求头会立即发送请求头。 通常情况下，当发送 `'Expect: 100-continue'` 时，超时时间与 `continue` 事件的监听器都需要被设置。 详见 RFC2616 章节 8.2.3。
+- 发送 `Authorization` 请求头会替代 `auth` 选项计算基本身份验证。
