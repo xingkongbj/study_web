@@ -12,7 +12,7 @@
 - [http.createServer](#httpcreateserverrequestlistener)
 - [http.get](#httpgetoptions-callback)
 - [http.globalAgent](#httpglobalagent)
-- [http.request](#httprequestoptions-callback)
+- [http.request(options[, callback])](#httprequestoptions-callback)
 
 # http.Agent 类
 
