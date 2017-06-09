@@ -2,7 +2,7 @@
 
 ### 为了让大家更好的学习前端技术，打好基础。定期会更新GitHub上的教程。
 
-有疑问或者建议，请加QQ群：614226759
+如有疑问或建议，请加QQ群：614226759
 
 ## 目录
 
@@ -12,6 +12,7 @@
     - [CSS ---- CSS相关知识](../../tree/master/前端/CSS)
         - [css写图案](../../tree/master/前端/CSS/css写图案.html)
         - [上下左右居中](../../tree/master/前端/CSS/上下左右居中.html)
+        - [选择器](../../tree/master/前端/CSS/选择器.md)
     - [JS ---- JS相关知识](../../tree/master/前端/JS)
         - [jQuery ---- jQuery相关知识](../../tree/master/前端/JS/jQuery)
             - [AJAX](../../tree/master/前端/JS/jQuery/AJAX.js)
