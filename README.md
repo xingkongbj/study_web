@@ -10,6 +10,7 @@
 - [talk ---- 聊天框带表情 Demo](../../tree/master/talk)
 - [前端 ---- 前端相关知识](../../tree/master/前端)
     - [CSS ---- CSS相关知识](../../tree/master/前端/CSS)
+        - [IE6兼容问题](../../tree/master/前端/CSS/IE6兼容问题.docx)
         - [css写图案](../../tree/master/前端/CSS/css写图案.html)
         - [上下左右居中](../../tree/master/前端/CSS/上下左右居中.html)
         - [选择器](../../tree/master/前端/CSS/选择器.md)
