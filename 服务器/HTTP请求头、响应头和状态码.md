@@ -86,7 +86,7 @@ Cookie | HTTP请求发送时，会把保存在该请求域名下的所有cookie�
 Host | 指定请求的服务器的域名和端口号 | Host: www.zcmhi.com
 Referer | 先前网页的地址，当前请求网页紧随其后,即来路 | Referer: http://www.zcmhi.com/archives/71.html
 User-Agent | User-Agent的内容包含发出请求的用户信息 | User-Agent: Mozilla/5.0 (Linux; X11)
-&nbsp; | &nbsp; | &nbsp;
+&nbsp; | 以上为常用 | &nbsp;
 Accept-Charset | 浏览器可以接受的字符编码集。 | Accept-Charset: iso-8859-5
 Accept-Ranges | 可以请求网页实体的一个或者多个子范围字段 | Accept-Ranges: bytes
 Authorization | HTTP授权的授权证书 | Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
@@ -120,7 +120,7 @@ Set-Cookie | 设置Http Cookie | Set-Cookie: UserID=JohnDoe; Max-Age=3600; Versi
 Server | web服务器软件名称 | Server: Apache/1.3.27 (Unix) (Red-Hat/Linux)
 Date | 原始服务器消息发出的时间 | Date: Tue, 15 Nov 2010 08:12:31 GMT
 Expires | 响应过期的日期和时间 | Expires: Thu, 01 Dec 2010 16:00:00 GMT
-&nbsp; | &nbsp; | &nbsp;
+&nbsp; | 以上为常用 | &nbsp;
 Accept-Ranges | 表明服务器是否支持指定范围请求及哪种类型的分段请求 | Accept-Ranges: bytes
 Age | 从原始服务器到代理缓存形成的估算时间（以秒计，非负） | Age: 12
 Allow | 对某网络资源的有效的请求行为，不允许则返回405 | Allow: GET, HEAD
