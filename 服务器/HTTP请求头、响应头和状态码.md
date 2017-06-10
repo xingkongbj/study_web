@@ -42,17 +42,13 @@
 408 | Request Time-out / 请求超时 | 服务器等待客户端发送的请求时间过长，超时。
 409 | Conflict / 冲突 | 服务器完成客户端的PUT请求是可能返回此代码，服务器处理请求时发生了冲突
 410 | Gone / 已经不存在 | 客户端请求的资源已经不存在。410 不同于 404 ，如果资源以前有现在被永久删除了可使用 410 代码，网站设计人员可通过 301 代码指定资源的新位置。
-
-
-
-
-411 | Length Required | 服务器无法处理客户端发送的不带Content-Length的请求信息
-412 | Precondition Failed | 客户端请求信息的先决条件错误
-413 | Request Entity Too Large | 由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息
-414 | Request-URI Too Large | 请求的URI过长（URI通常为网址），服务器无法处理
-415 | Unsupported Media Type | 服务器无法处理请求附带的媒体格式
-416 | Requested range not satisfiable | 客户端请求的范围无效
-417 | Expectation Failed | 服务器无法满足Expect的请求头信息
+411 | Length Required / 需要数据长度) | 服务器无法处理客户端发送的不带Content-Length的请求信息。
+412 | Precondition Failed / 先决条件错误 | 客户端请求信息的先决条件错误。
+413 | Request Entity Too Large / 请求实体过大 | 由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个 Retry-After 的响应信息。
+414 | Request-URI Too Large / 请求URI过长 | 请求的 URI 过长（URI 通常为网址），服务器无法处理。
+415 | Unsupported Media Type / 不支持的媒体格式 | 服务器无法处理请求附带的媒体格式。
+416 | Requested range not satisfiable / 请求范围无法满足 | 客户端包含了一个服务器无法满足的 Range 头信息的请求。
+417 | Expectation Failed / 期望失败 | 服务器无法满足 Expect 的请求头信息。如果服务器得到一个带有 100-continue 值的 Expect 请求头信息，这是指客户端正在询问是否可以在后面的请求中发送附件。在这种情况下，服务器也会用该状态(417)告诉浏览器服务器不接收该附件或用 100 (SC_CONTINUE) 状态告诉客户端可以继续发送附件。
 
 
 
