@@ -74,7 +74,7 @@ TRACE | 回显服务器收到的请求，主要用于测试或诊断。
 ## 请求头
 
 Header | 描述 | 示例
-:- | :- | :-
+:--- | :- | :-
 Accept | 指定客户端能够接收的内容类型 | Accept: text/plain, text/html
 Accept-Charset | 浏览器可以接受的字符编码集。 | Accept-Charset: iso-8859-5
 Accept-Encoding | 指定浏览器可以支持的web服务器返回内容压缩编码类型。 | Accept-Encoding: compress, gzip
