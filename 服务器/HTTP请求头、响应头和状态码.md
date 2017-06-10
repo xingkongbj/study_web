@@ -49,18 +49,13 @@
 415 | Unsupported Media Type / 不支持的媒体格式 | 服务器无法处理请求附带的媒体格式。
 416 | Requested range not satisfiable / 请求范围无法满足 | 客户端包含了一个服务器无法满足的 Range 头信息的请求。
 417 | Expectation Failed / 期望失败 | 服务器无法满足 Expect 的请求头信息。如果服务器得到一个带有 100-continue 值的 Expect 请求头信息，这是指客户端正在询问是否可以在后面的请求中发送附件。在这种情况下，服务器也会用该状态(417)告诉浏览器服务器不接收该附件或用 100 (SC_CONTINUE) 状态告诉客户端可以继续发送附件。
-
-
-
-
-
 5xx | &nbsp; | 服务器错误，服务器在处理请求的过程中发生了错误。
-500 | Internal Server Error | 服务器内部错误，无法完成请求
-501 | Not Implemented | 服务器不支持请求的功能，无法完成请求
-502 | Bad Gateway | 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求
-503 | Service Unavailable | 由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的Retry-After头信息中
-504 | Gateway Time-out | 充当网关或代理的服务器，未及时从远端服务器获取请求
-505 | HTTP Version not supported | 服务器不支持请求的HTTP协议的版本，无法完成处理
+500 | Internal Server Error / 内部服务器错误 | 服务器内部错误，无法完成请求。一般来说，这个问题都会在服务器的程序码出错时出现。
+501 | Not Implemented / 未实现 | 告诉客户端服务器不支持请求中要求的功能，无法完成请求。如，客户端执行了如PUT这样的服务器并不支持的命令。 
+502 | Bad Gateway / 错误的网关 | 充当网关或代理的服务器，从上游服务器接收到无效的响应。
+503 | Service Unavailable / 服务无法获得 | 由于超载或系统维护，服务器暂时的无法处理客户端的请求。延时的长度可包含在服务器的 Retry-After 头信息中。
+504 | Gateway Time-out / 网关超时 | 充当网关或代理的服务器，未及时从远端服务器获取请求。
+505 | HTTP Version not supported / 不支持的 HTTP 版本 | 服务器不支持请求的 HTTP 协议的版本，无法完成处理。
 
 ## 请求头
 
