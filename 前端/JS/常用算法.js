@@ -73,6 +73,9 @@ function reverseString (str) {
     }
     return tmp;
 }
+function reverseString (str) {
+    str.split('').reverse().join('');
+}
 
 // 生成指定长度随机字符串
 function randomString (n) {
@@ -132,6 +135,7 @@ function getMaxProfit (arr) {
 }
 
 // 二分查找
+// 非递归实现
 function binary_search (arr, key) {
     var low = 0,
         high = arr.length - 1;
@@ -147,8 +151,21 @@ function binary_search (arr, key) {
     }
     return -1;
 }
+// 递归实现
+function binary_search2 (arr, low, high, key) {
+    if(low > high) return -1;
+    var mid = parseInt((low + high)/2);
+    if(key == arr[mid]) {
+        return mid;
+    } else if(key > arr[mid]) {
+        return binary_search2(arr, mid+1, high, key);
+    } else if(key < arr[mid]) {
+        return binary_search2(arr, low, mid-1, key);
+    }
+}
 
 // 阶乘
+// 非递归实现
 function factorialize (num) {
     var result = 1;
     if (num < 0) return -1;
@@ -157,6 +174,12 @@ function factorialize (num) {
         result *= num--;
     }
     return result;
+}
+// 递归实现
+function factorialize (num) {
+    if(num < 0) return -1;
+    if(num == 0 || num == 1) return 1;
+    if(num > 1) return num*factorialize(num-1);
 }
 
 // 获取url参数
