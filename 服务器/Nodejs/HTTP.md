@@ -68,10 +68,10 @@
     - [response.writeContinue()]()
     - [response.writeHead(statusCode[, statusMessage][, headers])]()
 - [http.IncomingMessage 类](#httpincomingmessage-类)
-    - ['aborted' 事件]()
-    - ['close' 事件]()
-    - [message.destroy([error])]()
-    - [message.headers]()
+    - ['aborted' 事件](#aborted-事件)
+    - ['close' 事件](#close-事件-1)
+    - [message.destroy([error])](#messagedestroyerror)
+    - [message.headers](#messageheaders)
     - [message.httpVersion]()
     - [message.method]()
     - [message.rawHeaders]()
@@ -503,6 +503,14 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
 - `set-cookie` 始终是一个数组。重复的会被添加到数组。
 - 对于其他头信息，其值使用 , 拼接。
 
+## message.httpVersion
+
+- < string >
+
+在服务器请求中，该属性返回客户端发送的 HTTP 版本。 在客户端响应中，该属性返回连接到的服务器的 HTTP 版本。 可能的值有 `'1.1'` 或 `'1.0'`。
+
+`message.httpVersionMajor` 返回 HTTP 版本的第一个整数值，`message.httpVersionMinor` 返回 HTTP 版本的第二个整数值。
+
 ## message.method
 
 - < string >
@@ -612,7 +620,7 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
       path: '/status?name=ryan',
       href: '/status?name=ryan' }
 
-如果想从查询字符串中提取参数，可以使用 require('querystring').parse 函数、或为 require('url').parse 的第二个参数传入 true。 例子：
+如果想从查询字符串中提取参数，可以使用 `require('querystring').parse` 函数、或为 `require('url').parse` 的第二个参数传入 `true`。 例子：
 
     $ node
     > require('url').parse('/status?name=ryan', true)
