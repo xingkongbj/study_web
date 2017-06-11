@@ -468,6 +468,168 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
 
 它实现了 可读流 接口，还有以下额外的事件、方法、以及属性。
 
+## 'aborted' 事件
+
+当请求已被客户端终止且网络 socket 已关闭时触发。
+
+## 'close' 事件
+
+当底层连接被关闭时触发。 同 'end' 事件一样，该事件每个响应只触发一次。
+
+## message.destroy([error])
+
+- error < Error >
+
+调用接收到 `IncomingMessage` 的 socket 上的 `destroy()` 方法。 如果提供了 `error`，则触发 `'error'` 事件，且把 `error` 作为参数传入事件的监听器。
+
+## message.headers
+
+- < Object >
+
+请求头或响应头的对象。
+
+头信息的名称与值的键值对。头信息的名称为小写。 例如：
+
+    // 输出类似以下的东西：
+    //
+    // { 'user-agent': 'curl/7.22.0',
+    //   host: '127.0.0.1:8000',
+    //   accept: '*/*' }
+    console.log(request.headers);
+
+原始头信息中的重复数据会按以下方式根据头信息名称进行处理：
+
+- 重复的 `age` 、 `authorization` 、 `content-length` 、 `content-type` 、 `etag` 、 `expires` 、 `from` 、 `host` 、 `if-modified-since` 、 `if-unmodified-since` 、 `last-modified` 、 `location` 、 `max-forwards` 、 `proxy-authorization` 、 `referer` 、 `retry-after` 、或 `user-agent` 会被丢弃。
+- `set-cookie` 始终是一个数组。重复的会被添加到数组。
+- 对于其他头信息，其值使用 , 拼接。
+
+## message.method
+
+- < string >
+
+仅在 http.Server 返回的请求中有效。
+
+返回一个字符串，表示请求的方法。 该属性只读。 例如：`'GET'`、`'DELETE'`。
+
+## message.rawHeaders
+
+- < Array >
+
+接收到的原始的请求头或响应头列表。
+
+注意，键和值在同一个列表中。 偶数位的是键，奇数位的是对应的值。
+
+头信息的名称不会被转换为小写，重复的也不会被合并。
+
+    // 输出类似以下的东西：
+    //
+    // [ 'user-agent',
+    //   'this is invalid because there can be only one',
+    //   'User-Agent',
+    //   'curl/7.22.0',
+    //   'Host',
+    //   '127.0.0.1:8000',
+    //   'ACCEPT',
+    //   '*/*' ]
+    console.log(request.rawHeaders);
+
+## message.rawTrailers
+
+- < Array >
+
+接收到的原始的 `Trailer` 请求头或响应头的的键和值。 只在 `'end'` 事件时被赋值。
+
+## message.setTimeout(msecs, callback)
+
+- `msecs` < number >
+- `callback` < Function >
+
+调用 `message.connection.setTimeout(msecs, callback)`。
+
+返回 `message`。
+
+## message.socket
+
+- < net.Socket >
+
+返回与连接关联的 net.Socket 对象。
+
+通过 HTTPS 的支持，使用 request.socket.getPeerCertificate() 获取客户端的认证信息。
+
+## message.statusCode
+
+- < number >
+
+仅在 http.ClientRequest 返回的响应中有效。
+
+返回一个三位数的 HTTP 响应状态码。 如 `404`。
+
+## message.statusMessage
+
+- < string >
+
+仅在 http.ClientRequest 返回的响应中有效。
+
+返回 HTTP 响应状态消息（原因描述）。 如 `OK` 或 `Internal Server Error`。
+
+## message.trailers
+
+- < Object >
+
+返回 `Trailer` 请求头或响应头对象。 只在 `'end'` 事件时被赋值。
+
+## message.url
+
+- < string >
+
+仅在 http.Server 返回的请求中有效。
+
+返回请求的 URL 字符串。 仅包含实际 HTTP 请求中的 URL。 如果请求是：
+
+    GET /status?name=ryan HTTP/1.1\r\n
+    Accept: text/plain\r\n
+    \r\n
+
+则 `request.url` 会是：
+
+    '/status?name=ryan'
+
+如果想将 url 解析成各个部分，可以使用 `require('url').parse(request.url)`。 例子：
+
+    $ node
+    > require('url').parse('/status?name=ryan')
+    Url {
+      protocol: null,
+      slashes: null,
+      auth: null,
+      host: null,
+      port: null,
+      hostname: null,
+      hash: null,
+      search: '?name=ryan',
+      query: 'name=ryan',
+      pathname: '/status',
+      path: '/status?name=ryan',
+      href: '/status?name=ryan' }
+
+如果想从查询字符串中提取参数，可以使用 require('querystring').parse 函数、或为 require('url').parse 的第二个参数传入 true。 例子：
+
+    $ node
+    > require('url').parse('/status?name=ryan', true)
+    Url {
+      protocol: null,
+      slashes: null,
+      auth: null,
+      host: null,
+      port: null,
+      hostname: null,
+      hash: null,
+      search: '?name=ryan',
+      query: { name: 'ryan' },
+      pathname: '/status',
+      path: '/status?name=ryan',
+      href: '/status?name=ryan' }
+
 # http.METHODS
 
 - < Array >
