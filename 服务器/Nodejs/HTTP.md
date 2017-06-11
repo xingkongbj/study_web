@@ -194,6 +194,68 @@ http.request() 使用的默认 http.globalAgent 的选项均为各自的默认�
 
 该类继承自 net.Server，且具有以下额外的事件：
 
+## 'checkContinue' 事件
+
+- `request` < http.IncomingMessage >
+- `response` < http.ServerResponse >
+
+每当接收到一个带有 HTTP `Expect: 100-continue` 请求头的请求时触发。 如果该事件未被监听，则服务器会自动响应 `100 Continue`。
+
+处理该事件时，如果客户端应该继续发送请求主体，则调用 response.writeContinue()，否则生成一个适当的 HTTP 响应（例如 400 错误请求）。
+
+注意，当该事件被触发且处理后，'request' 事件不会被触发。
+
+## 'checkExpectation' 事件
+
+- `request` < http.ClientRequest >
+- `response` < http.ServerResponse >
+
+每当接收到一个带有 HTTP `Expect` 请求头（值不为 `100-continue`）的请求时触发。 如果该事件未被监听，则服务器会自动响应 `417 Expectation Failed`。
+
+注意，当该事件被触发且处理后，'request' 事件不会被触发。
+
+## 'clientError' 事件
+
+- `exception` < Error >
+- `socket` < net.Socket >
+
+如果客户端触发了一个 `'error'` 事件，则它会被传递到这里。 该事件的监听器负责关闭或销毁底层的 socket。 例如，用户可能希望更温和地用 HTTP `'400 Bad Request'` 响应关闭 socket，而不是突然地切断连接。
+
+默认情况下，请求异常时会立即销毁 socket。
+
+`socket` 参数是发生错误的 net.Socket 对象。
+
+    const http = require('http');
+    const server = http.createServer((req, res) => {
+        res.end();
+    });
+    server.on('clientError', (err, socket) => {
+        socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+    });
+    server.listen(8000);
+
+当 `'clientError'` 事件发生时，不会有 `request` 或 `response` 对象，所以发送的任何 HTTP 响应，包括响应头和内容，必须被直接写入到 `socket` 对象。 注意，确保响应是一个被正确格式化的 HTTP 响应消息。
+
+## 'close' 事件
+
+当服务器关闭时触发。
+
+## 'connect' 事件
+
+- `request` < http.IncomingMessage > HTTP 请求，同 'request' 事件。
+- `socket` < net.Socket > 服务器与客户端之间的网络 socket。
+- `head` < Buffer > 流的第一个数据包，可能为空。
+
+每当客户端发送 HTTP `CONNECT` 请求时触发。 如果该事件未被监听，则发送 `CONNECT` 请求的客户端会关闭连接。
+
+当该事件被触发后，请求的 socket 上没有 `'data'` 事件监听器，这意味着需要绑定 `'data'` 事件监听器，用来处理 socket 上被发送到服务器的数据。
+
+## 'connection' 事件
+
+- `socket` < net.Socket >
+
+当一个新的 TCP 流被建立时触发。 `socket` 是一个 net.Socket 类型的对象。 通常用户无需访问该事件。 注意，因为协议解析器绑定到 socket 的方式，socket 不会触发 `'readable'` 事件。 `socket` 也可以通过 `request.connection` 访问。
+
 ## 'request' 事件
 
 - `request` < http.IncomingMessage >
@@ -201,12 +263,56 @@ http.request() 使用的默认 http.globalAgent 的选项均为各自的默认�
 
 每次接收到一个请求时触发。 注意，每个连接可能有多个请求（在 HTTP `keep-alive` 连接的情况下）。
 
+## 'upgrade' 事件
+
+- `request` < http.IncomingMessage > HTTP 请求，同 'request' 事件。
+- `socket` < net.Socket > 服务器与客户端之间的网络 socket。
+- `head` < Buffer > 流的第一个数据包，可能为空。
+
+每当客户端发送 HTTP `upgrade` 请求时触发。 如果该事件未被监听，则发送 `upgrade` 请求的客户端会关闭连接。
+
+当该事件被触发后，请求的 socket 上没有 `'data'` 事件监听器，这意味着需要绑定 `'data'` 事件监听器，用来处理 socket 上被发送到服务器的数据。
+
+## server.close([callback])
+
+- `callback` < Function >
+
+停止服务端接收新的连接。详见 net.Server.close()。
+
+## server.listen(handle[, callback])
+
+- `handle` < Object >
+- `callback` < Function >
+
+`handle` 对象可以被设为一个服务器或 socket（任何带有一个 `_handle` 成员的对象）、或一个 `{fd: <n>}` 对象。
+
+该函数可以让服务器使用指定的处理程序接受连接，前提是文件描述符或处理程序已绑定了一个端口或域 socket。
+
+Windows 平台上不支持监听文件描述符。
+
+该函数是异步的。 `callback` 会被添加到 'listening' 事件的监听器中。也可查看 net.Server.listen()。
+
+返回 `server`。
+
+注意，`server.listen()` 方法可能被多次调用。 每次调用都会使用提供的选项重新打开服务器。
+
+## server.listen(path[, callback])
+
+- `path` < string >
+- `callback` < Function >
+
+启动一个 UNIX socket 服务器，并在给定的 `path` 上监听连接。
+
+该函数是异步的。 `callback` 会被添加到 'listening' 事件的监听器中。也可查看 net.Server.listen(path)。
+
+注意，`server.listen()` 方法可能被多次调用。 每次调用都会使用提供的选项重新打开服务器。
+
 ## server.listen([port][, hostname][, backlog][, callback])
 
-- `port` <number>
-- `hostname` <string>
-- `backlog` <number>
-- `callback` <Function>
+- `port` < number >
+- `hostname` < string >
+- `backlog` < number >
+- `callback` < Function >
 
 开始在指定的 `port` 和 `hostname` 上接受连接。 如果省略了 `hostname`，则当 IPv6 可用时，服务器会接受 未指定的 IPv6 地址（`::`）的连接，否则接受 未指定的 IPv4 地址（`0.0.0.0`）的连接。
 
@@ -221,6 +327,49 @@ http.request() 使用的默认 http.globalAgent 的选项均为各自的默认�
 该函数是异步的。 `callback` 会被添加到 'listening' 事件的监听器中。也可查看 net.Server.listen(port)。
 
 注意，`server.listen()` 方法可能被多次调用。 每次调用都会使用提供的选项重新打开服务器。
+
+## server.listening
+
+- < boolean >
+
+返回一个布尔值，表示服务器是否正在监听连接。
+
+## server.maxHeadersCount
+
+- < number > 默认为 2000。
+
+限制请求头的最大数量，默认为 2000。 如果设为 0，则没有限制。
+
+## server.setTimeout([msecs][, callback])
+
+- `msecs` < number > 默认为 120000 (2 分钟)。
+- `callback` < Function >
+
+设置 socket 的超时时间。 如果发生超时，则触发服务器对象的 `'timeout'` 事件，并传入 socket 作为一个参数。
+
+默认情况下，服务器的超时时间是 2 分钟，且超时后的 socket 会被自动销毁。 但是，如果你为服务器的 `'timeout'` 事件分配了一个回调函数，则超时必须被显式地处理。
+
+返回 `server`。
+
+## server.timeout
+
+- < number > 超时时间，以毫秒为单位。默认为 120000 (2 分钟)。
+
+socket 被认定为超时的空闲毫秒数。
+
+值设为 `0` 可禁用请求连接的超时行为。
+
+注意，socket 的超时逻辑是在连接上设定的，所以改变这个值只影响服务器新建的连接，而不会影响任何已存在的连接。
+
+## server.keepAliveTimeout
+
+- < number > 超时时间，以毫秒为单位。默认为 5000 (5 秒)。
+
+服务需要等待额外的传入数据所等待的毫秒数，在返回上一个响应数据后，在 socket 被销毁之前。如果服务器接收新数据在超时时间出发前，那么它将重置定期闲置超时。即，server.timeout.
+
+值设为 `0` 可禁用请求连接的超时行为。
+
+注意，socket 的超时逻辑是在连接上设定的，所以改变这个值只影响服务器新建的连接，而不会影响任何已存在的连接。
 
 # http.ServerResponse 类
 
