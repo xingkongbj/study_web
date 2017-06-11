@@ -72,16 +72,16 @@
     - ['close' 事件](#close-事件-1)
     - [message.destroy([error])](#messagedestroyerror)
     - [message.headers](#messageheaders)
-    - [message.httpVersion]()
-    - [message.method]()
-    - [message.rawHeaders]()
-    - [message.rawTrailers]()
-    - [message.setTimeout(msecs, callback)]()
-    - [message.socket]()
-    - [message.statusCode]()
-    - [message.statusMessage]()
-    - [message.trailers]()
-    - [message.url]()
+    - [message.httpVersion](#messagehttpversion)
+    - [message.method](#messagemethod)
+    - [message.rawHeaders](#messagerawheaders)
+    - [message.rawTrailers](#messagerawtrailers)
+    - [message.setTimeout(msecs, callback)](#messagesettimeoutmsecs-callback)
+    - [message.socket](#messagesocket)
+    - [message.statusCode](#messagestatuscode)
+    - [message.statusMessage](#messagestatusmessage)
+    - [message.trailers](#messagetrailers)
+    - [message.url](#messageurl)
 - [http.METHODS](#httpmethods)
 - [http.STATUS_CODES](#httpstatus_codes)
 - [http.createServer([requestListener])](#httpcreateserverrequestlistener)
@@ -189,6 +189,36 @@ http.request() 使用的默认 http.globalAgent 的选项均为各自的默认�
 返回一个对象，包含当前正被代理使用的 socket 数组。 不要修改。
 
 # http.ClientRequest 类
+
+## 'abort' 事件
+
+## 'aborted' 事件
+
+## 'connect' 事件
+
+## 'continue' 事件
+
+## 'response' 事件
+
+## 'socket' 事件
+
+## 'upgrade' 事件
+
+## request.abort()
+
+## request.aborted
+
+## request.end([data][, encoding][, callback])
+
+## request.flushHeaders()
+
+## request.setNoDelay([noDelay])
+
+## request.setSocketKeepAlive([enable][, initialDelay])
+
+## request.setTimeout(timeout[, callback])
+
+## request.write(chunk[, encoding][, callback])
 
 # http.Server 类
 
@@ -377,6 +407,12 @@ socket 被认定为超时的空闲毫秒数。
 
 这个类实现了（而不是继承自）可写流 接口。 它是一个有以下事件的 EventEmitter：
 
+## 'close' 事件
+
+## 'finish' 事件
+
+## response.addTrailers(headers)
+
 ## response.end([data][, encoding][, callback])
 
 - data < string > | < Buffer >
@@ -388,6 +424,22 @@ socket 被认定为超时的空闲毫秒数。
 如果指定了 `data`，则相当于调用 response.write(data, encoding) 之后再调用 `response.end(callback)`。
 
 如果指定了 `callback`，则当响应流结束时被调用。
+
+## response.finished
+
+## response.getHeader(name)
+
+## response.getHeaderNames()
+
+## response.getHeaders()
+
+## response.hasHeader(name)
+
+## response.headersSent
+
+## response.removeHeader(name)
+
+## response.sendDate
 
 ## response.setHeader(name, value)
 
@@ -410,6 +462,12 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
         res.end('ok');
     });
 
+## response.setTimeout(msecs[, callback])
+
+## response.statusCode
+
+## response.statusMessage
+
 ## response.write(chunk[, encoding][, callback])
 
 - chunk < string > | < Buffer >
@@ -430,7 +488,11 @@ response.setHeader() 设置的响应头会与 response.writeHead() 设置的响�
 response.write() 首次被调用时，会发送缓冲的响应头信息和响应主体的第一块数据到客户端。 response.write() 第二次被调用时，Node.js 会以流的形式处理数据，并将它们分别发送。 也就是说，响应会被缓冲到响应主体的第一个数据块。
 
 如果全部数据被成功刷新到内核缓冲区，则返回 `true`。 如果全部或部分数据还在内存中排队，则返回 `false`。 当缓冲区再次空闲时，则触发 `'drain'` 事件。
-    
+
+## response.writeContinue()
+
+发送一个 `HTTP/1.1 100 Continue` 消息到客户端，表示请求主体可以开始发送。 参阅 `Server` 的 'checkContinue' 事件。
+
 ## response.writeHead(statusCode[, statusMessage][, headers])
 
 - `statusCode` < number >
