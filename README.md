@@ -22,7 +22,7 @@
         - [jQuery ---- jQuery相关知识](../../tree/master/前端/JS/jQuery)
             - [AJAX](../../tree/master/前端/JS/jQuery/AJAX.js)
         - [知识点拓扑图](../../tree/master/前端/JS/知识点拓扑图)
-        - [ECMAScript6.md](../../tree/master/前端/JS/ECMAScript6.md)
+        - [ECMAScript6](../../tree/master/前端/JS/ECMAScript6.md)
         - [严格模式](../../tree/master/前端/JS/严格模式.md)
         - [常用算法](../../tree/master/前端/JS/常用算法.js)
         - [跨域方式](../../tree/master/前端/JS/跨域方式.md)
