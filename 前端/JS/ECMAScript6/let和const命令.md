@@ -1,11 +1,11 @@
 # ECMAScript 6
 
-> ECMAScript 6 入门 (阮一峰) http://es6.ruanyifeng.com/
+> ECMAScript 6 入门 (阮一峰) http://es6.ruanyifeng.com/#docs/let
 
 
 目录
 
-- [let 命令]()
+- [let 命令](#let-命令)
 - [const 命令]()
 - [ES6 声明变量的六种方法]()
 - [顶层对象的属性]()
@@ -78,7 +78,7 @@ let不允许在相同作用域内，重复声明同一个变量。
       let arg; // 报错
     }
 
-## let 命令
+## const 命令
 
 const 声明一个只读的常量。一旦声明，常量的值就不能改变。
 
