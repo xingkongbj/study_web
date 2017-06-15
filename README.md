@@ -28,7 +28,6 @@
     - [原生JS ---- 原生JS相关知识](../../tree/master/前端/JS/原生JS)
         - [严格模式](../../tree/master/前端/JS/原生JS/严格模式.md)
     - [知识点拓扑图](../../tree/master/前端/JS/知识点拓扑图)
-    - [ECMAScript6](../../tree/master/前端/JS/ECMAScript6.md)
     - [常用算法](../../tree/master/前端/JS/常用算法.js)
     - [跨域方式](../../tree/master/前端/JS/跨域方式.md)
 
