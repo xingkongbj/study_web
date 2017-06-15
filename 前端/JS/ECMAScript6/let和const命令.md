@@ -1,7 +1,6 @@
-# ECMAScript 6
+# ECMAScript 6 let和const命令
 
 > ECMAScript 6 入门 (阮一峰) http://es6.ruanyifeng.com/#docs/let
-
 
 目录
 
