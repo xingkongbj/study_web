@@ -6,10 +6,14 @@
 
 注：只做学习使用，禁止用于商业用途，转载请注明出处
 
-## 目录
+## Demo
 
-- [cut ---- 头像剪裁 Demo](../../tree/master/cut)
-- [talk ---- 聊天框带表情 Demo](../../tree/master/talk)
+- [cut ---- 头像剪裁](../../tree/master/Demo/cut)
+- [talk ---- 聊天框带表情](../../tree/master/Demo/talk)
+
+
+
+
 - [前端 ---- 前端相关知识](../../tree/master/前端)
     - [CSS ---- CSS相关知识](../../tree/master/前端/CSS)
         - [IE6兼容问题](../../tree/master/前端/CSS/IE6兼容问题.docx)
