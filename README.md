@@ -37,6 +37,8 @@
 ## [服务器 ---- 服务器及后台相关知识](../../tree/master/服务器)
 
 - [HTTP请求头、响应头和状态码](../../tree/master/服务器/HTTP请求头、响应头和状态码.md)
+- [软件包管理器 ---- 软件包管理器相关知识](../../tree/master/服务器/软件包管理器)
+    - [brew](../../tree/master/服务器/软件包管理器/brew.md)
 - [Nodejs ---- Nodejs相关知识](../../tree/master/服务器/Nodejs)
     - [Module--模块](../../tree/master/服务器/Nodejs/Module--模块.md)
     - [HTTP](../../tree/master/服务器/Nodejs/HTTP.md)
