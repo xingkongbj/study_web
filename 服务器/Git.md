@@ -94,7 +94,7 @@
 - --abbrev-commit 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符
 - --relative-date 使用较短的相对时间显示（比如，“2 weeks ago”）
 - --graph 显示 ASCII 图形表示的分支合并历史
-- --pretty 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format:"%h"（后跟指定格式）
+- --pretty= 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format:"%h"（后跟指定格式）
 - %H 提交对象（commit）的完整哈希字串
 - %h 提交对象的简短哈希字串
 - %T 树对象（tree）的完整哈希字串
@@ -111,14 +111,12 @@
 - %cr 提交日期，按多久以前的方式显示
 - %s 提交说明
 
-## 重置文件
+## 取消暂存文件
  
-    git reset
-
-- --hard 还原所有区域
+    git reset HEAD a.md
 
 ## 还原文件
 
     git checkout
 
-- -- [file] 从暂存区或者仓库还原
+- -- [file] 从仓库还原
