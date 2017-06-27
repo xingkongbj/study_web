@@ -120,3 +120,52 @@
     git checkout
 
 - -- [file] 从仓库还原
+- -b version2 v2.0.0 在特定的标签上创建一个新分支
+
+## 查看远程仓库
+
+    git remote
+    
+- -v 查看其对应的 URL
+- add pb https://github.com/paulboone/ticgit 添加远程仓库
+- show origin 查看分支更多信息
+- rename pb paul 重命名远程仓库
+- rm paul 移除远程仓库
+
+## 拉取远程仓库
+
+    git fetch origin
+    
+- 这个命令会访问远程仓库，从中拉取所有你还没有的数据。 执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。
+- 会将数据拉取到你的本地仓库 - 它并不会自动合并或修改你当前的工作。
+- git pull origin master 如果你有一个分支设置为跟踪一个远程分支，自动的抓取然后合并远程分支到当前分支。
+
+## 推送到远程仓库
+
+    git push origin master
+    
+- v1.5 推送特定标签
+- --tags 推送所有标签
+    
+## 列出标签
+
+    git tag
+    
+- -l 'v1.8.5*' 过滤列出标签
+- -a v1.4 -m 'my version 1.4' 创建附注标签
+- v1.4 创建轻量标签
+- -a v1.2 9fceb02 给特定版本打附注标签
+
+## 查看标签信息
+
+    git show v1.4
+    
+## 设置常用别名
+
+    git config --global alias.co checkout
+    git config --global alias.br branch
+    git config --global alias.ci commit
+    git config --global alias.st status
+    git config --global alias.unstage 'reset HEAD --'
+    git config --global alias.last 'log -1 HEAD'
+    git config --global alias.visual '!gitk'
