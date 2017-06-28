@@ -120,6 +120,8 @@
     git checkout
 
 - -- [file] 从仓库还原
+- version2 切换分支
+- -b version2 创建分支并且切换到该分支
 - -b version2 v2.0.0 在特定的标签上创建一个新分支
 
 ## 查看远程仓库
@@ -169,3 +171,14 @@
     git config --global alias.unstage 'reset HEAD --'
     git config --global alias.last 'log -1 HEAD'
     git config --global alias.visual '!gitk'
+    
+## 分支创建
+
+    git branch
+    
+- testing 创建分支
+- -d hotfix 删除分支
+    
+## 在当前分支合并另一个分支
+
+    git merge hotfix
