@@ -148,6 +148,7 @@
     
 - v1.5 推送特定标签
 - --tags 推送所有标签
+- :test 把本地master分支推送到远端的test分支
     
 ## 列出标签
 
@@ -172,12 +173,15 @@
     git config --global alias.last 'log -1 HEAD'
     git config --global alias.visual '!gitk'
     
-## 分支创建
+## 查看分支
 
     git branch
     
+- -v 查看分支最后一次提交记录
+- --merged 查看已经合并的分支
+- --no-merged 查看未合并的分支
 - testing 创建分支
-- -d hotfix 删除分支
+- -d hotfix 删除分支，删除未合并的会失败。
     
 ## 在当前分支合并另一个分支
 
