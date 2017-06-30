@@ -20,17 +20,39 @@
 - --list 显示内容列表
 - --help 显示帮助网页
 
+## 设置常用别名
+
+    git config --global alias.co checkout
+    git config --global alias.br branch
+    git config --global alias.ci commit
+    git config --global alias.st status
+    git config --global alias.unstage 'reset HEAD --'
+    git config --global alias.last 'log -1 HEAD'
+    git config --global alias.visual '!gitk'
+
 ## 创建版本库
 
-    git init
+    git init  #在该目录创建库
+    git init < 路径 >  #在该路径下创建库
+    git init --bare  #创建裸库，只能存储历史，不能进行修改，在服务器上使用
+    git clone < 远程路径 > < 本地路径 >  #克隆服务器库到本地
 
-## 添加内容到下一次提交中
+## 一般操作
 
-    git add *.c
+    git add *.c  #添加文件到版本控制
 
-## 克隆服务器版本，并且本地重命名
 
-    git clone https://github.com/libgit2/libgit2 mylibgit
+
+
+
+
+
+
+
+
+
+
+   
 
 ## 查看文件状态
 
@@ -163,15 +185,6 @@
 
     git show v1.4
     
-## 设置常用别名
-
-    git config --global alias.co checkout
-    git config --global alias.br branch
-    git config --global alias.ci commit
-    git config --global alias.st status
-    git config --global alias.unstage 'reset HEAD --'
-    git config --global alias.last 'log -1 HEAD'
-    git config --global alias.visual '!gitk'
     
 ## 查看分支
 
