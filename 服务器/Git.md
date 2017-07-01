@@ -6,9 +6,9 @@
 
     git config
 
-- --local 设置仓库级参数
-- --global 设置全局级参数
-- --system 设置系统级参数
+- --local 设置仓库级参数，该目录有效
+- --global 设置全局级参数，该用户有效
+- --system 设置系统级参数，所有用户有效
 - user.name "xingkongbj" 设置用户名称
 - user.email "xingkongbeijing@sina.com" 设置用户邮箱
 - branch.autosetuprebase always 设置所有的分支都应该用rebase
@@ -51,14 +51,6 @@
     git diff < 文件 >  #比较工作区文件与暂存区的差异
     git diff < 文件 > --cached  #比较暂存区文件与本地仓库的差异
 
-
-
-
-
-
-
-
-
 ## 项目根目录创建忽略列表文件
 
     mylibgit/.gitignore
@@ -91,21 +83,21 @@
 - --relative-date 使用较短的相对时间显示（比如，“2 weeks ago”）
 - --graph 显示 ASCII 图形表示的分支合并历史
 - --pretty= 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format:"%h"（后跟指定格式）
-- %H 提交对象（commit）的完整哈希字串
-- %h 提交对象的简短哈希字串
-- %T 树对象（tree）的完整哈希字串
-- %t 树对象的简短哈希字串
-- %P 父对象（parent）的完整哈希字串
-- %p 父对象的简短哈希字串
-- %an 作者（author）的名字
-- %ae 作者的电子邮件地址
-- %ad 作者修订日期（可以用 --date= 选项定制格式）
-- %ar 作者修订日期，按多久以前的方式显示
-- %cn 提交者(committer)的名字
-- %ce 提交者的电子邮件地址
-- %cd 提交日期
-- %cr 提交日期，按多久以前的方式显示
-- %s 提交说明
+    - %H 提交对象（commit）的完整哈希字串
+    - %h 提交对象的简短哈希字串
+    - %T 树对象（tree）的完整哈希字串
+    - %t 树对象的简短哈希字串
+    - %P 父对象（parent）的完整哈希字串
+    - %p 父对象的简短哈希字串
+    - %an 作者（author）的名字
+    - %ae 作者的电子邮件地址
+    - %ad 作者修订日期（可以用 --date= 选项定制格式）
+    - %ar 作者修订日期，按多久以前的方式显示
+    - %cn 提交者(committer)的名字
+    - %ce 提交者的电子邮件地址
+    - %cd 提交日期
+    - %cr 提交日期，按多久以前的方式显示
+    - %s 提交说明
 
 ## 取消暂存文件
  
