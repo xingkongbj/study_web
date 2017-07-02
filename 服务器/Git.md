@@ -76,6 +76,41 @@
 
 ## 分支
 
+    git branch < 分支名 >  #创建分支
+    git checkout < 分支名 >  #切换分支
+
+
+
+
+
+## 还原文件
+
+    git checkout
+
+- -b version2 创建分支并且切换到该分支
+
+
+## 推送到远程仓库
+
+    git push origin master
+    
+- :test 把本地master分支推送到远端的test分支
+    
+    
+## 查看分支
+
+    git branch
+    
+- -v 查看分支最后一次提交记录
+- --merged 查看已经合并的分支
+- --no-merged 查看未合并的分支
+- testing 创建分支
+- -d hotfix 删除分支，删除未合并的会失败。
+    
+## 在当前分支合并另一个分支
+
+    git merge hotfix
+
 
 
 
@@ -105,6 +140,8 @@
 - --grep 仅显示含指定关键字的提交
 - -S 仅显示添加或移除了某个关键字的提交
 - -p 按补丁格式显示每个更新之间的差异
+- --decorate 查看各个分支当前所指的对象
+- --oneline 将每次提交记录汇总成一行
 - --stat 显示每次更新的文件修改统计信息
 - --shortstat 只显示 --stat 中最后的行数修改添加移除统计
 - --name-only 仅在提交信息后显示已修改的文件清单
@@ -128,38 +165,3 @@
     - %cd 提交日期
     - %cr 提交日期，按多久以前的方式显示
     - %s 提交说明
-
-
-
-
-
-
-
-## 还原文件
-
-    git checkout
-
-- version2 切换分支
-- -b version2 创建分支并且切换到该分支
-
-
-## 推送到远程仓库
-
-    git push origin master
-    
-- :test 把本地master分支推送到远端的test分支
-    
-    
-## 查看分支
-
-    git branch
-    
-- -v 查看分支最后一次提交记录
-- --merged 查看已经合并的分支
-- --no-merged 查看未合并的分支
-- testing 创建分支
-- -d hotfix 删除分支，删除未合并的会失败。
-    
-## 在当前分支合并另一个分支
-
-    git merge hotfix
