@@ -4,21 +4,18 @@
 
 ## 配置参数
 
-    git config
-
-- --local 设置仓库级参数，该目录有效
-- --global 设置全局级参数，该用户有效
-- --system 设置系统级参数，所有用户有效
-- user.name "xingkongbj" 设置用户名称
-- user.email "xingkongbeijing@sina.com" 设置用户邮箱
-- branch.autosetuprebase always 设置所有的分支都应该用rebase
-- color.ui true 设置命令框着色
-- color.status auto 设置状态颜色自动
-- color.branch auto 设置分支颜色自动
-- core.editor vim 设置编辑器
-- merge.tool vimdiff 设置冲突比较工具
-- --list 显示内容列表
-- --help 显示帮助网页
+    git config --local  #设置仓库级参数，该目录有效
+    git config --global  #设置全局级参数，该用户有效
+    git config --system  #设置系统级参数，所有用户有效
+    git config user.name "< 用户名称 >"  #设置用户名称
+    git config user.email "< 用户邮箱 >"  #设置用户邮箱
+    git config branch.autosetuprebase always  #设置所有的分支都应该用rebase
+    git config color.ui true  #设置命令框着色
+    git config color.status auto  #设置状态颜色自动
+    git config color.branch auto  #设置分支颜色自动
+    git config core.editor vim  #设置编辑器
+    git config merge.tool vimdiff  #设置冲突比较工具
+    git config --list  #显示内容列表
 
 ## 设置常用别名
 
@@ -26,7 +23,7 @@
     git config --global alias.br branch
     git config --global alias.ci commit
     git config --global alias.st status
-    git config --global alias.unstage 'reset HEAD --'
+    git config --global alias.unstage 'reset HEAD'
     git config --global alias.last 'log -1 HEAD'
     git config --global alias.visual '!gitk'
 
@@ -41,7 +38,7 @@
 
     git checkout < 文件 >  #还原文件，只能还原有版本控制文件。只修改工作区，对暂存区无效。
     git add < 文件 >  #添加文件到暂存区，.为所有文件。
-    git reset HEAD < 文件 >  #取消暂存文件，不加文件即清空暂存区。
+    git reset HEAD < 文件 >  #取消暂存文件，不指定文件即清空暂存区。
     git mv < 原名称 > < 更改后名称 >  #移动文件位置或重命名
     git rm < 文件 >  #删除本地仓库和工作区文件，不需要add，如果手动删除，需要add
     git rm < 文件 > -f  #如果删除之前，文件提交过暂存区，需要添加此参数
@@ -53,9 +50,40 @@
     git diff < 文件 >  #比较工作区文件与暂存区的差异
     git diff < 文件 > --cached  #比较暂存区文件与本地仓库的差异
 
-## 项目根目录创建忽略列表文件
+## 远程仓库
 
-    mylibgit/.gitignore
+    git remote  #查看远程仓库
+    git remote -v  #查看远程仓库对应的 URL
+    git remote show < 库名 >  #查看远程仓库更多信息
+    git remote add < 库名 > < 库对应的 URL >  #添加远程仓库
+    git remote rename < 旧库名 > < 新库名 >  #重命名远程仓库名称
+    git remote rm < 库名 >  #移除远程仓库
+    git fetch < 库名 >  #拉取远程仓库到你的本地仓库，它并不会自动合并或修改你当前的工作。
+    git pull < 库名 > < 分支名 >  #如果你有一个分支设置为跟踪一个远程分支，那么会自动的抓取然后合并远程分支到当前分支。
+    git push < 库名 > < 分支名 >  #推送本地仓库的分支到远程仓库的分支
+
+## 标签
+
+    git tag  #列出标签
+    git tag -l 'v1.8.5*'  #过滤显示标签
+    git tag < 标签名称 >  #创建轻量标签
+    git tag -a < 标签名称 > -m '< 说明 >'  #创建附注标签
+    git tag -a < 标签名称 > < 提交标志前7位 >  #根据提交记录，创建附注标签
+    git show < 标签名称 >  #显示标签信息
+    git push < 库名 > < 标签名称 >  #提交标签到远程仓库
+    git push < 库名 > --tags  #提交所有标签到远程仓库
+    git checkout -b < 分支名 > < 标签名称 > #用标签版本创建新分支并切换。标签并不能像分支一样来回移动，你不能真的检出一个标签，只能用新分支来代替标签。
+
+## 分支
+
+
+
+
+
+
+## 忽略跟踪文件列表
+
+    < 本地仓库路径 >/.gitignore
 
 - *.[oa] 忽略所有以 .o 或 .a 结尾的文件
 - *~ 忽略所有以波浪符（~）结尾的文件
@@ -101,11 +129,6 @@
     - %cr 提交日期，按多久以前的方式显示
     - %s 提交说明
 
-## 远程仓库
-
-    git remote  #查看远程仓库
-    git remote -v  #查看远程仓库其对应的 URL
-
 
 
 
@@ -118,46 +141,13 @@
 
 - version2 切换分支
 - -b version2 创建分支并且切换到该分支
-- -b version2 v2.0.0 在特定的标签上创建一个新分支
 
-## 查看远程仓库
-
-    git remote
-    
-- -v 查看其对应的 URL
-- add pb https://github.com/paulboone/ticgit 添加远程仓库
-- show origin 查看分支更多信息
-- rename pb paul 重命名远程仓库
-- rm paul 移除远程仓库
-
-## 拉取远程仓库
-
-    git fetch origin
-    
-- 这个命令会访问远程仓库，从中拉取所有你还没有的数据。 执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。
-- 会将数据拉取到你的本地仓库 - 它并不会自动合并或修改你当前的工作。
-- git pull origin master 如果你有一个分支设置为跟踪一个远程分支，自动的抓取然后合并远程分支到当前分支。
 
 ## 推送到远程仓库
 
     git push origin master
     
-- v1.5 推送特定标签
-- --tags 推送所有标签
 - :test 把本地master分支推送到远端的test分支
-    
-## 列出标签
-
-    git tag
-    
-- -l 'v1.8.5*' 过滤列出标签
-- -a v1.4 -m 'my version 1.4' 创建附注标签
-- v1.4 创建轻量标签
-- -a v1.2 9fceb02 给特定版本打附注标签
-
-## 查看标签信息
-
-    git show v1.4
     
     
 ## 查看分支
