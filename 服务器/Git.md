@@ -55,12 +55,14 @@
     git remote  #查看远程仓库
     git remote -v  #查看远程仓库对应的 URL
     git remote show < 库名 >  #查看远程仓库更多信息
-    git remote add < 库名 > < 库对应的 URL >  #添加远程仓库
-    git remote rename < 旧库名 > < 新库名 >  #重命名远程仓库名称
-    git remote rm < 库名 >  #移除远程仓库
-    git fetch < 库名 >  #拉取远程仓库到你的本地仓库，它并不会自动合并或修改你当前的工作。
+    git remote add < 库名 > < 库对应的 URL >  #添加远程仓库到本地的引用
+    git remote rename < 旧库名 > < 新库名 >  #重命名远程仓库的本地引用名称
+    git remote rm < 库名 >  #移除远程仓库本地引用
+    git fetch < 库名 >  #拉取远程仓库信息到你的本地引用，它并不会自动合并或修改你当前的工作。
     git pull < 库名 > < 分支名 >  #如果你有一个分支设置为跟踪一个远程分支，那么会自动的抓取然后合并远程分支到当前分支。
+    git pull < 远程库名 >:< 本地库名 > < 远程分支名 >:< 本地分支名 >  #拉取远程仓库完整写法
     git push < 库名 > < 分支名 >  #推送本地仓库的分支到远程仓库的分支
+    git push < 本地库名 >:< 远程库名 > < 本地分支名 >:< 远程分支名 >  #推送本地仓库完整写法
 
 ## 标签
 
@@ -76,46 +78,35 @@
 
 ## 分支
 
+    git branch  #列出本地分支
+    git branch -r  #列出远程分支
+    git branch -a  #列出本地和远程分支
     git branch < 分支名 >  #创建分支
+    git branch -v  #查看分支最后一次提交记录
+    git branch --merged  #查看已经合并的分支
+    git branch --no-merged  #查看未合并的分支
+    git branch -m < 旧分支名 > < 新分支名 >  #分支重命名
+    git branch -d < 分支名 >  #删除本地分支，删除未合并的会失败
+    git branch -d  -r < 分支名 >  #删除远程分支的本地引用，不会推送服务器
+    git push origin :< 分支名 >  #删除远程分支
     git checkout < 分支名 >  #切换分支
+    git checkout -b < 分支名 >  #创建分支并且切换到该分支，本地分支不能重名
+    git checkout -b < 本地分支名 > < 远程库名 >:< 远程分支名 >  #切换分支，并且以远程分支为基础，本地分支名不能重复
+    git checkout -t < 本地分支名 > < 远程库名 >:< 远程分支名 >  #本地分支跟踪远程分支，并且本地分支无跟踪远程分支，远程分支无跟踪本地分支
+    git branch -u < 本地分支名 > < 远程库名 >:< 远程分支名 >  #修改跟踪
+    git branch --set-upstream-to=< 远程库名 >/< 远程分支名 > < 本地分支名 >  #修改跟踪
+    git branch --unset-upstream < 本地分支名 >  #取消跟踪
+    git merge < 分支名 >  #把分支合并到当前的分支，先切换到想要同步其他分支操作的分支
+    git add < 文件 >  #解决冲突添加标记到暂存区，.为所有文件。
 
 
-
-
-
-## 还原文件
-
-    git checkout
-
-- -b version2 创建分支并且切换到该分支
-
-
-## 推送到远程仓库
-
-    git push origin master
+    冲突文件格式
+    <<<<<<< HEAD:文件名
+    当前分支内容
+    =======
+    想要同步其他分支操作的内容
+    >>>>>>> 分支名:文件名
     
-- :test 把本地master分支推送到远端的test分支
-    
-    
-## 查看分支
-
-    git branch
-    
-- -v 查看分支最后一次提交记录
-- --merged 查看已经合并的分支
-- --no-merged 查看未合并的分支
-- testing 创建分支
-- -d hotfix 删除分支，删除未合并的会失败。
-    
-## 在当前分支合并另一个分支
-
-    git merge hotfix
-
-
-
-
-
-
 ## 忽略跟踪文件列表
 
     < 本地仓库路径 >/.gitignore
@@ -141,6 +132,7 @@
 - -S 仅显示添加或移除了某个关键字的提交
 - -p 按补丁格式显示每个更新之间的差异
 - --decorate 查看各个分支当前所指的对象
+- --all 查看所有分支历史纪录
 - --oneline 将每次提交记录汇总成一行
 - --stat 显示每次更新的文件修改统计信息
 - --shortstat 只显示 --stat 中最后的行数修改添加移除统计
