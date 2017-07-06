@@ -11,8 +11,7 @@
 - [cut ---- 头像剪裁](../../tree/master/Demo/cut)
 - [talk ---- 聊天框带表情](../../tree/master/Demo/talk)
 - [less ---- less用法](../../tree/master/Demo/less)
-- [requirejs ---- requirejs用法](../../tree/master/Demo/requirejs.js)
-- [seejs ---- seejs用法](../../tree/master/Demo/seejs.js)
+
 
 ## 前端 ---- 前端相关知识
 
@@ -30,6 +29,9 @@
         - [AJAX](../../tree/master/前端/JS/jQuery/AJAX.js)
     - 原生JS
         - [严格模式](../../tree/master/前端/JS/原生JS/严格模式.md)
+    - 插件
+        - [requirejs用法](../../tree/master/前端/JS/插件/requirejs.js)
+        - [seejs用法](../../tree/master/前端/JS/插件/seejs.js)
     - [知识点拓扑图](../../tree/master/前端/JS/知识点拓扑图)
     - [常用算法](../../tree/master/前端/JS/常用算法.js)
     - [跨域方式](../../tree/master/前端/JS/跨域方式.md)
