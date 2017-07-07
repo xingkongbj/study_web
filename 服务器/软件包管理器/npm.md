@@ -1,5 +1,7 @@
 # npm 简单教程
 
+> 教程 http://www.runoob.com/nodejs/nodejs-npm.html
+
 npm 是随同 Node.js 一起安装的包管理工具
 
 ## 使用场景
