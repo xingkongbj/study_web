@@ -45,6 +45,7 @@
 
 - 软件包管理器
     - [brew](../../tree/master/服务器/软件包管理器/brew.md)
+    - [npm](../../tree/master/服务器/软件包管理器/npm.md)
 - Nodejs
     - [Module--模块](../../tree/master/服务器/Nodejs/Module--模块.md)
     - [HTTP](../../tree/master/服务器/Nodejs/HTTP.md)
