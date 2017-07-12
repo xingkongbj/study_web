@@ -28,6 +28,7 @@
 - HTML
     - [Hack和浏览器模式](../../tree/master/前端/HTML/Hack和浏览器模式.md)
 - JS
+    - [Vue](../../tree/master/前端/JS/Vue)
     - ECMAScript6
         - [let和const命令](../../tree/master/前端/JS/ECMAScript6/let和const命令.md)
     - jQuery
