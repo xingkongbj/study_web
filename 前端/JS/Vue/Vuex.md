@@ -5,9 +5,10 @@
 ## 创建 store
 
     // 如果在模块化构建系统中，请确保在开头调用了 Vue.use(Vuex)
-    const SOME_MUTATION = 'SOME_MUTATION'
+    const SOME_MUTATION = 'SOME_MUTATION';
     const store = new Vuex.Store({
         // 状态
+        // 不能直接修改
         state: {
             count: 0,
             todos: [
@@ -86,7 +87,7 @@
                 <counter></counter>
             </div>
         `
-    })
+    });
     
     // 子组件
     const Counter = {
@@ -101,7 +102,7 @@
                 return this.$store.getters.doneTodos
             }
         }
-    }
+    };
     
 ## 辅助函数
     
@@ -136,7 +137,7 @@
                 add: 'increment'
             })
         }
-    }
+    };
     
     // 辅助函数简写
     const Counter = {
@@ -161,31 +162,78 @@
                 'increment' 
             ])
         }
-    }
+    };
     
 ## Modules
-    // 只能嵌套一层 Modules ，要求 store 中不能有 Modules
+
     const moduleA = {
         state: { ... },
         mutations: { ... },
         actions: { ... },
         getters: { ... }
-    }
+    };
     
     const moduleB = {
         state: { ... },
         mutations: { ... },
-        actions: { ... }
-    }
+        actions: { ... },
+        getters: { ... }
+    };
     
     const store = new Vuex.Store({
+        state: { ... },
+        mutations: { ... },
+        actions: { ... },
+        getters: { ... },
         modules: {
             a: moduleA,
             b: moduleB
         }
-    })
+    });
     
     // 访问方式
-    // 除了 state 其他直接可以访问，不能重名，否则会执行两次
+    // 除了 state 其他直接可以访问，注册在全局命名空间。不能重名，否则会执行两次
     store.state.a // -> moduleA 的状态
     store.state.a.count;
+    
+## 命名空间
+
+    const store = new Vuex.Store({
+        modules: {
+            account: {
+                // 设置命名空间模块
+                // 它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名
+                namespaced: true,
+                // 模块内容（module assets）
+                // 模块内的状态已经是嵌套的了，使用 `namespaced` 属性不会对其产生影响
+                state: { ... }, 
+                getters: {
+                    isAdmin () { ... } // -> store.getters['account/isAdmin'];
+                },
+                actions: {
+                    login () { ... } // -> store.dispatch('account/login');
+                },
+                mutations: {
+                    login () { ... } // -> store.commit('account/login');
+                },
+                // 嵌套模块
+                modules: {
+                    // 继承父模块的命名空间
+                    myPage: {
+                        state: { ... },
+                        getters: {
+                            profile () { ... } // -> store.getters['account/profile'];
+                        }
+                    },
+                    // 进一步嵌套命名空间
+                    posts: {
+                        namespaced: true,
+                        state: { ... },
+                        getters: {
+                            popular () { ... } // -> store.getters['account/posts/popular'];
+                        }
+                    }
+                }
+            }
+        }
+    });
