@@ -18,10 +18,11 @@
         },
         // 派生状态，由 state 经过操作后使用，如筛选
         getters: {
-            doneTodos: (state, getters, rootState) => {
+            doneTodos: (state, getters, rootState, rootGetters) => {
                 // state,        等同于 store.state, 若在模块中则为局部状态
-                // getters,      等同于 store.getters
+                // getters,      等同于 store.getters, 若在模块中则为局部状态
                 // rootState     等同于 store.state, 只存在于模块中
+                // rootGetters     等同于 store.getters, 只存在于模块中
                 return state.todos.filter(todo => todo.done);
             }
         },
@@ -31,7 +32,7 @@
         // 若在模块中，则只能改变局部状态
         mutations: {
             increment (state, payload) {
-                // state,        等同于 store.state
+                // state,        等同于 store.state 始终表示局部状态
                 // payload       可选，store.commit 执行时传入的额外参数
                 state.count += payload. amount;
             },
@@ -46,10 +47,11 @@
         actions: {
             increment (context, payload) {
                 // context.state,     等同于 store.state, 若在模块中则为局部状态
-                // context.rootState, 等同于 store.state, 只存在于模块中
+                // context.getters,    等同于 store.getters, 若在模块中则为局部状态
                 // context.commit,    等同于 store.commit
                 // context.dispatch,  等同于 store.dispatch
-                // context.getters    等同于 store.getters
+                // context.rootState, 等同于 store.state, 只存在于模块中
+                // context.rootGetters, 等同于 store.getters, 只存在于模块中
                 // payload            可选，store.dispatch 执行时传入的额外参数
                 context.commit('increment');
             }
@@ -237,3 +239,71 @@
             }
         }
     });
+
+## 命名空间内部访问
+
+    const store = new Vuex.Store({
+        modules: {
+            foo: {
+                namespaced: true,
+                getters: {
+                    // 在这个模块的 getter 中，`getters` 被局部化了
+                    // 你可以使用 getter 的第四个参数来调用 `rootGetters`
+                    someGetter (state, getters, rootState, rootGetters) {
+                        getters.someOtherGetter // -> 'foo/someOtherGetter'
+                        rootGetters.someOtherGetter // -> 'someOtherGetter'
+                    },
+                    someOtherGetter: state => { ... }
+                },
+                actions: {
+                    // 在这个模块中， dispatch 和 commit 也被局部化了
+                    // 他们可以接受 `root` 属性以访问根 dispatch 或 commit
+                    someAction ({ dispatch, commit, getters, rootGetters }) {
+                        getters.someGetter // -> 'foo/someGetter'
+                        rootGetters.someGetter // -> 'someGetter'
+                        dispatch('someOtherAction') // -> 'foo/someOtherAction'
+                        dispatch('someOtherAction', null, { root: true }) // -> 'someOtherAction'
+                        commit('someMutation') // -> 'foo/someMutation'
+                        commit('someMutation', null, { root: true }) // -> 'someMutation'
+                    },
+                    someOtherAction (ctx, payload) { ... }
+                }
+            }
+        }
+    });
+    
+## 命名空间绑定函数
+
+    // 子组件
+    const Counter = {
+        template: `<div>{{ count }}</div>`,
+        computed: {
+            ...mapState({
+                a: state => state.some.nested.module.a,
+                b: state => state.some.nested.module.b
+            })
+        },
+        methods: {
+            ...mapActions([
+                'some/nested/module/foo',
+                'some/nested/module/bar'
+            ])
+        }
+    };
+    
+    // 子组件
+    const Counter = {
+        template: `<div>{{ count }}</div>`,
+        computed: {
+            ...mapState('some/nested/module', {
+                a: state => state.a,
+                b: state => state.b
+            })
+        },
+        methods: {
+            ...mapActions('some/nested/module', [
+                'foo',
+                'bar'
+            ])
+        }
+    };
