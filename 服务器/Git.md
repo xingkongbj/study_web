@@ -110,7 +110,26 @@
     
 ## 忽略跟踪文件列表
 
+    # 文件位置
     < 本地仓库路径 >/.gitignore
+    
+    # 忽略以 a 为后缀的文件
+    *.a     
+    
+    # 即使忽略以 a 为后缀的文件，但是不能忽略 lib.a
+    !lib.a
+
+    # 只忽略当前目录下的 TODO 目录，但不忽略 subdir/TODO 目录
+    /TODO
+    
+    # 忽略 build 目录下的所有内容，不加 / 易可
+    build/
+    
+    # 忽略 doc/notes.txt 文件，但不忽略 doc/server/arch.txt 文件
+    doc/*.txt
+    
+    # 忽略 doc 目录下的所有以 pdf 为后缀的文件，包括 doc/directory 目录下的文件
+    doc/**/*.pdf
 
 - *.[oa] 忽略所有以 .o 或 .a 结尾的文件
 - *~ 忽略所有以波浪符（~）结尾的文件
