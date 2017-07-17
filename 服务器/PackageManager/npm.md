@@ -47,17 +47,25 @@ npm 是随同 Node.js 一起安装的包管理工具
 - name - 包名。
 - version - 包的版本号。
 - description - 包的描述。
-- homepage - 包的官网 url 。
+- main - main 字段是一个路径，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后require("express")。
+- scripts - npm run 时运行的脚本。
+- license - 许可协议。
+- repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
+- keywords - 关键字
 - author - 包的作者姓名。
 - contributors - 包的其他贡献者姓名。
-- dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。
-- repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
-- main - main 字段是一个模块ID，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后require("express")。
-- keywords - 关键字
+- bugs - 提 bug 的地址。
+- homepage - 包的官网 url 。
+- dependencies - 发布时依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在用户根目录的 node_module 目录下。
+- devDependencies - 开发时依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在项目根目录的 node_module 目录下。
 
 ## 卸载模块
 
     npm uninstall <Module Name>
+
+## 运行脚本
+
+    npm run <Script Name>
     
 ## 查看目录下信息
 
