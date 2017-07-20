@@ -31,3 +31,24 @@
             });
         }
     });
+    
+### Popover
+
+引入
+
+    // data-toggle="popover"
+    // data-container="body" 在body上设置弹出框，防止弹出框被遮盖
+    // data-placement="top" 显示位置  top|bottom|left|right|auto
+    // data-content 显示内容
+    // data-trigger="focus" 什么事件触发显示 click| hover | focus | manual
+    // data-original-title="提示" 提示框标题
+    <button type="button" class="btn btn-primary" title="Popover title"
+            data-container="body" data-toggle="popover" data-placement="top"
+            data-trigger="focus"
+            data-content="顶部的 Popover 中的一些内容">
+        顶部的 Popover
+    </button>
+    
+脚本
+
+    $(".popover_target").popover();
