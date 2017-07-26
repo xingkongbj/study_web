@@ -52,3 +52,28 @@
 脚本
 
     $(".popover_target").popover();
+    
+## jQuery
+
+### Validation Engine
+
+引入
+
+    <link rel="stylesheet" href="css/validationEngine.jquery.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.validationEngine-zh_CN.js"></script>
+    <script src="js/jquery.validationEngine.js"></script>
+    <!-- jquery.validationEngine-zh_CN.js 为配置文件，可根据需求自行调整或增加，也可以更换为其他语言配置文件 -->
+    
+    <input type="text" class="validate[required]">
+    
+脚本
+
+    // 直接调用
+    $('#form_id').validationEngine();
+    
+    // 自定义参数调用
+    $('#form_id').validationEngine('attach', {
+        promptPosition: 'centerRight',
+        scroll: false
+    });
