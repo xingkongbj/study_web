@@ -261,12 +261,7 @@ function vueMerge(t, obj1, obj2) {
     let merge = function (t, obj1, obj2) {
         // 两者类型不一致，报错
         if (typeString(obj1) !== typeString(obj2)) {
-            debugger;
             throw new Error('vueMerge type not same');
-        }
-        // 一般类型合并
-        if (mergeCom.indexOf(typeString(obj1)) !== -1) {
-            return obj2;
         }
         // 对象类型合并
         let mergeObject = function (t, obj1, obj2) {
@@ -332,6 +327,10 @@ function vueMerge(t, obj1, obj2) {
         };
         mergeSwitch(t, obj1, obj2);
     };
+    // 一般类型合并
+    if (mergeCom.indexOf(typeString(obj1)) !== -1) {
+        return obj2;
+    }
     merge(t, obj1, obj2);
     return obj1;
 }
