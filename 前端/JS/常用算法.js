@@ -1,15 +1,15 @@
 // 冒泡排序
-function bubbleSort (arr) {
+function bubbleSort(arr) {
     var i = 0,
         j = 0;
     for (i = 1; i < arr.length; i++) {  // i 记录数组结尾已经排好序的个数，从1开始是因为长度-1才为数组下标
         for (j = 0; j <= arr.length - i; j++) {  // j 数组循环的标记，每次循环排序一个项到数组结尾
             var temp = 0;
-            if (arr[j] > arr[j+1]) {  // ">" 从小到大排序 "<" 从大到小排序
+            if (arr[j] > arr[j + 1]) {  // ">" 从小到大排序 "<" 从大到小排序
                 // 位置错误时互换
                 temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
     }
@@ -17,13 +17,15 @@ function bubbleSort (arr) {
 }
 
 // 快速排序
-function quickSort (arr) {
-    if (arr.length <= 1) { return arr; }
+function quickSort(arr) {
+    if (arr.length <= 1) {
+        return arr;
+    }
     var pivotIndex = Math.floor(arr.length / 2);  // pivotIndex 数组中间序号
     var pivot = arr.splice(pivotIndex, 1)[0];  // 取出中间项并且从数组中剔除
     var left = [];
     var right = [];
-    for (var i = 0; i < arr.length; i++){
+    for (var i = 0; i < arr.length; i++) {
         if (arr[i] < pivot) {
             left.push(arr[i]);  // 小于的放左边
         } else {
@@ -34,7 +36,7 @@ function quickSort (arr) {
 }
 
 // 二路归并
-function merge (left, right) {
+function merge(left, right) {
     var result = [],
         il = 0,
         ir = 0;
@@ -57,38 +59,39 @@ function merge (left, right) {
 
 // 字符串操作
 // 判断回文字符串
-function palindrome (str) {
+function palindrome(str) {
     var re = /[\W_]/g;  // \W匹配任何非单词字符。等价于“[^A-Za-z0-9_]”。
-    var lowRegStr = str.toLowerCase().replace(re,'');  // 将字符串变成小写字符,并干掉除字母数字外的字符
+    var lowRegStr = str.toLowerCase().replace(re, '');  // 将字符串变成小写字符,并干掉除字母数字外的字符
     if (lowRegStr.length === 0) return true; // 如果字符串lowRegStr的length长度为0时，字符串即是palindrome
-    if (lowRegStr[0] != lowRegStr[lowRegStr.length-1]) return false;  // 如果字符串的第一个和最后一个字符不相同，那么字符串就不是palindrome
-    return palindrome(lowRegStr.slice(1,lowRegStr.length-1)); // 去除首尾字符，递归判断
+    if (lowRegStr[0] != lowRegStr[lowRegStr.length - 1]) return false;  // 如果字符串的第一个和最后一个字符不相同，那么字符串就不是palindrome
+    return palindrome(lowRegStr.slice(1, lowRegStr.length - 1)); // 去除首尾字符，递归判断
 }
 
 // 翻转字符串
-function reverseString (str) {
+function reverseString(str) {
     var tmp = '';
-    for (var i = str.length-1; i >= 0; i--) {
+    for (var i = str.length - 1; i >= 0; i--) {
         tmp += str[i];
     }
     return tmp;
 }
-function reverseString (str) {
+
+function reverseString(str) {
     str.split('').reverse().join('');
 }
 
 // 生成指定长度随机字符串
-function randomString (n) {
+function randomString(n) {
     var str = 'abcdefghijklmnopqrstuvwxyz0123456789';
     var tmp = '';
     for (var i = 0; i < n; i++) {
-        tmp += str.charAt(Math.round(Math.random()*str.length));
+        tmp += str.charAt(Math.round(Math.random() * str.length));
     }
     return tmp;
 }
 
 // 统计字符串中次数最多字母
-function findMaxDuplicateChar (str) {
+function findMaxDuplicateChar(str) {
     if (str.length == 1) return str;
     var charObj = {};
     for (var i = 0; i < str.length; i++) {  // 循环字符串，记录次数
@@ -111,7 +114,7 @@ function findMaxDuplicateChar (str) {
 
 // 数组操作
 // 数组去重
-function unique (arr) {
+function unique(arr) {
     var obj = {};
     var result = [];
     for (var i in arr) {
@@ -124,7 +127,7 @@ function unique (arr) {
 }
 
 // 数组中最大差值
-function getMaxProfit (arr) {
+function getMaxProfit(arr) {
     var min = arr[0],
         max = arr[0];
     for (var i = 0; i < arr.length; i++) {
@@ -136,7 +139,7 @@ function getMaxProfit (arr) {
 
 // 二分查找
 // 非递归实现
-function binary_search (arr, key) {
+function binary_search(arr, key) {
     var low = 0,
         high = arr.length - 1;
     while (low <= high) {
@@ -146,44 +149,46 @@ function binary_search (arr, key) {
         } else if (key > arr[mid]) {
             low = mid + 1;
         } else if (key < arr[mid]) {
-            high = mid -1;
+            high = mid - 1;
         }
     }
     return -1;
 }
+
 // 递归实现
-function binary_search2 (arr, low, high, key) {
-    if(low > high) return -1;
-    var mid = parseInt((low + high)/2);
-    if(key == arr[mid]) {
+function binary_search2(arr, low, high, key) {
+    if (low > high) return -1;
+    var mid = parseInt((low + high) / 2);
+    if (key == arr[mid]) {
         return mid;
-    } else if(key > arr[mid]) {
-        return binary_search2(arr, mid+1, high, key);
-    } else if(key < arr[mid]) {
-        return binary_search2(arr, low, mid-1, key);
+    } else if (key > arr[mid]) {
+        return binary_search2(arr, mid + 1, high, key);
+    } else if (key < arr[mid]) {
+        return binary_search2(arr, low, mid - 1, key);
     }
 }
 
 // 阶乘
 // 非递归实现
-function factorialize (num) {
+function factorialize(num) {
     var result = 1;
     if (num < 0) return -1;
     if (num == 0 || num == 1) return 1;
-    while (num>1) {
+    while (num > 1) {
         result *= num--;
     }
     return result;
 }
+
 // 递归实现
-function factorialize (num) {
-    if(num < 0) return -1;
-    if(num == 0 || num == 1) return 1;
-    if(num > 1) return num*factorialize(num-1);
+function factorialize(num) {
+    if (num < 0) return -1;
+    if (num == 0 || num == 1) return 1;
+    if (num > 1) return num * factorialize(num - 1);
 }
 
 // 获取url参数
-function getUrlParam (name) {
+function getUrlParam(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');  // 构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  // 匹配目标参数
     if (r != null) {
@@ -195,8 +200,139 @@ function getUrlParam (name) {
 
 // 生成guid
 function guid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
     });
 }
+
+// 类型判断
+function typeString(param) {
+    let str = Object.prototype.toString.call(param);
+    if (str === '[object Object]') return 'Object';
+    if (str === '[object Function]') return 'Function';
+    if (str === '[object Boolean]') return 'Boolean';
+    if (str === '[object Number]') return 'Number';
+    if (str === '[object String]') return 'String';
+    if (str === '[object RegExp]') return 'RegExp';
+    if (str === '[object Math]') return 'Math';
+    if (str === '[object Date]') return 'Date';
+    if (str === '[object Array]') return 'Array';
+    if (str === '[object Null]') return 'Null';
+    if (str === '[object Undefined]') return 'Undefined';
+    return str;
+}
+
+// Vue 合并对象,对象深入合并，数组通过t判断是否深入合并
+function vueMerge(t, obj1, obj2) {
+    let typeString = function (param) {
+        let str = Object.prototype.toString.call(param);
+        if (str === '[object Object]') return 'Object';
+        if (str === '[object Function]') return 'Function';
+        if (str === '[object Boolean]') return 'Boolean';
+        if (str === '[object Number]') return 'Number';
+        if (str === '[object String]') return 'String';
+        if (str === '[object RegExp]') return 'RegExp';
+        if (str === '[object Math]') return 'Math';
+        if (str === '[object Date]') return 'Date';
+        if (str === '[object Array]') return 'Array';
+        if (str === '[object Null]') return 'Null';
+        if (str === '[object Undefined]') return 'Undefined';
+        return str;
+    };
+    let mergeNew = function (tStr) {
+        switch (tStr) {
+            case 'Object':
+                return {};
+            case 'Array':
+                return [];
+            case 'Boolean':
+                return false;
+            case 'Number':
+                return 0;
+            case 'String':
+                return '';
+            default:
+                throw new Error('vueMerge type not suport');
+                break;
+        }
+    };
+    let mergeCom = ['Boolean', 'Number', 'String'];
+    let merge = function (t, obj1, obj2) {
+        // 两者类型不一致，报错
+        if (typeString(obj1) !== typeString(obj2)) {
+            debugger;
+            throw new Error('vueMerge type not same');
+        }
+        // 一般类型合并
+        if (mergeCom.indexOf(typeString(obj1)) !== -1) {
+            return obj2;
+        }
+        // 对象类型合并
+        let mergeObject = function (t, obj1, obj2) {
+            for (let k in obj2) {
+                if (typeString(obj2[k]) === 'Undefined') {
+                    continue;
+                }
+                // 一般类型合并
+                if (mergeCom.indexOf(typeString(obj2[k])) !== -1) {
+                    obj1[k] = obj2[k];
+                    continue;
+                }
+                if (typeString(obj1[k]) === 'Undefined') {
+                    // 属性不存在
+                    obj1[k] = mergeNew(typeString(obj2[k]));
+                }
+                merge(t, obj1[k], obj2[k]);
+            }
+        };
+        // 数组类型合并
+        let mergeArray = function (t, obj1, obj2) {
+            let insert = function (obj, i, val) {
+                if (i < obj.length) {
+                    obj.splice(i, 1, val);
+                } else {
+                    obj.push(val);
+                }
+            };
+            if (!t) {
+                // 替换合并前，先清空
+                obj1.splice(0);
+            }
+            for (let i = 0; i < obj2.length; i++) {
+                if (t && typeString(obj2[i]) === 'Undefined') {
+                    // 深入合并过滤,替换合并不过滤
+                    continue;
+                }
+                // 一般类型合并
+                if (mergeCom.indexOf(typeString(obj2[i])) !== -1) {
+                    insert(obj1, i, obj2[i]);
+                    continue;
+                }
+                if (typeString(obj1[i]) === 'Undefined') {
+                    // 属性不存在
+                    // 替换合并都是Undefined，必执行
+                    insert(obj1, i, mergeNew(typeString(obj2[i])));
+                }
+                merge(t, obj1[i], obj2[i]);
+            }
+        };
+        let mergeSwitch = function (t, obj1, obj2) {
+            switch (typeString(obj1)) {
+                case 'Object':
+                    mergeObject(t, obj1, obj2);
+                    break;
+                case 'Array':
+                    mergeArray(t, obj1, obj2);
+                    break;
+                default:
+                    throw new Error('vueMerge type not suport');
+                    break;
+            }
+        };
+        mergeSwitch(t, obj1, obj2);
+    };
+    merge(t, obj1, obj2);
+    return obj1;
+}
+
