@@ -257,7 +257,7 @@ function vueMerge(t, obj1, obj2) {
                 break;
         }
     };
-    let mergeCom = ['Boolean', 'Number', 'String'];
+    let mergeCom = ['Boolean', 'Number', 'String', 'Null', 'Undefined'];
     let merge = function (t, obj1, obj2) {
         // 两者类型不一致，报错
         if (typeString(obj1) !== typeString(obj2)) {
