@@ -223,7 +223,7 @@ function typeString(param) {
     return str;
 }
 
-// Vue 合并对象,对象深入合并，数组通过t判断是否深入合并
+// Vue 合并对象：对象深入合并，数组通过t判断是否深入合并，true深入合并，false替换合并
 function vueMerge(t, obj1, obj2) {
     let typeString = function (param) {
         let str = Object.prototype.toString.call(param);
