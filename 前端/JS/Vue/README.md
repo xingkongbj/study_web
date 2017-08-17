@@ -24,7 +24,7 @@ Vue
 - [生命周期](生命周期.md)
 - [模板语法](模板语法.md)
 - [计算属性](计算属性.md)
-- [Class 与 Style 绑定](Class 与 Style 绑定.md)
+- [Class 与 Style 绑定](Class与Style绑定.md)
 
 核心插件
 
