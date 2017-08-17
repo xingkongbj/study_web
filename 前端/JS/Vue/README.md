@@ -6,18 +6,6 @@
 > 
 > Vuex [https://vuex.vuejs.org/zh-cn/intro.html](https://vuex.vuejs.org/zh-cn/intro.html)
 
-目录
-
-Vue
-
-- [生命周期](生命周期.md)
-- [模板语法](模板语法.md)
-- [计算属性](计算属性.md)
-
-核心插件
-
-- [Vuex](Vuex.md)
-
 注意事项
 
 - 同一类型事件只能绑定一次，如 change。
@@ -28,3 +16,17 @@ Vue
 - v-if 用注释替代其位置，v-show 用 display:none 隐藏显示。
 - 子组件内部，需要顶级挂载节点，且只能有一个。
 - input 等表单控件修改后，需要手动同步 vue 数据。
+
+目录
+
+Vue
+
+- [生命周期](生命周期.md)
+- [模板语法](模板语法.md)
+- [计算属性](计算属性.md)
+- [Class 与 Style 绑定](Class 与 Style 绑定.md)
+
+核心插件
+
+- [Vuex](Vuex.md)
+
