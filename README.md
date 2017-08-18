@@ -36,9 +36,11 @@
     - 插件
         - [requirejs用法](../../tree/master/前端/JS/插件/requirejs.js)
         - [seejs用法](../../tree/master/前端/JS/插件/seejs.js)
-    - [知识点拓扑图](../../tree/master/前端/JS/知识点拓扑图)
     - [常用算法](../../tree/master/前端/JS/常用算法.js)
-    - [跨域方式](../../tree/master/前端/JS/跨域方式.md)
+
+- Browser
+    - [知识点拓扑图](../../tree/master/前端/Browser/知识点拓扑图)
+    - [跨域方式](../../tree/master/前端/Browser/跨域方式.md)
 
 ## 服务器 ---- 服务器及后台相关知识
 
