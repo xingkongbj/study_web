@@ -335,6 +335,121 @@ function vueMerge(t, obj1, obj2) {
     return obj1;
 }
 
+// Vue 判断两个变量是否内容一致
+function vueComp(obj1, obj2) {
+    let type = true;
+    let typeString = function (param) {
+        let str = Object.prototype.toString.call(param);
+        if (str === '[object Object]') return 'Object';
+        if (str === '[object Function]') return 'Function';
+        if (str === '[object Boolean]') return 'Boolean';
+        if (str === '[object Number]') return 'Number';
+        if (str === '[object String]') return 'String';
+        if (str === '[object RegExp]') return 'RegExp';
+        if (str === '[object Math]') return 'Math';
+        if (str === '[object Date]') return 'Date';
+        if (str === '[object Array]') return 'Array';
+        if (str === '[object Null]') return 'Null';
+        if (str === '[object Undefined]') return 'Undefined';
+        return str;
+    };
+    let compaNew = function (tStr) {
+        switch (tStr) {
+            case 'Object':
+                return {};
+            case 'Array':
+                return [];
+            case 'Boolean':
+                return false;
+            case 'Number':
+                return 0;
+            case 'String':
+                return '';
+            default:
+                throw new Error('vueMerge type not suport');
+                break;
+        }
+    };
+    let compaCom = ['Boolean', 'Number', 'String', 'Null', 'Undefined'];
+    let compa = function (obj1, obj2) {
+        // 两者类型不一致
+        if (typeString(obj1) !== typeString(obj2)) {
+            type = false;
+            return;
+        }
+        // 对象类型比较
+        let compaObject = function (obj1, obj2) {
+            for (let k in obj1) {
+                // 一般类型比较
+                if (compaCom.indexOf(typeString(obj1[k])) !== -1) {
+                    if (typeString(obj1[k]) === typeString(obj2[k]) && obj1[k] === obj2[k]) {
+                        continue;
+                    } else {
+                        type = false;
+                        return;
+                    }
+                }
+                compa(obj1[k], obj2[k]);
+            }
+            for (let k in obj2) {
+                // 一般类型比较
+                if (compaCom.indexOf(typeString(obj2[k])) !== -1) {
+                    if (typeString(obj1[k]) === typeString(obj2[k]) && obj1[k] === obj2[k]) {
+                        continue;
+                    } else {
+                        type = false;
+                        return;
+                    }
+                }
+                compa(obj1[k], obj2[k]);
+            }
+        };
+        // 数组类型合并
+        let compaArray = function (obj1, obj2) {
+            if (obj1.length !== obj2.length){
+                type = false;
+                return;
+            }
+            for (let i = 0; i < obj2.length; i++) {
+                // 一般类型比较
+                if (compaCom.indexOf(typeString(obj2[i])) !== -1) {
+                    if (typeString(obj1[i]) === typeString(obj2[i]) && obj1[i] === obj2[i]) {
+                        continue;
+                    } else {
+                        type = false;
+                        return;
+                    }
+                }
+                compa(obj1[i], obj2[i]);
+            }
+        };
+        let compaSwitch = function (obj1, obj2) {
+            switch (typeString(obj1)) {
+                case 'Object':
+                    compaObject(obj1, obj2);
+                    break;
+                case 'Array':
+                    compaArray(obj1, obj2);
+                    break;
+                default:
+                    throw new Error('vueMerge type not suport');
+                    break;
+            }
+        };
+        compaSwitch(obj1, obj2);
+    };
+    // 一般类型比对
+    if (compaCom.indexOf(typeString(obj1)) !== -1) {
+        if (typeString(obj1) === typeString(obj2) && obj1 === obj2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    compa(obj1, obj2);
+    return type;
+}
+
 // 判断浏览器是否支持某个 css 属性
 function supportCss3(style) {
     var prefix = ['webkit', 'Moz', 'ms', 'o'],
