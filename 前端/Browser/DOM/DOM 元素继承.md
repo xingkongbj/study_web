@@ -2,7 +2,12 @@
 
 目录
 
-
+- [继承关系](#继承关系)
+- [基础类型](#基础类型)
+    - [EventTarget](#eventtarget)
+    - [Node](#node)
+    - [Element](#element)
+    - [HTMLElement](#htmlelement)
 
 ## 继承关系
 
@@ -84,7 +89,7 @@ Element.nextElementSibling | 返回下一个兄弟子元素。 | ie9-11
 Element.previousElementSibling | 返回上一个兄弟子元素。 | ie9-11
 Element.childElementCount  | 返回子元素的个数。 | ie9-11
 
-方法 | 说明 | 备注 | 兼容性
+方法 | 说明 | 备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注 | 兼容性
 --- | --- | --- | --- 
 Element.getBoundingClientRect() | 返回元素的大小及其相对于浏览器的位置。包括边框和内边距 | 返回相对于浏览器的位置<br />width和height包括padding和border | 
 Element.getClientRects() | 返回元素的大小及其相对于浏览器的位置的集合。 | 返回相对于浏览器的位置<br />width和height包括padding和border | 
