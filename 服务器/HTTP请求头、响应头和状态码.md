@@ -152,7 +152,7 @@ Accept-Language | 浏览器可接受的语言 | Accept-Language: en,zh
 Content-Type | 请求的与实体对应的MIME信息 | Content-Type: application/x-www-form-urlencoded
 Content-Length | 请求的内容长度 | Content-Length: 348
 Cache-Control | 指定请求和响应遵循的缓存机制 | Cache-Control: no-cache
-Connection | 表示是否需要持久连接。（HTTP 1.1默认进行持久连接） | Connection: close
+Connection | 表示是否需要持久连接，不再转发的首部字段名。（HTTP 1.1默认进行持久连接） | Connection: close
 Cookie | HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器。 | Cookie: $Version=1; Skin=new;
 Host | 指定请求的服务器的域名和端口号 | Host: www.zcmhi.com
 Referer | 先前网页的地址，当前请求网页紧随其后,即来路 | Referer: http://www.zcmhi.com/archives/71.html
