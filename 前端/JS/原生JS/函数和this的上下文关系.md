@@ -8,6 +8,7 @@
     - [方法调用，this 指向调用对象](#方法调用this-指向调用对象)
     - [构造器函数调用，this 指向 new 生成的对象](#构造器函数调用this-指向-new-生成的对象)
     - [apply / call 调用](#apply--call-调用)
+    - [dom 的事件属性中](#dom-的事件属性中)
 
 ## 函数
 
@@ -91,6 +92,22 @@ test.call(o) === o;  // true
 ### dom 的事件属性中
 
 ```
-<input id="a" type="text" onclick="console.info(this === document.getElementById('a'))" />
 // 点击后输出 true
+<input id="a" type="text" onclick="console.info(this === document.getElementById('a'))" />
+
+// 点击后输出 true
+<input id="a" type="text" />
+<script type="text/javascript">
+    document.getElementById('a').addEventListener("click", function(）{
+        console.info(this === document.getElementById('a'));
+    });
+</script>
+
+// 点击后输出 true
+<input id="a" type="text" />
+<script type="text/javascript">
+    document.getElementById('a').onclick = function(）{
+        console.info(this === document.getElementById('a'));
+    });
+</script>
 ```
