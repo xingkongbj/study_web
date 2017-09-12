@@ -33,6 +33,7 @@
         - [AJAX](../../tree/master/前端/JS/jQuery/AJAX.js)
     - 原生JS
         - [严格模式](../../tree/master/前端/JS/原生JS/严格模式.md)
+        - [运算符优先级](../../tree/master/前端/JS/原生JS/运算符优先级.md)
     - 插件
         - [requirejs用法](../../tree/master/前端/JS/插件/requirejs.js)
         - [seejs用法](../../tree/master/前端/JS/插件/seejs.js)
