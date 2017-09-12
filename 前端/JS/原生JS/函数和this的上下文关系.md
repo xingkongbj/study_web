@@ -1,4 +1,4 @@
-# 函数和this的上下文关系
+# 函数和 this 的上下文关系
 
 目录
 
@@ -24,6 +24,8 @@ checkscope()();  // local scope
 ```
 
 ## this
+
+- this 的上下文关系在执行时确定
 
 ### 正常函数调用，this 指向 window
 
@@ -84,4 +86,11 @@ test.apply(o) === o;  // true
 
 // call
 test.call(o) === o;  // true
+```
+
+### dom 的事件属性中
+
+```
+<input id="a" type="text" onclick="console.info(this === document.getElementById('a'))" />
+// 点击后输出 true
 ```
