@@ -68,7 +68,7 @@ my $adr = $q->param('mailaddress');<br />open(MAIL, "| /usr/sbin/sendmail $adr"
 ### HTTP 首部注入攻击
 
 http 头部信息：<br />
-Location: http: // www.example.com/a.cgi?q=101%0D%0ASet-Cookie:+SID=123456789
+Location: http: //example.com/a.cgi?q=101%0D%0ASet-Cookie:+SID=123456789
 
 %0D%0A 代表 HTTP 报文中的换行符，紧接着的是可强制将攻击者网站（http: //hackr.jp/）的会话 ID 设置成 SID=123456789 的 Set-Cookie 首部字段。首部字段 Set-Cookie 已生效，因此攻击者可指定修改任意的 Cookie 信息。通过和会话固定攻击（攻击者可使用指定的会话 ID）攻击组合，攻击者可伪装成用户。
 
