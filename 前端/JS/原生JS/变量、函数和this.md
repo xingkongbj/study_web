@@ -1,11 +1,11 @@
-# 函数和 this 的上下文关系
+# 变量、函数和 this
 
 目录
 
 - [变量提升](#变量提升)
 - [函数提升](#函数提升)
-- [函数](#函数)
-- [this](#this)
+- [函数上下文关系](#函数上下文关系)
+- [this 上下文关系](#this-上下文关系)
     - [正常函数调用，this 指向 window](#正常函数调用this-指向-window)
     - [方法调用，this 指向调用对象](#方法调用this-指向调用对象)
     - [构造器函数调用，this 指向 new 生成的对象](#构造器函数调用this-指向-new-生成的对象)
@@ -56,7 +56,7 @@ console.log(f1);  // ƒ () { console.info('变量'); }
 console.log(f1);  // ƒ () { console.info('变量'); }
 ```
 
-## 函数
+## 函数上下文关系
 
 - 函数的上下文关系在定义时确定
 
@@ -70,7 +70,7 @@ function checkscope() {
 checkscope()();  // local scope
 ```
 
-## this
+## this 上下文关系
 
 - this 的上下文关系在执行时确定
 
