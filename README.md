@@ -39,7 +39,7 @@
     - 插件
         - [requirejs用法](../../tree/master/前端/JS/插件/requirejs.js)
         - [seejs用法](../../tree/master/前端/JS/插件/seejs.js)
-    - [常用算法](../../tree/master/前端/JS/常用算法.js)
+    - [常用函数和算法](../../tree/master/前端/JS/常用函数和算法.md)
     - [垃圾回收与内存泄漏](../../tree/master/前端/JS/垃圾回收与内存泄漏.md)
 
 - Browser
