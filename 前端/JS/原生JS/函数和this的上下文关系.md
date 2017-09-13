@@ -2,6 +2,8 @@
 
 目录
 
+- [变量提升](#变量提升)
+- [函数提升](#函数提升)
 - [函数](#函数)
 - [this](#this)
     - [正常函数调用，this 指向 window](#正常函数调用this-指向-window)
@@ -9,6 +11,50 @@
     - [构造器函数调用，this 指向 new 生成的对象](#构造器函数调用this-指向-new-生成的对象)
     - [apply / call 调用](#apply--call-调用)
     - [dom 的事件属性中](#dom-的事件属性中)
+
+    
+## 变量提升
+
+- 变量的定义在代码预解析时，在作用域顶部定义
+
+```
+function fn () {
+　　console.log(a);  // undefined，如果没有定义会直接报错
+　　var a = 'aaa';
+　　console.log(a);  // aaa
+}
+fn();
+
+// 下面代码全等于上面代码
+function fn () {
+　　var a;  // 变量提升，函数作用域范围内
+　　console.log(a);  // undefined
+　　a = 'aaa';
+　　console.log(a);  // aaa
+}
+fn();
+```
+
+## 函数提升
+
+- 函数的定义在代码预解析时，在作用域顶部定义
+- 函数赋值在作用域顶部
+
+```
+console.log(f1);  // f1() { console.info('函数'); }
+var f1 = function() { console.info('变量'); }
+console.log(f1);  // ƒ () { console.info('变量'); }
+function f1() { console.info('函数'); }
+console.log(f1);  // ƒ () { console.info('变量'); }
+
+// 下面代码全等于上面代码
+var f1;  // 定义提升
+function f1() { console.info('函数'); }  // 函数顶部赋值
+console.log(f1);  // f1() { console.info('函数'); }
+f1 = function() { console.info('变量'); }
+console.log(f1);  // ƒ () { console.info('变量'); }
+console.log(f1);  // ƒ () { console.info('变量'); }
+```
 
 ## 函数
 
