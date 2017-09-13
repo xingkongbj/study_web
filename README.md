@@ -31,16 +31,15 @@
     - [Vue](../../tree/master/前端/JS/Vue)
     - jQuery
         - [AJAX](../../tree/master/前端/JS/jQuery/AJAX.js)
-    - 原生JS
-        - [变量、函数和this](../../tree/master/前端/JS/原生JS/变量、函数和this.md)
-        - [严格模式](../../tree/master/前端/JS/原生JS/严格模式.md)
-        - [运算符优先级](../../tree/master/前端/JS/原生JS/运算符优先级.md)
-        - [转义字符](../../tree/master/前端/JS/原生JS/转义字符.md)
     - 插件
         - [requirejs用法](../../tree/master/前端/JS/插件/requirejs.js)
         - [seejs用法](../../tree/master/前端/JS/插件/seejs.js)
     - [常用函数和算法](../../tree/master/前端/JS/常用函数和算法.md)
     - [垃圾回收与内存泄漏](../../tree/master/前端/JS/垃圾回收与内存泄漏.md)
+    - [变量、函数和this](../../tree/master/前端/JS/变量、函数和this.md)
+    - [严格模式](../../tree/master/前端/JS/严格模式.md)
+    - [运算符优先级](../../tree/master/前端/JS/运算符优先级.md)
+    - [转义字符](../../tree/master/前端/JS/转义字符.md)
 
 - Browser
     - [知识点拓扑图](../../tree/master/前端/Browser/知识点拓扑图)
