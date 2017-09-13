@@ -16,23 +16,21 @@
 ## 变量提升
 
 - 变量的定义在代码预解析时，在作用域顶部定义
+- 无 var 没有变量提升
 
 ```
-function fn () {
-　　console.log(a);  // undefined，如果没有定义会直接报错
-　　var a = 'aaa';
-　　console.log(a);  // aaa
-}
-fn();
+console.log(a);  // undefined，如果没有定义会直接报错
+var a = 'aaa';
+console.log(a);  // aaa
 
 // 下面代码全等于上面代码
-function fn () {
-　　var a;  // 变量提升，函数作用域范围内
-　　console.log(a);  // undefined
-　　a = 'aaa';
-　　console.log(a);  // aaa
-}
-fn();
+var a;  // 变量提升，函数作用域范围内
+console.log(a);  // undefined
+a = 'aaa';
+console.log(a);  // aaa
+
+console.log(a);  // 直接报错
+a = 'aaa';
 ```
 
 ## 函数提升
