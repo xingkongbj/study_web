@@ -19,6 +19,18 @@
 
 ![](flow-process.jpg)
 
+- 每次提交会产生一个 commit 对象，用于保存提交信息及 tree 信息。
+- 产生一个 tree 对象，用于保存目录结构和 blob 对象列表。
+- 每个修改文件产生一个 blob 对象，用于保存文件快照。
+
+### 修改 3 个文件的示例
+
+![](commit-and-tree.png)
+
+### 多次提交示例
+
+![](commits-and-parents.png)
+
 ## 创建SSH Key
 
 - 进入本地账号的根目录
@@ -54,7 +66,7 @@ git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
-git config --global alias.unstage 'reset HEAD'
+git config --global alias.unstage 'reset HEAD --'
 git config --global alias.last 'log -1 HEAD'
 git config --global alias.visual '!gitk'
 ```
@@ -173,10 +185,10 @@ git branch --track < 本地分支名 > < 远程分支名 > #新建一个分支�
 git branch --unset-upstream < 本地分支名 >  #取消pull跟踪
 git branch --set-upstream < 本地分支名 > < 远程库名 >/< 远程分支名 >  #设置现有分支的pull跟踪
 git branch --set-upstream-to=< 远程库名 >/< 远程分支名 > < 本地分支名 >  #设置现有分支的pull跟踪的另一种语法
+#合并时，只是针对两个分支的快照与两个分支的共同祖先快照，做一个简单的三方合并。
 git merge < 分支名 >  #合并指定分支到当前分支，先切换到当前分支
 git merge –no-ff -m '< 说明 >' < 分支名 > #合并指定分支到当前分支，禁止 Fast-forward 模式，删除被合并的分支后，可以保留该分支的信息
 git add < 文件 >  #解决冲突添加标记到暂存区，.为所有文件。
-
 
 冲突文件格式
 <<<<<<< HEAD:文件名

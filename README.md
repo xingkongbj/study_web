@@ -53,6 +53,7 @@
     - [brew](../../tree/master/服务器/PackageManager/brew.md)
     - [npm](../../tree/master/服务器/PackageManager/npm.md)
 - [HTTP请求头、响应头和状态码](../../tree/master/服务器/HTTP请求头、响应头和状态码.md)
+- [Git](../../tree/master/服务器/Git.md)
 - [Vim](../../tree/master/服务器/Vim/Vim.md)
 - [Velocity教程](../../tree/master/服务器/Velocity教程.md)
 - [OSI七层模型](../../tree/master/服务器/OSI七层模型.md)
@@ -62,6 +63,6 @@
     - [Module--模块](../../tree/master/服务器/Nodejs/Module--模块.md)
     - [HTTP](../../tree/master/服务器/Nodejs/HTTP.md)
     - [URL](../../tree/master/服务器/Nodejs/URL.md)
-- [Git](../../tree/master/服务器/Git.md)
+
 - ECMAScript6
     - [let和const命令](../../tree/master/前端/JS/ECMAScript6/let和const命令.md)
