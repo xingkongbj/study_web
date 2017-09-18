@@ -24,6 +24,7 @@
     - [CSS写图案](../../tree/master/前端/CSS/CSS写图案.html)
     - [上下左右居中](../../tree/master/前端/CSS/上下左右居中.html)
     - [BFC、IFC、GFC、FFC](../../tree/master/前端/CSS/BFC、IFC、GFC、FFC.md)
+    - [清除浮动方法](../../tree/master/前端/CSS/清除浮动方法.md)
     - [less用法](../../tree/master/前端/CSS/less)
     - [IE6兼容问题](../../tree/master/前端/CSS/IE6兼容问题.docx)
 - HTML
