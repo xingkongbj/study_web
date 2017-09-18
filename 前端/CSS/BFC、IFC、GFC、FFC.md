@@ -2,6 +2,11 @@
 
 目录
 
+- [FC](#fc)
+- [BFC](#bfc)
+- [IFC](#ifc)
+- [GFC](#gfc)
+- [FFC](#ffc)
 
 ## FC
 
@@ -21,6 +26,10 @@ BFC(Block Formatting Contexts)直译为"块级格式化上下文"。Block Format
 作用：
 
 比如常见的多栏布局，结合块级别元素浮动，里面的元素则是在一个相对隔离的环境里运行。
+
+- 清除内部元素浮动，撑开高度。
+- 解决上下边距重叠问题。
+- 解决与 float 元素重叠问题。
 
 ## IFC
 
