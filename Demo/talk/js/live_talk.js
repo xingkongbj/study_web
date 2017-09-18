@@ -73,6 +73,8 @@ $(function(){
                     text = text.substr(0, 10);
                     alert('粘贴内容过长，已截取前10字！');
                 }
+                //转换html 空格，大于号，小于号，连字符
+                text = text.replace(/&/g, '&amp;').replace(/\s/g, '&nbsp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
                 $(this).insertAtCaret(text);
                 e.preventDefault();
             }
@@ -85,7 +87,7 @@ $(function(){
         //发送消息
         window.send = function() {
             //剔除回车和换行
-            var message = $('#msg_content')[0].innerHTML.replace(/[\r\n]/ig,"");
+            var message = $('#msg_content')[0].innerHTML.replace(/[\r\n]/ig,'').replace(/<br>/ig,'');
             //内容为空
             if (!message) {
                 return;
@@ -108,7 +110,7 @@ $(function(){
 
             var html = '';
             html += '<div class="line">'
-                + '    <p class="tit"><span class="name">' + name[round(0,name.length-1)] + '<span class="heart"></span> ：</a>'
+                + '    <p class="tit"><span class="name">' + name[round(0,name.length-1)] + '<span class="heart"></span> ：</span>'
                 + '    <span class="cont">' + message + '</span></p>'
                 + '</div>';
             $('div.content').append(html);
