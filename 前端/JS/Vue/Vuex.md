@@ -2,6 +2,17 @@
 
 > Vuex [https://vuex.vuejs.org/zh-cn/intro.html](https://vuex.vuejs.org/zh-cn/intro.html)
 
+目录
+
+- [创建 store](#创建-store)
+- [外部调用](#外部调用)
+- [注入 store](#注入-store)
+- [辅助函数](#辅助函数)
+- [Modules](#modules)
+- [命名空间](#命名空间)
+- [命名空间内部访问](#命名空间内部访问)
+- [命名空间绑定函数](#命名空间绑定函数)
+
 ## 创建 store
 
     // 如果在模块化构建系统中，请确保在开头调用了 Vue.use(Vuex)
