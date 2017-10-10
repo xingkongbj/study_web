@@ -1,6 +1,6 @@
 # Vue Router
 
-> Vue Router [https://vuex.vuejs.org/zh-cn/intro.html](https://vuex.vuejs.org/zh-cn/intro.html)
+> Vue Router [https://router.vuejs.org/zh-cn/essentials/getting-started.html](https://router.vuejs.org/zh-cn/essentials/getting-started.html)
 
 目录
 
@@ -151,4 +151,8 @@ const router = new VueRouter({
 });
 ```
 
-## 
+## 重定向 和 别名
+
+## 向路由组件传递 props
+
+## HTML5 History 模式
