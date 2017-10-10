@@ -37,4 +37,4 @@ Vue
 核心插件
 
 - [Vuex](Vuex.md)
-
+- [Vue Router](Vue-Router.md)
