@@ -5,6 +5,10 @@
 > Vue API [https://www.vuefe.cn/v2/api/](https://www.vuefe.cn/v2/api/)
 > 
 > Vuex [https://vuex.vuejs.org/zh-cn/intro.html](https://vuex.vuejs.org/zh-cn/intro.html)
+> 
+> Vue Router [https://router.vuejs.org/zh-cn/essentials/getting-started.html](https://router.vuejs.org/zh-cn/essentials/getting-started.html)
+> 
+> Vue SSR [https://ssr.vuejs.org/zh/](https://ssr.vuejs.org/zh/)
 
 注意事项
 
@@ -13,7 +17,7 @@
 - {{ name }} 插值时不能加入 html 标签。
 - 不能绑定空内容。
 - updated 生命事件，初次加载不执行，更新时才执行。
-- computed 如果定义的属性没有被使用，则永远不会执行该函数。
+- computed 如果定义的属性初始化时没有被使用，则永远不会执行该函数。
 - v-if 用注释替代其位置，v-show 用 display:none 隐藏显示。
 - 子组件内部，需要顶级挂载节点，且只能有一个。
 - input 等表单控件修改后，需要手动同步 vue 数据。
@@ -38,3 +42,4 @@ Vue
 
 - [Vuex](Vuex.md)
 - [Vue Router](Vue-Router.md)
+- [Vue SSR](Vue-SSR.md)
