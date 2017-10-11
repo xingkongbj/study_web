@@ -67,7 +67,6 @@
     - [HTTP](../../tree/master/服务器/Nodejs/HTTP.md)
     - [URL](../../tree/master/服务器/Nodejs/URL.md)
 
-- ECMAScript6
-    - [let和const命令](../../tree/master/前端/JS/ECMAScript6/let和const命令.md)
+- [ECMAScript6](../../tree/master/前端/JS/ECMAScript6)
 
 [一些经验](../../tree/master/资料.md)
