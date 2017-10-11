@@ -5,121 +5,84 @@
 目录
 
 - [let 命令](#let-命令)
-- [块级作用域](#块级作用域)
-- [const 命令](#const-命令)
-- [ES6 声明变量的六种方法](#es6-声明变量的六种方法)
-- [顶层对象的属性](#顶层对象的属性)
-- [global 对象](#global-对象)
-
-## let 命令
-
-let 只在 代码块内有效
-
-    {
-      let a = 10;
-      var b = 1;
-    }
-    
-    a // ReferenceError: a is not defined.
-    b // 1
-
-for 循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
-
-    for (let i = 0; i < 3; i++) {
-      let i = 'abc';
-      console.log(i);
-    }
-    // abc
-    // abc
-    // abc
-
-for 循环中当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6。JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。
-
-    var a = [];
-    for (let i = 0; i < 10; i++) {
-      a[i] = function () {
-        console.log(i);
-      };
-    }
-    a[6](); // 6
-
-let 不存在变量提升，要先声明后使用,即使调用 typeof 也会报错。
-
-    // var 的情况
-    console.log(foo); // 输出undefined
-    var foo = 2;
-    
-    // let 的情况
-    console.log(bar); // 报错ReferenceError
-    let bar = 2;
-
-在代码块内，使用 let 命令声明变量之前，该变量都是不可用的。这在语法上，称为暂时性死区。
-
-暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
-
-    function bar(x = y, y = 2) {
-      return [x, y];
-    }
-    
-    bar(); // 报错
-
-    // 不报错
-    var x = x;
-    
-    // 报错
-    let x = x;
-    // ReferenceError: x is not defined
-
-let 不允许在相同作用域内，重复声明同一个变量。
-
-    // 报错
-    function () {
-      let a = 10;
-      var a = 1;
-    }
-
-    // 报错
-    function () {
-      let a = 10;
-      let a = 1;
-    }
-
-    function func(arg) {
-      let arg; // 报错
-    }
-
-    function func(arg) {
-      {
-        let arg; // 不报错
-      }
-    }
 
 ## 块级作用域
 
-    var tmp = new Date();
-    
-    function f() {
-      console.log(tmp);
-      if (false) {
-        var tmp = 'hello world';
-      }
-    }
-    
-    f(); // undefined
+- 防止计数的循环变量泄漏为全局变量，如 for 循环
+- 防止内层变量覆盖外层变量
+- 立即执行函数表达式（IIFE）不再必要
 
-if代码块的外部使用外层的tmp变量，内部使用内层的tmp变量。但是，函数f执行后，输出结果为undefined，原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量。
 
-var s = 'hello';
+## let 命令
 
-for (var i = 0; i < s.length; i++) {
-  console.log(s[i]);
+- 不存在变量提升
+- 定义前调用，都是暂时性死区，使用会报错，包括 typeof
+- 不允许重复声明，包括同一作用域声明 var，函数根作用域声明变量也报错
+
+let 只在 代码块内有效
+
+```
+{
+  let a = 10;
+  var b = 1;
 }
+    
+a // ReferenceError: a is not defined.
+b // 1
+```
+for 循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
 
-console.log(i); // 5
+```
+for (let i = 0; i < 3; i++) {
+  let i = 'abc';
+  console.log(i);
+}
+// abc
+// abc
+// abc
+```
 
-变量i只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。
+for 循环中当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6。JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。
 
-块级作用域的出现，实际上使得获得广泛应用的立即执行函数表达式（IIFE）不再必要了。
+```
+var a = [];
+for (let i = 0; i < 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6](); // 6
+```
+
+有些“死区”比较隐蔽，不太容易发现
+
+```
+function bar(x = y, y = 2) {
+  return [x, y];
+}
+    
+bar(); // 报错
+
+// 不报错
+var x = x;
+    
+// 报错
+let x = x;
+// ReferenceError: x is not defined
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 在浏览器的 ES6 环境中，块级作用域内声明的函数，行为类似于var声明的变量。
 
