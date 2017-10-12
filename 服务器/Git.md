@@ -63,18 +63,18 @@
 ## 配置参数
 
 ```
-git config --local  #设置仓库级参数，该目录有效
-git config --global  #设置全局级参数，该用户有效
-git config --system  #设置系统级参数，所有用户有效
-git config user.name "< 用户名称 >"  #设置用户名称
-git config user.email "< 用户邮箱 >"  #设置用户邮箱
-git config branch.autosetuprebase always  #设置所有的分支都应该用rebase
-git config color.ui true  #设置命令框着色
-git config color.status auto  #设置状态颜色自动
-git config color.branch auto  #设置分支颜色自动
-git config core.editor vim  #设置编辑器
-git config merge.tool vimdiff  #设置冲突比较工具
-git config --list  #显示内容列表
+git config --local  # 设置仓库级参数，该目录有效
+git config --global  # 设置全局级参数，该用户有效
+git config --system  # 设置系统级参数，所有用户有效
+git config user.name "< 用户名称 >"  # 设置用户名称
+git config user.email "< 用户邮箱 >"  # 设置用户邮箱
+git config branch.autosetuprebase always  # 设置所有的分支都应该用rebase
+git config color.ui true  # 设置命令框着色
+git config color.status auto  # 设置状态颜色自动
+git config color.branch auto  # 设置分支颜色自动
+git config core.editor vim  # 设置编辑器
+git config merge.tool vimdiff  # 设置冲突比较工具
+git config --list  # 显示内容列表
 ```
 
 ## 设置常用别名
@@ -92,50 +92,50 @@ git config --global alias.visual '!gitk'
 ## 创建版本库
 
 ```
-git init  #在该目录创建库
-git init < 路径 >  #在该路径下创建库
-git init --bare  #创建裸库，只能存储历史，不能进行修改，在服务器上使用
-git clone < 远程路径 > < 本地路径 >  #克隆服务器库到本地
-git clone -o < 库名 > < 远程路径 > < 本地路径 >  #克隆服务器库到本地，并且修改库名
+git init  # 在该目录创建库
+git init < 路径 >  # 在该路径下创建库
+git init --bare  # 创建裸库，只能存储历史，不能进行修改，在服务器上使用
+git clone < 远程路径 > < 本地路径 >  # 克隆服务器库到本地
+git clone -o < 库名 > < 远程路径 > < 本地路径 >  # 克隆服务器库到本地，并且修改库名
 ```
 
 ## 一般操作
 
 ```
-mkdir < 目录名 >  #创建目录
-pwd  #查看当前目录的路径
-cat < 文件 >  #查看文件内容
+mkdir < 目录名 >  # 创建目录
+pwd  # 查看当前目录的路径
+cat < 文件 >  # 查看文件内容
 
-git checkout -- < 版本号 > < 文件 >  #还原文件，只能还原有版本控制文件。可以用于工作区误删文件，恢复使用。只修改工作区，对暂存区无效。如果之前提交过暂存区，那么就恢复到暂存区的版本。工作区记录会丢失。
-git add < 文件 >  #添加文件到暂存区，.为所有文件。
-#使用git reset，如果提交记录没有上传到服务器，会丢失。
-git reset HEAD < 文件 >  #取消暂存文件，不指定文件即清空暂存区，工作区不变。
-git reset --hard HEAD^  #回退到上一个版本，或者使用HEAD~。上上个版本用 HEAD^^
-git reset --hard HEAD~100  #回退到上100个版本
-git reset --hard < 版本号 >  #跳到某个版本
-git mv < 原名称 > < 更改后名称 >  #移动文件位置或重命名
-git rm < 文件 >  #删除本地仓库和工作区文件，不需要add，如果手动删除，需要add
-git rm < 文件 > -f  #如果删除之前，文件提交过暂存区，需要添加此参数
-git rm < 文件 > --cached 删除暂存区和本地仓库文件，保留工作区文件
-git commit -m '< 说明 >'  #提交暂存区文件到本地仓库，并添加说明
-git commit -a  #提交工作区文件到本地仓库，跳过暂存区，不能提交无版本控制文件
-git commit --amend  #修改上一次提交记录，可以修改提交说明，或者某个文件，文件要加入暂存区。在上次提交记录基础上更新，并非全新提交。
-git status -s  #简短模式：A新添加，??未添加，右M修改后，左M放入暂存区
-git diff < 文件 >  #比较工作区文件与暂存区的差异
-git diff < 文件 > --cached  #比较暂存区文件与本地仓库的差异
-git reflog  #查看带版本号的提交记录，一行简单日志
-git stash  #保存工作区，并且清理工作区
-git stash list  #查看已保存的工作区记录
-git stash apply  #恢复已保存的工作区，不清除该条记录
-git stash apply stash@{1}  #恢复指定已保存的工作区，不清除该条记录
-git stash pop  #恢复已保存的工作区，清除该条记录
-git stash pop stash@{1}  #恢复指定已保存的工作区，清除该条记录
-git stash drop  #删除第一条已保存的工作区记录
-git stash drop stash@{1}  #删除指定已保存的工作区
-git stash clear  #清空已保存的工作区记录
-git blame < 文件 >  #查看每行的最后修改人和时间
-git blame -L 12,+10 < 文件 >  #查看从12行到22行，行修改记录
-
+git checkout -- < 版本号 > < 文件 >  # 还原文件，只能还原有版本控制文件。可以用于工作区误删文件，恢复使用。
+                                   # 只修改工作区，对暂存区无效。如果之前提交过暂存区，那么就恢复到暂存区的版本。工作区记录会丢失。
+git add < 文件 >  # 添加文件到暂存区，.为所有文件。
+# 使用git reset，如果提交记录没有上传到服务器，会丢失。
+git reset HEAD < 文件 >  # 取消暂存文件，不指定文件即清空暂存区，工作区不变。
+git reset --hard HEAD^  # 回退到上一个版本，或者使用HEAD~。上上个版本用 HEAD^^
+git reset --hard HEAD~100  # 回退到上100个版本
+git reset --hard < 版本号 >  # 跳到某个版本
+git mv < 原名称 > < 更改后名称 >  # 移动文件位置或重命名
+git rm < 文件 >  # 删除本地仓库和工作区文件，不需要add，如果手动删除，需要add
+git rm < 文件 > -f  # 如果删除之前，文件提交过暂存区，需要添加此参数
+git rm < 文件 > --cached  # 删除暂存区和本地仓库文件，保留工作区文件
+git commit -m '< 说明 >'  # 提交暂存区文件到本地仓库，并添加说明
+git commit -a  # 提交工作区文件到本地仓库，跳过暂存区，不能提交无版本控制文件
+git commit --amend  # 修改上一次提交记录，可以修改提交说明，或者某个文件，文件要加入暂存区。在上次提交记录基础上更新，并非全新提交。
+git status -s  # 简短模式：A新添加，??未添加，右M修改后，左M放入暂存区
+git diff < 文件 >  # 比较工作区文件与暂存区的差异
+git diff < 文件 > --cached  # 比较暂存区文件与本地仓库的差异
+git reflog  # 查看带版本号的提交记录，一行简单日志
+git stash  # 保存工作区，并且清理工作区
+git stash list  # 查看已保存的工作区记录
+git stash apply  # 恢复已保存的工作区，不清除该条记录
+git stash apply stash@{1}  # 恢复指定已保存的工作区，不清除该条记录
+git stash pop  # 恢复已保存的工作区，清除该条记录
+git stash pop stash@{1}  # 恢复指定已保存的工作区，清除该条记录
+git stash drop  # 删除第一条已保存的工作区记录
+git stash drop stash@{1}  # 删除指定已保存的工作区
+git stash clear  # 清空已保存的工作区记录
+git blame < 文件 >  # 查看每行的最后修改人和时间
+git blame -L 12,+10 < 文件 >  # 查看从12行到22行，行修改记录
 ```
 
 ## 远程仓库
@@ -211,6 +211,7 @@ git branch --set-upstream < 本地分支名 > < 远程库名 >/< 远程分支名
 git merge < 分支名 >  #合并指定分支到当前分支，先切换到当前分支
 git merge –no-ff -m '< 说明 >' < 分支名 > #合并指定分支到当前分支，禁止 Fast-forward 模式，删除被合并的分支后，可以保留该分支的信息
 git add < 文件 >  #解决冲突添加标记到暂存区，.为所有文件。
+git merge --abort # 有冲突时，撤销合并
 #变基合并，提交记录是一条直线，没有并行分支。坏处原来的分支记录模糊不清。只能用于没有提交到远程服务器的本地分支。
 git checkout experiment  #先切换到分支
 git rebase master  #把主线变基过去
