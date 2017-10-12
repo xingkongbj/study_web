@@ -214,7 +214,8 @@ git branch --unset-upstream < 本地分支名 >  # 取消pull跟踪
 git branch --set-upstream < 本地分支名 > < 远程库名 >/< 远程分支名 >  # 设置现有分支的pull跟踪
 # 合并时，只是针对两个分支的快照与两个分支的共同祖先快照，做一个简单的三方合并。
 git merge < 分支名 >  # 合并指定分支到当前分支，先切换到当前分支
-git merge –no-ff -m '< 说明 >' < 分支名 > # 合并指定分支到当前分支，禁止 Fast-forward 模式，删除被合并的分支后，可以保留该分支的信息
+git merge –no-ff -m '< 说明 >' < 分支名 > # 合并指定分支到当前分支，禁止 Fast-forward 模式
+                                        # 删除被合并的分支后，可以保留该分支的信息
 git add < 文件 >  # 解决冲突添加标记到暂存区，.为所有文件。
 git merge --abort  # 有冲突时，撤销合并
 # 变基合并，提交记录是一条直线，没有并行分支。坏处原来的分支记录模糊不清。只能用于没有提交到远程服务器的本地分支。
@@ -225,7 +226,8 @@ git merge experiment  # 进行快速合并
 
 git rebase --continue  # 解决变基冲突后，继续变基合并
 git rebase --onto master server client  # 取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改
-                                        # 然后把它们在 master 分支上重放一遍。client 分支和 server 分支对于 master 分支的共同修改不会合并。
+                                        # 然后把它们在 master 分支上重放一遍。
+                                        # client 分支和 server 分支对于 master 分支的共同修改不会合并。
 git rebase master server  # 直接变基，不用切换到 server 分支
 
 冲突文件格式
