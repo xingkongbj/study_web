@@ -176,7 +176,8 @@ git tag -a < 标签名称 > < 提交标志前7位 >  # 根据提交记录，创�
 git show < 标签名称 >  # 显示标签信息
 git push < 库名 > < 标签名称 >  # 提交标签到远程仓库
 git push < 库名 > --tags  # 提交所有标签到远程仓库
-git checkout -b < 分支名 > < 标签名称 > # 用标签版本创建新分支并切换。标签并不能像分支一样来回移动，你不能真的检出一个标签，只能用新分支来代替标签。
+git checkout -b < 分支名 > < 标签名称 > # 用标签版本创建新分支并切换。标签并不能像分支一样来回移动。
+                                    # 你不能真的检出一个标签，只能用新分支来代替标签。
 ```
 
 ## 分支
@@ -202,8 +203,10 @@ git fetch -p  # 删除远端分支已经删除的分支
 # 两个分支文件相同时，提交暂存区后，可以再任意分支去提交。同时工作区的文件也有相同效果。
 git checkout < 分支名 >  # 切换分支，只能切换远程存在或者本地存在的分支
 git checkout -b < 分支名 >  # 创建分支并且切换到该分支，本地分支不能重名
-git checkout -b < 本地分支名 > < 远程库名 >/< 远程分支名 >  # 创建分支并且切换分支，分支以远程分支为基础，本地分支名不能重复
-git checkout -t < 本地分支名 > < 远程库名 >/< 远程分支名 >  # 本地分支跟踪远程分支，并且本地分支无跟踪远程分支，远程分支无跟踪本地分支
+git checkout -b < 本地分支名 > < 远程库名 >/< 远程分支名 >  # 创建分支并且切换分支，分支以远程分支为基础
+                                                       # 本地分支名不能重复
+git checkout -t < 本地分支名 > < 远程库名 >/< 远程分支名 >  # 本地分支跟踪远程分支
+                                                       # 并且本地分支无跟踪远程分支，远程分支无跟踪本地分支
 git branch -u < 远程库名 >/< 远程分支名 > < 本地分支名 >  # 修改pull跟踪，本地分支名可不写
 git branch --set-upstream-to=< 远程库名 >/< 远程分支名 > < 本地分支名 >  # 设置现有分支的pull跟踪的另一种语法
 git branch --track < 本地分支名 > < 远程库名 >/< 远程分支名 > # 新建一个分支，与指定的远程分支建立追踪关系
@@ -221,7 +224,8 @@ git checkout master  # 切换到主线
 git merge experiment  # 进行快速合并
 
 git rebase --continue  # 解决变基冲突后，继续变基合并
-git rebase --onto master server client  # 取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改，然后把它们在 master 分支上重放一遍。client 分支和 server 分支对于 master 分支的共同修改不会合并。
+git rebase --onto master server client  # 取出 client 分支，找出处于 client 分支和 server 分支的共同祖先之后的修改
+                                        # 然后把它们在 master 分支上重放一遍。client 分支和 server 分支对于 master 分支的共同修改不会合并。
 git rebase master server  # 直接变基，不用切换到 server 分支
 
 冲突文件格式
