@@ -127,8 +127,8 @@ git status -s  # 简短模式：A新添加，??未添加，右M修改后，左M�
 git diff < 文件 >  # 比较工作区文件与暂存区的差异
 git diff < 文件 > --cached  # 比较暂存区文件与本地仓库的差异
 git reflog  # 查看带版本号的提交记录，一行简单日志
-git stash  # 保存工作区，并且清理工作区
-git stash list  # 查看已保存的工作区记录
+git stash  # 保存工作区，并且清理工作区，可以恢复到任意分支
+git stash list  # 查看已保存的工作区记录，有保存时的分支名称
 git stash apply  # 恢复已保存的工作区，不清除该条记录
 git stash apply stash@{1}  # 恢复指定已保存的工作区，不清除该条记录
 git stash pop  # 恢复已保存的工作区，清除该条记录
