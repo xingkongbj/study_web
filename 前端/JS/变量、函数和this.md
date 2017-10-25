@@ -1,5 +1,9 @@
 # 变量、函数和 this
 
+> [JavaScript 中的执行上下文和调用栈](https://mp.weixin.qq.com/s/g5j0KMdKsleAID7sOOzZ4g)
+> 
+> [ES6 变量作用域与提升：变量的生命周期详解](https://mp.weixin.qq.com/s/3_uLwYJjDvDUHUAJ7vtrzg)
+
 目录
 
 - [变量提升](#变量提升)
