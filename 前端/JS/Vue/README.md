@@ -39,7 +39,7 @@ Vue
 - [表单控件绑定](表单控件绑定.md)
 - [定义组件模板的7种方法](定义组件模板的7种方法.md)
 
-核心插件
+规模化
 
 - [Vuex](Vuex.md)
 - [Vue Router](Vue-Router.md)
