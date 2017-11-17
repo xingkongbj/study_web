@@ -43,6 +43,8 @@
 
 - [混合](Reuse/混合.md)
 - [自定义指令](Reuse/自定义指令.md)
+- [渲染函数 & JSX](Reuse/渲染函数&JSX.md)
+- [插件](Reuse/插件.md)
 - [过滤器](Reuse/过滤器.md)
 
 规模化
