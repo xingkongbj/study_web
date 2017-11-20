@@ -238,14 +238,242 @@ render: function (createElement) {
 
 ### v-model
 
+```
+render: function (createElement) {
+  var self = this
+  return createElement('input', {
+    domProps: {
+      value: self.value
+    },
+    on: {
+      input: function (event) {
+        self.value = event.target.value
+        // 下行代码教程中存在，本人认为不存在
+        self.$emit('input', event.target.value)
+      }
+    }
+  })
+}
+```
+
 ### 事件 & 按键修饰符
+
+修饰符 | 前缀
+--- | ---
+.passive | &
+.capture | !
+.once | ~
+.capture.once or .once.capture | ~!
+
+```
+on: {
+  '!click': this.doThisInCapturingMode,
+  '~keyup': this.doThisOnce,
+  `~!mouseover`: this.doThisOnceInCapturingMode
+}
+```
+
+修饰符 | 代码实现
+--- | ---
+.stop | event.stopPropagation()
+.prevent | event.preventDefault()
+.self | if (event.target !== event.currentTarget) return
+.enter, .13 | if (event.keyCode !== 13) return
+.ctrl, .alt, .shift, .meta | if (!event.ctrlKey) return
+
+```
+on: {
+  keyup: function (event) {
+    // 如果触发事件的元素不是事件绑定的元素
+    // 则返回
+    if (event.target !== event.currentTarget) return
+    // 如果按下去的不是 enter 键或者
+    // 没有同时按下 shift 键
+    // 则返回
+    if (!event.shiftKey || event.keyCode !== 13) return
+    // 阻止 事件冒泡
+    event.stopPropagation()
+    // 阻止该元素默认的 keyup 事件
+    event.preventDefault()
+    // ...
+  }
+}
+```
 
 ### 插槽
 
+从 this.$slots 获取 VNodes 列表中的静态内容
+
+```
+render: function (createElement) {
+  // `<div><slot></slot></div>`
+  return createElement('div', this.$slots.default)
+}
+```
+
+从 this.$scopedSlots 中获得能用作函数的作用域插槽
+
+```
+render: function (createElement) {
+  // `<div><slot :text="msg"></slot></div>`
+  return createElement('div', [
+    this.$scopedSlots.default({
+      text: this.msg
+    })
+  ])
+}
+```
+
+如果要用渲染函数向子组件中传递作用域插槽，可以利用 VNode 数据中的 scopedSlots 域
+
+```
+render (createElement) {
+  return createElement('div', [
+    createElement('child', {
+      // pass `scopedSlots` in the data object
+      // in the form of { name: props => VNode | Array<VNode> }
+      scopedSlots: {
+        default: function (props) {
+          return createElement('span', props.text)
+        }
+      }
+    })
+  ])
+}
+```
+
 ## JSX
+
+Babel 插件，用于在 Vue 中使用 JSX 语法
+
+将 h 作为 createElement 的别名是 Vue 生态系统中的一个通用惯例，实际上也是 JSX 所要求的，如果在作用域中 h 失去作用，在应用中会触发报错。
+
+```
+import AnchoredHeading from './AnchoredHeading.vue'
+new Vue({
+  el: '#demo',
+  render (h) {
+    return (
+      <AnchoredHeading level={1}>
+        <span>Hello</span> world!
+      </AnchoredHeading>
+    )
+  }
+})
+```
 
 ## 函数式组件
 
+标记组件为 functional，这意味它是无状态 (没有 data)，无实例 (没有 this 上下文)
+
+```
+Vue.component('my-component', {
+  functional: true,
+  // 为了弥补缺少的实例
+  // 提供第二个参数作为上下文
+  render: function (createElement, context) {
+    // ...
+  },
+  // Props 可选
+  props: {
+    // ...
+  }
+})
+```
+
+组件需要的一切都是通过上下文传递，包括：
+
+- props：提供 props 的对象
+- children: VNode 子节点的数组
+- slots: slots 对象
+- data：传递给组件的 data 对象
+- parent：对父组件的引用
+- listeners: (2.3.0+) 一个包含了组件上所注册的 v-on 侦听器的对象。这只是一个指向 data.on 的别名。
+- injections: (2.3.0+) 如果使用了 inject 选项，则该对象包含了应当被注入的属性。
+
+在添加 functional: true 之后，锚点标题组件的 render 函数之间简单更新增加 context 参数，this.$slots.default 更新为 context.children，之后this.level 更新为 context.props.level。
+
+在作为包装组件时它们也同样非常有用，比如，当你需要做这些时：
+
+- 程序化地在多个组件中选择一个
+- 在将 children, props, data 传递给子组件之前操作它们。
+
+```
+var EmptyList = { /* ... */ }
+var TableList = { /* ... */ }
+var OrderedList = { /* ... */ }
+var UnorderedList = { /* ... */ }
+Vue.component('smart-list', {
+  functional: true,
+  render: function (createElement, context) {
+    function appropriateListComponent () {
+      var items = context.props.items
+      if (items.length === 0)           return EmptyList
+      if (typeof items[0] === 'object') return TableList
+      if (context.props.isOrdered)      return OrderedList
+      return UnorderedList
+    }
+    return createElement(
+      appropriateListComponent(),
+      context.data,
+      context.children
+    )
+  },
+  props: {
+    items: {
+      type: Array,
+      required: true
+    },
+    isOrdered: Boolean
+  }
+})
+```
+
 ### slots() 和 children 对比
 
+```
+<my-functional-component>
+  <p slot="foo">
+    first
+  </p>
+  <p>second</p>
+</my-functional-component>
+```
+
+对于这个组件，children 会给你两个段落标签，而 slots().default 只会传递第二个匿名段落标签，slots().foo 会传递第一个具名段落标签。同时拥有 children 和 slots() ，因此你可以选择让组件通过 slot() 系统分发或者简单的通过 children 接收，让其他组件去处理。
+
 ## 模板编译
+
+demo
+
+```
+<div>
+  <header>
+    <h1>I'm a template!</h1>
+  </header>
+  <p v-if="message">
+    {{ message }}
+  </p>
+  <p v-else>
+    No message.
+  </p>
+</div> 
+```
+
+render
+
+```
+function anonymous(
+) {
+  with(this){return _c('div',[_m(0),(message)?_c('p',[_v(_s(message))]):_c('p',[_v("No message.")])])}
+}
+```
+
+staticRenderFns
+
+```
+_m(0): function anonymous(
+) {
+  with(this){return _c('header',[_c('h1',[_v("I'm a template!")])])}
+}
+```
