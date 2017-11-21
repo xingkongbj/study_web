@@ -39,6 +39,11 @@
 - [表单输入绑定](Base/表单输入绑定.md)
 - [组件](Base/组件.md)
 
+过渡 & 动画
+
+- 进入/离开 & 列表过渡
+- 状态过渡
+
 可复用性 & 组合
 
 - [混合](Reuse/混合.md)
@@ -52,4 +57,4 @@
 
 - [Vuex](Vuex.md)
 - [Vue Router](Vue-Router.md)
-- [Vue SSR](Vue-SSR.md)
+- Vue SSR
