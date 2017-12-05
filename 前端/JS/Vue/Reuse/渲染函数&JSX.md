@@ -263,7 +263,7 @@ render: function (createElement) {
     on: {
       input: function (event) {
         self.value = event.target.value
-        // 下行代码教程中存在，本人认为不存在
+        // 下行代码在单例和父子组件中均不会执行，但教程中存在
         self.$emit('input', event.target.value)
       }
     }
