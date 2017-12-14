@@ -20,7 +20,11 @@ npm 是随同 Node.js 一起安装的包管理工具
     
 ## 安装 Node.js 模块
 
-    npm install <Module Name>
+    npm install <Module Name>@<指定版本> # 安装指定版本
+    npm install <Module Name> -S, --save # 安装包信息将加入到dependencies（生产阶段的依赖）
+    npm install <Module Name> -D, --save-dev # 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它
+    npm install <Module Name> -O, --save-optional # 安装包信息将加入到optionalDependencies（可选阶段的依赖）
+    npm install <Module Name> -E, --save-exact # 精确安装指定模块版本
     
 ## 全局安装与本地安装
 
