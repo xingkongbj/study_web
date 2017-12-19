@@ -16,4 +16,5 @@
 - [Set 和 Map 数据结构](Set和Map数据结构.md)
 - [Proxy](Proxy.md)
 - [Reflect](Reflect.md)
-- [Promise](Promise.md)
+- [Promise 对象](Promise.md)
+- [Iterator 和 for...of 循环](Iterator.md)
