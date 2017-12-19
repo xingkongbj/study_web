@@ -4,7 +4,14 @@
 
 目录
 
-
+- [Promise 的特点](#promise-的特点)
+- [基本用法](#基本用法)
+- [Promise.prototype.then()](#promiseprototypethen)
+- [Promise.prototype.catch()](#promiseprototypecatch)
+- [Promise.all()](#promiseall)
+- [Promise.race()](#promiserace)
+- [Promise.resolve()](#promiseresolve)
+- [Promise.reject()](#promisereject)
 
 ## Promise 的特点
 
@@ -44,18 +51,16 @@ promise.then(function(value) {
 });
 ```
 
-### 由于用到了异步的请求，导致外部使用也变成异步，除非使用then去触发.
-
 - 如果p2结果是成功，那么会等待p1的结果，并把p1结果作为p2结果。
 - 如果p2结果是失败，那么不会等待p1的结果，直接失败。
 
 ```
 const p1 = new Promise(function (resolve, reject) {
-  // post.commentURL
+  // ...
 });
 
 const p2 = new Promise(function (resolve, reject) {
-  // "/post/1.json"
+  // ...
   resolve(p1);
 })
 ```
