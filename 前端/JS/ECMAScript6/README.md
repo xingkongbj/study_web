@@ -18,3 +18,4 @@
 - [Reflect](Reflect.md)
 - [Promise 对象](Promise.md)
 - [Iterator 和 for...of 循环](Iterator.md)
+- [Generator 函数的语法](Generator.md)
