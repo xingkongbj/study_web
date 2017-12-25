@@ -20,3 +20,4 @@
 - [Iterator 和 for...of 循环](Iterator.md)
 - [Generator 函数的语法](Generator.md)
 - [async](async.md)
+- [Class 的基本语法](Class.md)
