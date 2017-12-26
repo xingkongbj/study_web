@@ -31,6 +31,8 @@
     - [Hack和浏览器模式](../../tree/master/前端/HTML/Hack和浏览器模式.md)
 - JS
     - [Vue](../../tree/master/前端/JS/Vue)
+    - [ECMAScript6](../../tree/master/前端/JS/ECMAScript6)
+    - [模块加载](../../tree/master/前端/JS/模块加载.md)
     - jQuery
         - [AJAX](../../tree/master/前端/JS/jQuery/AJAX.js)
     - 插件
@@ -66,7 +68,5 @@
     - [Module--模块](../../tree/master/服务器/Nodejs/Module--模块.md)
     - [HTTP](../../tree/master/服务器/Nodejs/HTTP.md)
     - [URL](../../tree/master/服务器/Nodejs/URL.md)
-
-- [ECMAScript6](../../tree/master/前端/JS/ECMAScript6)
 
 [一些经验](../../tree/master/资料.md)
