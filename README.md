@@ -54,9 +54,7 @@
 
 ## 服务器 ---- 服务器及后台相关知识
 
-- 软件包管理器
-    - [brew](../../tree/master/服务器/PackageManager/brew.md)
-    - [npm](../../tree/master/服务器/PackageManager/npm.md)
+- [打包相关](../../tree/master/服务器/PackageManager/)
 - [HTTP请求头、响应头和状态码](../../tree/master/服务器/HTTP请求头、响应头和状态码.md)
 - [Git](../../tree/master/服务器/Git.md)
 - [Vim](../../tree/master/服务器/Vim/Vim.md)
