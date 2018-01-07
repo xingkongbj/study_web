@@ -222,3 +222,11 @@ eslint --no-inline-config file.js
 ```
 "extends": "eslint:recommended",
 ```
+
+### root--根节点
+
+停止在父级目录中寻找配置文件
+
+```
+"root": true
+```

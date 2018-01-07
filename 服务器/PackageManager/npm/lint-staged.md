@@ -1,4 +1,4 @@
-# lint-staged--lint检测配置
+# lint-staged--lint检测git下暂存文件
 
 > https://www.npmjs.com/package/lint-staged
 
