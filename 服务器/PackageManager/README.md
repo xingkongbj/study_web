@@ -12,4 +12,4 @@
 - [gulp--简易打包](npm/gulp.md)
 - [ESLint--代码格式校验](npm/ESLint.md)
 - [husky--git提交触发](npm/husky.md)
-- [lint-stage--lint检测git下暂存文件](npm/lint-stage.md)
+- [lint-staged--lint检测git下暂存文件](npm/lint-staged.md)
