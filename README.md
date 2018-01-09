@@ -54,18 +54,18 @@
 
 ## 服务器 ---- 服务器及后台相关知识
 
-- [打包相关](../../tree/master/服务器/PackageManager/)
-- [HTTP请求头、响应头和状态码](../../tree/master/服务器/HTTP请求头、响应头和状态码.md)
-- [Git](../../tree/master/服务器/Git.md)
-- [Vim](../../tree/master/服务器/Vim/Vim.md)
-- [Velocity教程](../../tree/master/服务器/Velocity教程.md)
-- [OSI七层模型](../../tree/master/服务器/OSI七层模型.md)
+- [打包相关](../../tree/master/server/PackageManager/)
+- [HTTP请求头、响应头和状态码](../../tree/master/server/HTTPprotocol.md)
+- [Git](../../tree/master/server/Git.md)
+- [Vim](../../tree/master/server/Vim/Vim.md)
+- [Velocity教程](../../tree/master/server/Velocity.md)
+- [OSI七层模型](../../tree/master/server/OSI7model.md)
 
 ## 整理中 ---- 还没有整理完
 - Nodejs
-    - [Module--模块](../../tree/master/服务器/Nodejs/Module--模块.md)
-    - [HTTP](../../tree/master/服务器/Nodejs/HTTP.md)
-    - [URL](../../tree/master/服务器/Nodejs/URL.md)
+    - [Module--模块](../../tree/master/server/Nodejs/Module--模块.md)
+    - [HTTP](../../tree/master/server/Nodejs/HTTP.md)
+    - [URL](../../tree/master/server/Nodejs/URL.md)
 
 [一些经验](../../tree/master/experience.md)
 
