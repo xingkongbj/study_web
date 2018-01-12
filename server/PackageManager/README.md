@@ -6,6 +6,7 @@
 
 - [brew](brew.md)
 - [npm](npm.md)
+- [yarn](yarn.md)
 
 ## NPM 相关包
 
