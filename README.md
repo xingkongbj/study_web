@@ -32,21 +32,21 @@
 - JS
     - [Vue](../../tree/master/front/JS/Vue)
     - [ECMAScript6](../../tree/master/front/JS/ECMAScript6)
-    - [模块加载](../../tree/master/front/JS/模块加载.md)
+    - [模块加载](../../tree/master/front/JS/module_load.md)
     - jQuery
         - [AJAX](../../tree/master/front/JS/jQuery/AJAX.js)
     - 插件
-        - [requirejs用法](../../tree/master/front/JS/插件/requirejs.js)
-        - [seejs用法](../../tree/master/front/JS/插件/seejs.js)
-    - [常用函数和算法](../../tree/master/front/JS/常用函数和算法.md)
-    - [垃圾回收与内存泄漏](../../tree/master/front/JS/垃圾回收与内存泄漏.md)
-    - [变量、函数和this](../../tree/master/front/JS/变量、函数和this.md)
-    - [严格模式](../../tree/master/front/JS/严格模式.md)
-    - [运算符优先级](../../tree/master/front/JS/运算符优先级.md)
-    - [转义字符](../../tree/master/front/JS/转义字符.md)
+        - [requirejs用法](../../tree/master/front/JS/plug-in/requirejs.js)
+        - [seejs用法](../../tree/master/front/JS/plug-in/seejs.js)
+    - [常用函数和算法](../../tree/master/front/JS/common_function_algorithm.md)
+    - [垃圾回收与内存泄漏](../../tree/master/front/JS/retrieve_leakage.md)
+    - [变量、函数和this](../../tree/master/front/JS/variable_function_this.md)
+    - [严格模式](../../tree/master/front/JS/use_strict.md)
+    - [运算符优先级](../../tree/master/front/JS/operator.md)
+    - [转义字符](../../tree/master/front/JS/escape_character.md)
 
 - Browser
-    - [知识点拓扑图](../../tree/master/front/Browser/知识点拓扑图)
+    - [知识点拓扑图](../../tree/master/front/Browser/knowledge_structure_graph)
     - [跨域方式](../../tree/master/front/Browser/cross-origin.md)
     - [cookie 和 session](../../tree/master/front/Browser/cookie-session.md)
     - [DOM 相关资料](../../tree/master/front/Browser/DOM)
