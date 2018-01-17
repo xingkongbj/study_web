@@ -14,8 +14,8 @@
 
 ## Demo ---- 一些小示例
 
-- [cut ---- 头像剪裁](../../tree/master/Demo/cut)
-- [talk ---- 聊天框带表情](../../tree/master/Demo/talk)
+- [cut ---- 头像剪裁](../../tree/master/demo/cut)
+- [talk ---- 聊天框带表情](../../tree/master/demo/talk)
 
 ## 前端 ---- 前端相关知识
 
@@ -70,6 +70,6 @@
 
 [一些经验](../../tree/master/experience.md)
 
-[时间管理](../../tree/master/timeManage.md)
+[时间管理](../../tree/master/time_manage.md)
 
-[项目管理](../../tree/master/projectManage.md)
+[项目管理](../../tree/master/project_manage.md)
