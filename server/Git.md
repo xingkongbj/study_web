@@ -35,7 +35,7 @@
 
 ## 操作流程图
 
-![](flow-process.jpg)
+![](flow_process.jpg)
 
 - 每次提交会产生一个 commit 对象，用于保存提交信息及 tree 信息。
 - 产生一个 tree 对象，用于保存目录结构和 blob 对象列表。
@@ -43,11 +43,11 @@
 
 ### 修改 3 个文件的示例
 
-![](commit-and-tree.png)
+![](commit_and_tree.png)
 
 ### 多次提交示例
 
-![](commits-and-parents.png)
+![](commits_and_parents.png)
 
 ## 创建SSH Key
 
