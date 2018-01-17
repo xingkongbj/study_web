@@ -22,7 +22,7 @@
 
 ## 模式切换示意图
 
-![](vim_workmodel.jpg)
+![](vim_workModel.jpg)
 
 ## 键盘图
 
