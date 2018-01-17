@@ -22,11 +22,11 @@
 
 ## 模式切换示意图
 
-![](vim-vi-workmodel.jpg)
+![](vim_workmodel.jpg)
 
 ## 键盘图
 
-![](vi-vim-cheat-sheet-sch.gif)
+![](vim_keyboard.gif)
 
 ## 命令模式切换到底线命令模式
 
