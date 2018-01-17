@@ -8,11 +8,11 @@
 
 目录
 
-- [Demo ---- 一些小示例](#demo------一些小示例)
+- [demo ---- 一些小示例](#demo------一些小示例)
 - [前端 ---- 前端相关知识](#前端------前端相关知识)
 - [服务器 ---- 服务器及后台相关知识](#服务器------服务器及后台相关知识)
 
-## Demo ---- 一些小示例
+## demo ---- 一些小示例
 
 - [cut ---- 头像剪裁](../../tree/master/demo/cut)
 - [talk ---- 聊天框带表情](../../tree/master/demo/talk)
@@ -20,15 +20,15 @@
 ## 前端 ---- 前端相关知识
 
 - CSS
-    - [CSS选择器](../../tree/master/front/CSS/CSS选择器.md)
-    - [CSS写图案](../../tree/master/front/CSS/CSS写图案.html)
-    - [上下左右居中](../../tree/master/front/CSS/上下左右居中.html)
-    - [BFC、IFC、GFC、FFC](../../tree/master/front/CSS/BFC、IFC、GFC、FFC.md)
-    - [清除浮动方法](../../tree/master/front/CSS/清除浮动方法.md)
+    - [CSS选择器](../../tree/master/front/CSS/CSS_selector.md)
+    - [CSS写图案](../../tree/master/front/CSS/CSS_image.html)
+    - [上下左右居中](../../tree/master/front/CSS/center.html)
+    - [BFC、IFC、GFC、FFC](../../tree/master/front/CSS/BFC_IFC_GFC_FFC.md)
+    - [清除浮动方法](../../tree/master/front/CSS/clear_float.md)
     - [less用法](../../tree/master/front/CSS/less)
-    - [IE6兼容问题](../../tree/master/front/CSS/IE6兼容问题.docx)
+    - [IE6兼容问题](../../tree/master/front/CSS/IE6_fix.docx)
 - HTML
-    - [Hack和浏览器模式](../../tree/master/front/HTML/Hack和浏览器模式.md)
+    - [Hack和浏览器模式](../../tree/master/front/HTML/Hack_HTMLmode.md)
 - JS
     - [Vue](../../tree/master/front/JS/Vue)
     - [ECMAScript6](../../tree/master/front/JS/ECMAScript6)
