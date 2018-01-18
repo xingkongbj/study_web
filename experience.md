@@ -9,6 +9,7 @@
 - [你有必要知道的一些JavaScript 面试题（中）](https://mp.weixin.qq.com/s/_887CjxwzyeczSlqYynYWA)
 - [你有必要知道的一些JavaScript 面试题（下）](https://mp.weixin.qq.com/s/0Go2pF3cU3Cs0SKYiOuXFw)
 - [25个最基本的JavaScript面试问题及答案](https://mp.weixin.qq.com/s/w5Q9dD8ru8fwcRZa2_-cJw)
+- [前端面试题小集](https://mp.weixin.qq.com/s/HkWDZuGanNjr82Bd2VgZ0g)
 
 ## 面试经验
 
