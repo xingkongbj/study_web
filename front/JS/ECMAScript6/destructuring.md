@@ -16,7 +16,7 @@
 
 - 按照顺序和格式匹配内容。
 - 匹配不成功，则等于 undefined。
-- ...匹配不成功，则等于 [].
+- ...匹配不成功，则等于 []。
 - 右侧不是数组，不能结构，会报错。
 - 匹配结果非 undefined，默认值不会生效。如 null
 - 默认值可以引用解构赋值的其他变量，但该变量必须已经声明。
@@ -53,7 +53,7 @@ let [x = y, y = 1] = [];     // ReferenceError
 - 右侧不是对象，不能结构，会报错。
 - 匹配结果非 undefined，默认值不会生效。如 null
 - 默认值可以引用解构赋值的其他变量，但该变量必须已经声明。
-- 子对象所在的父属性不存在，那么将会报错。
+- 父集属性解析为 undefined，子集属性解释时会报错。
 
 
 ```
@@ -150,22 +150,26 @@ move(); // [0, 0]
 不能使用圆括号的情况
 
 - 变量声明语句
-- 函数参数
-- 赋值语句的模式
 
 ```
 // 全部报错
 let [(a)] = [1];
-
 let {x: (c)} = {};
 let ({x: c}) = {};
 let {(x: c)} = {};
 let {(x): c} = {};
+```
+- 函数参数
 
-function f([z,(x)]) { return x; }
+```
+function f([z,(x)]) { return x; }  // 报错
+```
 
-({ p: a }) = { p: 42 };
-[({ p: a }), { x: c }] = [{}, {}];
+- 赋值语句的模式部分
+
+```
+({ p: a }) = { p: 42 };  // 报错
+[({ p: a }), { x: c }] = [{}, {}];  // 报错
 ```
 
 可以使用圆括号的情况
@@ -181,9 +185,80 @@ function f([z,(x)]) { return x; }
 ## 解构赋值的用途
 
 - 交换变量的值
+
+```
+let x = 1;
+let y = 2;
+
+[x, y] = [y, x];
+```
+
 - 从函数返回多个值
+
+```
+function example() {
+  return {
+    foo: 1,
+    bar: 2
+  };
+}
+let { foo, bar } = example();
+```
+
 - 函数参数的定义
+
+```
+function f({x, y, z}) { ... }
+f({z: 3, y: 2, x: 1});
+```
+
 - 提取 JSON 数据
+
+```
+let jsonData = {
+  id: 42,
+  status: "OK",
+  data: [867, 5309]
+};
+
+let { id, status, data: number } = jsonData;
+
+console.log(id, status, number);
+// 42, "OK", [867, 5309]
+```
+
 - 函数参数的默认值
+
+```
+jQuery.ajax = function (url, {
+  async = true,
+  beforeSend = function () {},
+  cache = true,
+  complete = function () {},
+  crossDomain = false,
+  global = true,
+  // 其他参数
+}) {
+  // 函数主体
+};
+```
+
 - 遍历 Map 结构
+
+```
+const map = new Map();
+map.set('first', 'hello');
+map.set('second', 'world');
+
+for (let [key, value] of map) {
+  console.log(key + " is " + value);
+}
+// first is hello
+// second is world
+```
+
 - 输入模块的指定方法
+
+```
+const { SourceMapConsumer, SourceNode } = require("source-map");
+```
