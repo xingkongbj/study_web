@@ -2,7 +2,7 @@
 
 > 教程 http://www.runoob.com/linux/linux-vim.html
 > 
-> 操作手册 https://github.com/xingkongbj/study_web/blob/master/服务器/Vim/Vim用户手册中文版74.pdf
+> 操作手册 https://github.com/xingkongbj/study_web/blob/master/服务器/Vim/vim7.4-manual.pdf
 
 目录
 
