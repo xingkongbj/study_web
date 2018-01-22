@@ -22,15 +22,13 @@
 - v-if 用注释替代其位置，v-show 用 display:none 隐藏显示。
 - 子组件内部，需要顶级挂载节点，且只能有一个。
 - input 等表单控件修改后，需要手动同步 vue 数据。
-- 使用插件时，需要通过 jquery 绑定 change 事件来获取事件。插件使用 js 修改值时，不会触发浏览器的 change 事件，只会触发 jQuery 模拟的事件。
-- Vuex 一个input如果原值是a，修改后，再赋值为a。由于虚拟dom的值没有改变，顾不触发更新，导致input的值为修改后的值，并非最后赋值的a。
-
-目录
+- 使用插件时，需要通过 jQuery 绑定 change 事件来获取事件。插件使用 js 修改值时，不会触发浏览器的 change 事件，只会触发 jQuery 模拟的事件。
+- Vuex 一个 input 如果原值是 a，修改后，再赋值为 a。由于虚拟 DOM 的值没有改变，顾不触发更新，导致 input 的值为修改后的值，并非最后赋值的a。
 
 基础
 
-- [生命周期](Base/生命周期.md)
-- [模板语法](Base/模板语法.md)
+- [生命周期](Base/lifecycle.md)
+- [模板语法](Base/template.md)
 - [计算属性和观察者](Base/计算属性和观察者.md)
 - [Class 与 Style 绑定](Base/Class与Style绑定.md)
 - [条件渲染](Base/条件渲染.md)

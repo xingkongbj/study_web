@@ -10,4 +10,4 @@
 
 ## 基础
 
-[DOM 元素继承](DOM元素继承.md)
+[DOM 元素继承](DOM-inherit.md)
