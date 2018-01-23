@@ -29,7 +29,9 @@
 ## CORS
 
  - 页面无法设置
- - 服务器返回响应头中设置 Access-Control-Allow-Origin: http://www.xingkongbj.com
+ - 服务器返回响应头中设置 Access-Control-Allow-Origin: *
+ - 服务器返回响应头中设置 Access-Control-Allow-Headers: Origin,X-Requested-With,Content-Type,Accept,Last-Modified
+ - 服务器返回响应头中设置 Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS,HEAD
 
 ## JSONP
 
