@@ -1,5 +1,7 @@
 # 跨域方式
 
+> http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+
 ## document.domain + iframe
 
  - 实现父页面与其内部 iframe 页面通讯，一级域名不同
