@@ -4,6 +4,7 @@
 
 基础
 
-- [JSX语法](Base/JSX.md)
+- [JSX语法](Base/introducing-jsx.md)
+- [元素渲染](Base/rendering-elements.md)
 
 
