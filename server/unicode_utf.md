@@ -1,6 +1,10 @@
 # Unicode和UTF编码
 
 > 编码转换 http://www.qqxiuzi.cn/bianma/Unicode-UTF.php
+> 
+> 介绍 https://www.jianshu.com/p/2d4ad873b39f
+> 
+> 介绍 https://www.jianshu.com/p/07b578adfbf8
 
 目录
 
