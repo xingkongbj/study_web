@@ -7,6 +7,7 @@
 - [brew](brew.md)
 - [npm](npm.md)
 - [yarn](yarn.md)
+- [nvm--nodejs版本切换](nvm.md)
 
 ## NPM 相关包
 
