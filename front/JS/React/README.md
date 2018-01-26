@@ -13,5 +13,6 @@
 - [列表 & Keys](Base/lists-and-keys.md)
 - [表单](Base/forms.md)
 - [状态提升](Base/lifting-state-up.md)
+- [组合 vs 继承](Base/composition-vs-inheritance.md)
 
 
