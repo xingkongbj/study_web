@@ -12,5 +12,6 @@
 - [条件渲染](Base/conditional-rendering.md)
 - [列表 & Keys](Base/lists-and-keys.md)
 - [表单](Base/forms.md)
+- [状态提升](Base/lifting-state-up.md)
 
 
