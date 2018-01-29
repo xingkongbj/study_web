@@ -8,9 +8,9 @@
 
 ## ClassA
 
-由两部分组成构造函数和原型。
-构造函数的部分，每个实例是独立的。
-原型的部分，每个实例是共享的。 
+- 由两部分组成构造函数和原型。
+- 构造函数的部分，每个实例是独立的。
+- 原型的部分，每个实例是共享的。 
 
 ```
 // 构造函数
@@ -26,9 +26,10 @@ ClassA.prototype.sayColor = function () {
 
 ## 生成一个实例
 
-1. this 指向 a。
-2. 执行构造函数 ClassA。
-3. a.\_\_proto__ 指向 ClassA.prototype。
+- 内部操作：
+    1. this 指向 a。
+    2. 执行构造函数 ClassA。
+    3. a.\_\_proto__ 指向 ClassA.prototype。
 
 ```
 var a = new ClassA();
@@ -56,5 +57,34 @@ ClassB.constructor = ClassB;
 
 ## 构造函数部分的继承--对象冒充
 
+1. 把 ClassA 引入 ClassB ，此时两者共用一个 this。
+2. 执行构造函数 ClassA。
+3. 删除临时引入。
+
+```
+function ClassB(sColor) {
+    this.newMethod = ClassA;
+    this.newMethod(sColor);
+    delete this.newMethod;
+}
+```
+
 ## 构造函数部分的继承--apply/call/bind
 
+- 它是对象冒充的一种函数实现
+- 把 ClassB 的 this 绑定到 ClassA 的 this 上，执行构造函数 ClassA。
+
+```
+function ClassB(sColor) {
+    ClassA.call(this, sColor);
+    // 以下两种方式效果一样，只是实现方式不同
+    // ClassA.apply(this, [sColor]);
+    // ClassA.bind(this, sColor)();
+}
+```
+
+## 继承
+
+- 继承由两部分组成：构造函数的继承和原型的继承。任意选择继承方式组合即可。
+- 构造函数的原型中的属性--constructor，永远指向该构造函数本身。如果继承时被修改，那么在最后请修正。
+- 继承是保留原来的特性，所以可以在继承后，对新的构造函数或原型属性进行扩展。
