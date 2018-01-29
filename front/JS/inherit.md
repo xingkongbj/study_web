@@ -4,7 +4,12 @@
 
 目录
 
-
+- [ClassA](#classa)
+- [生成一个实例](#生成一个实例)
+- [原型部分的继承](#原型部分的继承)
+- [构造函数部分的继承--对象冒充](#构造函数部分的继承--对象冒充)
+- [构造函数部分的继承--apply/call/bind](#构造函数部分的继承--applycallbind)
+- [继承](#继承-1)
 
 ## ClassA
 
@@ -27,9 +32,9 @@ ClassA.prototype.sayColor = function () {
 ## 生成一个实例
 
 - 内部操作：
-    1. this 指向 a。
+    1. this 指向一个新 { }， 该对象的\_\_proto__ 指向 ClassA.prototype。
     2. 执行构造函数 ClassA。
-    3. a.\_\_proto__ 指向 ClassA.prototype。
+    3. 返回 this 指向的 { }。
 
 ```
 var a = new ClassA();
@@ -57,7 +62,7 @@ ClassB.constructor = ClassB;
 
 ## 构造函数部分的继承--对象冒充
 
-1. 把 ClassA 引入 ClassB ，此时两者共用一个 this。
+1. 把 ClassA 当做方法引入 ClassB ，此时两者共用一个 this。
 2. 执行构造函数 ClassA。
 3. 删除临时引入。
 
