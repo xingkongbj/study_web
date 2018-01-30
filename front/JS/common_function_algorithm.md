@@ -568,3 +568,70 @@ function vueComp(obj1, obj2) {
     return type;
 }
 ```
+
+## 编程思想
+
+### 类数组转数组
+
+```
+Array.prototype.slice.call(arguments);
+```
+
+### 数组合并
+
+```
+[null].concat(Array.prototype.slice.call(arguments));
+```
+
+### apply && call
+
+- 在 obj 上调用 fun 函数，并且传给 fun 函数两个参数 arg1 和 arg2。
+
+```
+fun.ayyly(obj, [arg1, arg2]);
+fun.call(obj, arg1, arg2);
+```
+
+### bind
+
+- 在 obj 上生成一个函数，该函数会调用 fun 函数，并且传给 fun 函数两个参数 arg1 和 arg2。
+- 在调用 bind 生成的函数时，会接收参数，追加在 fun 函数的函数最后。
+
+```
+var fun2 = fun.bind(obj, arg1, arg2);
+fun2(arg3, arg4);
+// 类似形式 fun(arg1, arg2, arg3, arg4);
+```
+
+### 构造函数替代品
+
+```
+// ES6
+var dateInst = new Date(...arguments);
+// ES5
+var dateInst = new(Function.prototype.bind.apply(Date, [null].concat(Array.prototype.slice.call(arguments))))();
+```
+
+### 高阶函数
+
+- 逻辑：接收两个函数，函数 decorator 接收参数执行完成后，把返回结果当 func 函数的参数传入，由 func 函数返回最终结果。函数 decorator 的参数传入，由 decoratorArgs 函数生成的函数代传。
+- 作用：固化执行逻辑，非通用部分，通过参数传入。
+
+```
+function decoratorArgs(decorator, func) {
+    return function (...args) {
+        return func(...[].concat(decorator(...args)));
+    }
+}
+```
+
+### 柯里化
+
+- 逻辑：接收一个函数和多个参数，生成一个函数，该函数执行 func 函数，并把参数参入给 func 函数。该函数调用时候传入的参数，会追加给 func 函数后，一并执行。
+- 作用：把固定参数内置，减少重复内容。
+
+```
+function currying(func, ...args) {
+    return func.bind(null, ...args);
+}
+```
