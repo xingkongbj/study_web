@@ -1,0 +1,11 @@
+slip.js 5.9k 微型
+
+iSlider.js 19k
+引css 多个js body和#iSlider-wrapper宽高100% 
+
+fullpage.js 9.12k
+文档太少
+
+iscroll.js 50k 大型 滚动起容器增加position:relative或者absolute样式
+
+swiper.js 50k 大型 文档最全 功能最强大

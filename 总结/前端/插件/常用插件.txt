@@ -1,0 +1,29 @@
+bootstrap easyui 布局插件
+DD_belatedPNG respond 原理
+CommonJS通用编写规范，用于前端和后台通用部分
+Seajs CMD通用模式
+RequireJS AMD异步模式
+sass less CSS编程模式
+TypeScript 微软编写的一个js的超类
+Sizzle 不支持原生getElementsByClass以及querySelectorAll的标签选择插件
+underscore 一个纯净的扩展库，功能丰富
+YUI 功能丰富，扩展很多插件
+
+手机端
+zepto 手机端基础库
+animate.css css3动画库
+slip.js iSlider.js iscroll.js swiper.js 手机滑屏插件
+
+功能
+CMS
+充值
+直播
+管理
+聊天和表情
+第三方登录
+内嵌页面
+活动
+二维码
+分享
+画布
+头像裁剪
