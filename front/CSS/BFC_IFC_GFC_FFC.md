@@ -21,14 +21,14 @@ BFC(Block Formatting Contexts)直译为"块级格式化上下文"。Block Format
 - float的值不为none。
 - overflow的值不为visible。
 - position的值不为relative和static。
-- display的值为table-cell, table-caption, inline-block中的任何一个。
+- display的值为table-cell, table-caption, inline-block，inline-flex中的任何一个。
 
 作用：
 
-比如常见的多栏布局，结合块级别元素浮动，里面的元素则是在一个相对隔离的环境里运行。
+比如常见的多栏布局，结合块级别元素浮动，里面的元素则是在一个相对隔离的环境里运行。一般用overflow: hidden; 产生 BFC。
 
 - 清除内部元素浮动，撑开高度。
-- 解决上下边距重叠问题。
+- 解决上下边距重叠问题，两个元素分别放至不同的 BFC 中。
 - 解决与 float 元素重叠问题。
 
 ## IFC
