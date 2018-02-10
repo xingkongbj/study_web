@@ -7,7 +7,7 @@
 - [let 和 const 命令](let_const.md)
 - [变量的解构赋值](destructuring.md)
 - [字符串的扩展](String.md)
-- [正则的扩展](正则的扩展.md)
+- [正则的扩展](RegExp.md)
 - [数值的扩展](数值的扩展.md)
 - [函数的扩展](函数的扩展.md)
 - [数组的扩展](数组的扩展.md)
