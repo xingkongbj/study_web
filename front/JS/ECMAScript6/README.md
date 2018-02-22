@@ -9,7 +9,7 @@
 - [字符串的扩展](String.md)
 - [正则的扩展](RegExp.md)
 - [数值的扩展](Number_Math.md)
-- [函数的扩展](函数的扩展.md)
+- [函数的扩展](Function.md)
 - [数组的扩展](数组的扩展.md)
 - [对象的扩展](对象的扩展.md)
 - [Symbol](Symbol.md)
