@@ -579,16 +579,40 @@ function vueComp(obj1, obj2) {
 
 ## 编程思想
 
-### 类数组转数组
+### Iterator 转数组
 
 ```
+// ES5
 Array.prototype.slice.call(arguments);
+
+// ES6
+[...arguments]
 ```
 
-### 数组合并
+### 数组的合并
 
 ```
+// ES5
 [null].concat(Array.prototype.slice.call(arguments));
+// 或
+Array.prototype.push.apply(arr1, arr2);
+
+// ES6
+arr1.push(...arr2);
+// 或
+[...arr1, ...arr2]
+```
+
+### 数组的克隆
+
+```
+// ES5
+const arr2 = arr1.concat();
+
+// ES6
+const arr2 = [...arr1];
+// 或
+const [...a2] = a1;
 ```
 
 ### apply && call
