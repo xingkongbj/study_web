@@ -11,7 +11,7 @@
 - [数值的扩展](Number_Math.md)
 - [函数的扩展](Function.md)
 - [数组的扩展](Array.md)
-- [对象的扩展](对象的扩展.md)
+- [对象的扩展](Object.md)
 - [Symbol](Symbol.md)
 - [Set 和 Map 数据结构](Set和Map数据结构.md)
 - [Proxy](Proxy.md)
