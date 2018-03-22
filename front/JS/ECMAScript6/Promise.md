@@ -8,6 +8,7 @@
 - [基本用法](#基本用法)
 - [Promise.prototype.then()](#promiseprototypethen)
 - [Promise.prototype.catch()](#promiseprototypecatch)
+- [Promise.prototype.finally()](#Promiseprototypefinally)
 - [Promise.all()](#promiseall)
 - [Promise.race()](#promiserace)
 - [Promise.resolve()](#promiseresolve)
@@ -19,19 +20,19 @@
 
 特点
 
-- 对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
+- 对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
 - 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise 对象的状态改变，只有两种可能：从 pending 变为 fulfilled 和 从 pending 变为 rejected。
 
 缺点
 
-- 无法取消Promise，一旦新建它就会立即执行，无法中途取消。
-- 如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。
-- 当处于pending状态时，无法得知目前进展到哪一个阶段。
+- 无法取消 Promise，一旦新建它就会立即执行，无法中途取消。
+- 如果不设置回调函数，Promise 内部抛出的错误，不会反应到外部。
+- 当处于 pending 状态时，无法得知目前进展到哪一个阶段。
 
 ## 基本用法
 
-- 通过resolve和reject识别是否成功
-- 通过resolve和reject的参数返回结果
+- 通过 resolve 和 reject 识别是否成功
+- 通过 resolve 和 reject 的参数返回结果
 
 ```
 const promise = new Promise(function(resolve, reject) {
@@ -51,8 +52,8 @@ promise.then(function(value) {
 });
 ```
 
-- 如果p2结果是成功，那么会等待p1的结果，并把p1结果作为p2结果。
-- 如果p2结果是失败，那么不会等待p1的结果，直接失败。
+- 如果 p2 结果是成功，那么会等待 p1 的结果，并把 p1 结果作为 p2 结果。
+- 如果 p2 结果是失败，那么不会等待 p1 的结果，直接失败。
 
 ```
 const p1 = new Promise(function (resolve, reject) {
@@ -67,9 +68,9 @@ const p2 = new Promise(function (resolve, reject) {
 
 ## Promise.prototype.then()
 
-- 返回的是一个新的Promise实例，不是原来那个Promise实例
-- 状态传递，前一个状态，决定后一个状态，前一个失败会导致后面都失败
-- retrun 一个Promise实例，后面的then会捕获该Promise的状态和返回参数；否则把当前then前面的状态，和当前then的返回值，提供给后面的then
+- 返回的是一个新的 Promise 实例，不是原来那个 Promise 实例。
+- 状态传递，前一个状态，决定后一个状态，前一个失败会导致后面都失败。
+- retrun 一个 Promise 实例，后面的 then 会捕获该 Promise 的状态和返回参数；否则把当前 then 前面的状态，和当前 then 的返回值，提供给后面的 then。
 
 ```
 getJSON("/post/1.json").then(function(post) {
@@ -95,6 +96,10 @@ getJSON('/post/1.json').then(function(post) {
   // 处理前面三个Promise产生的错误
 });
 ```
+
+## Promise.prototype.finally()
+
+
 
 ## Promise.all()
 
