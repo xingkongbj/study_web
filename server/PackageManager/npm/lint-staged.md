@@ -17,16 +17,16 @@ npm install --save-dev lint-staged
 // package.json
 {
   "scripts": {
-    "my-task": "your-command",
+    "precommit": "lint-staged",
   },
   "lint-staged": {
-    "*": "my-task"
+    "*": "your-cmd"
   }
 }
 
 // .lintstagedrc
 {
-  "*": "my-task"
+  "*": "your-cmd"
 }
 ```
 
