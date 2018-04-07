@@ -8,11 +8,12 @@
 - [基本用法](#基本用法)
 - [Promise.prototype.then()](#promiseprototypethen)
 - [Promise.prototype.catch()](#promiseprototypecatch)
-- [Promise.prototype.finally()](#Promiseprototypefinally)
+- [Promise.prototype.finally()](#promiseprototypefinally)
 - [Promise.all()](#promiseall)
 - [Promise.race()](#promiserace)
 - [Promise.resolve()](#promiseresolve)
 - [Promise.reject()](#promisereject)
+- [Promise.try()](#promisetry)
 
 ## Promise 的特点
 
