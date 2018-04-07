@@ -99,18 +99,27 @@ getJSON('/post/1.json').then(function(post) {
 
 ## Promise.prototype.finally()
 
+- 不管 Promise 对象最后状态如何，都会执行的操作。
+- 不能获取到 Promise 对象状态，不会有参数传入。
 
+```
+promise
+.then(result => {···})
+.catch(error => {···})
+.finally(() => {···});
+```
 
 ## Promise.all()
 
-- 只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
-- 只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+- 只有 p1、p2、p3 的状态都变成 fulfilled，p 的状态才会变成 fulfilled，此时 p1、p2、p3 的返回值组成一个数组，传递给 p 的回调函数。
+- 只要 p1、p2、p3 之中有一个被 rejected，p 的状态就变成 rejected，此时第一个被 reject 的实例的返回值，会传递给 p 的回调函数。
+- 结果都返回了，才会触发后面的 then。
 
 ```
 const p = Promise.all([p1, p2, p3]);
 ```
 
-注意，如果作为参数的 Promise 实例，自己定义了catch方法，那么它一旦被rejected，并不会触发Promise.all()的catch方法。
+注意，如果作为参数的 Promise 实例，自己定义了 catch 方法，那么它一旦被 rejected，并不会触发 Promise.all() 的 catch 方法。
 
 ```
 const p1 = new Promise((resolve, reject) => {
@@ -133,7 +142,7 @@ Promise.all([p1, p2])
 
 ## Promise.race()
 
-- 只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。
+- 只要 p1、p2、p3 之中有一个实例率先改变状态，p 的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。
 
 ```
 const p = Promise.race([p1, p2, p3]);
@@ -141,10 +150,10 @@ const p = Promise.race([p1, p2, p3]);
 
 ## Promise.resolve()
 
-- 如果参数是 Promise 实例，那么Promise.resolve将不做任何修改、原封不动地返回这个实例。
+- 如果参数是 Promise 实例，那么 Promise.resolve 将不做任何修改、原封不动地返回这个实例。
 - 如果参数是 thenable 对象，会将这个对象转为 Promise 对象，然后就立即执行 thenable 对象的 then 方法。
-- 如果参数是一个原始值，或者是一个不具有then方法的对象，则Promise.resolve方法返回一个新的 Promise 对象，状态为resolved。
-- 如果不带有任何参数，直接返回一个resolved状态的 Promise 对象。
+- 如果参数是一个原始值，或者是一个不具有 then 方法的对象，则 Promise.resolve 方法返回一个新的 Promise 对象，状态为 resolved。
+- 如果不带有任何参数，直接返回一个 resolved 状态的 Promise 对象。
 
 ```
 Promise.resolve('foo')
@@ -167,7 +176,7 @@ p1.then(function(value) {
 
 ## Promise.reject()
 
-- 生成一个 Promise 对象的实例p，状态为rejected，回调函数会立即执行。
+- 生成一个 Promise 对象的实例 p，状态为 rejected，回调函数会立即执行。
 
 ```
 const thenable = {
@@ -184,3 +193,13 @@ Promise.reject(thenable)
 // 不是reject抛出的“出错了”这个字符串，而是thenable对象
 ```
 
+## Promise.try()
+
+- 所有同步和异步的错误。
+- 模拟try代码块。
+
+```
+Promise.try(database.users.get({id: userId}))
+  .then(...)
+  .catch(...)
+```
