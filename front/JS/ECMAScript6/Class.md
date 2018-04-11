@@ -12,6 +12,11 @@ ES6 的 class 可以看作只是一个语法糖。
 
 - 类和模块的内部，默认就是严格模式。
 - 类的内部所有定义的方法，都是不可枚举的。
+- 方法之间不能加 “,” 号，前面不需要加 function。
+- constructor 方法会被默认添加。
+- 类必须使用 new 调用。
+- constructor 方法内部 this 是类的实例对象。
+- class 的定义不存在变量提升。
 
 ```
 function Point(x, y) {
@@ -41,6 +46,30 @@ Object.keys(Point.prototype)
 // []
 Object.getOwnPropertyNames(Point.prototype)
 // ["constructor","toString"]
+```
+## 类的静态方法
+
+- 只在类上有效，不会实例化。
+- 静态方法可以与非静态方法重名.
+- 内部只有静态方法，没有静态属性。
+
+```
+class Foo {
+  static classMethod() {
+    return 'hello';
+  }
+}
+
+Foo.classMethod() // 'hello'
+```
+
+## new.target 属性
+
+- 返回 new 命令作用于的那个构造函数，没有返回 undefined。
+- 类中使用，返回该类。子类继承父类时，new.target 会返回子类。
+
+```
+
 ```
 
 ## 继承
