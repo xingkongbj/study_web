@@ -47,6 +47,7 @@ Object.keys(Point.prototype)
 Object.getOwnPropertyNames(Point.prototype)
 // ["constructor","toString"]
 ```
+
 ## 类的静态方法
 
 - 只在类上有效，不会实例化。
@@ -112,3 +113,126 @@ Object.getPrototypeOf(ColorPoint) === Point
 ```
 
 ## super 关键字
+
+### super 作为函数调用时，代表父类的构造函数。
+
+- 返回的是子类 B 的实例，即 super 内部的 this 指的是 B，因此 super() 在这里相当于 A.prototype.constructor.call(this)。
+- super() 只能用在子类的构造函数之中使用。
+
+```
+class A {
+  constructor() {
+    console.log(new.target.name);
+  }
+}
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+new A() // A
+new B() // B
+```
+
+### super 作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类。
+
+```
+class Parent {
+  static myMethod(msg) {
+    console.log('static', msg);
+  }
+
+  myMethod(msg) {
+    console.log('instance', msg);
+  }
+}
+
+class Child extends Parent {
+  static myMethod(msg) {
+    super.myMethod(msg);
+  }
+
+  myMethod(msg) {
+    super.myMethod(msg);
+  }
+}
+
+Child.myMethod(1); // static 1
+
+var child = new Child();
+child.myMethod(2); // instance 2
+```
+
+### 在子类普通方法中通过 super 调用父类的方法时，方法内部的 this 指向当前的子类实例。
+
+```
+class A {
+  constructor() {
+    this.x = 1;
+  }
+  print() {
+    console.log(this.x);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.x = 2;
+  }
+  m() {
+    super.print();
+  }
+}
+
+let b = new B();
+b.m() // 2
+```
+
+### 如果通过 super 对某个属性赋值，这时 super 就是 this，赋值的属性会变成子类实例的属性。
+
+```
+class A {
+  constructor() {
+    this.x = 1;
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.x = 2;
+    super.x = 3;
+    console.log(super.x); // undefined
+    console.log(this.x); // 3
+  }
+}
+
+let b = new B();
+```
+
+### 在子类的静态方法中通过 super 调用父类的方法时，方法内部的 this 指向当前的子类，而不是子类的实例。
+
+```
+class A {
+  constructor() {
+    this.x = 1;
+  }
+  static print() {
+    console.log(this.x);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+    this.x = 2;
+  }
+  static m() {
+    super.print();
+  }
+}
+
+B.x = 3;
+B.m() // 3
+```
