@@ -4,8 +4,8 @@
 
 目录
 
-- [let 和 const 命令](let_const.md)
-- [变量的解构赋值](destructuring.md)
+- [Let 和 Const 命令](Let_Const.md)
+- [变量的解构赋值](Destructuring.md)
 - [字符串的扩展](String.md)
 - [正则的扩展](RegExp.md)
 - [数值的扩展](Number_Math.md)
@@ -19,5 +19,5 @@
 - [Promise 对象](Promise.md)
 - [Iterator 和 for...of 循环](Iterator.md)
 - [Generator 函数的语法](Generator.md)
-- [async](async.md)
+- [Async](Async.md)
 - [Class 的基本语法](Class.md)
