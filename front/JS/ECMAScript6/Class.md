@@ -69,14 +69,27 @@ Foo.classMethod() // 'hello'
 - 类中使用，返回该类。子类继承父类时，new.target 会返回子类。
 
 ```
+class Rectangle {
+  constructor(length, width) {
+    console.log(new.target === Rectangle);
+    // ...
+  }
+}
 
+class Square extends Rectangle {
+  constructor(length) {
+    super(length, length);
+  }
+}
+
+var obj = new Square(3); // 输出 false
 ```
 
-## 继承
+## 类的继承
 
-ES5 的继承，实质是先创造子类的实例对象 this，然后再将父类的方法添加到 this 上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先创造父类的实例对象 this（所以必须先调用super方法），然后再用子类的构造函数修改 this。
-
+- ES5 的继承，实质是先创造子类的实例对象 this，然后再将父类的方法添加到 this 上面（Parent.apply(this)）。ES6 的继承机制完全不同，实质是先创造父类的实例对象 this（所以必须先调用 super 方法），然后再用子类的构造函数修改 this。
 - 在子类的构造函数中，只有调用 super 之后，才可以使用 this 关键字，否则会报错。返回的 this 是子类的实例。
+- 父类的静态方法，也会被子类继承。
 
 ```
 class Point {
@@ -87,10 +100,15 @@ class Point {
 }
 
 class ColorPoint extends Point {
-  constructor(x, y, color) {
+  constructor(x, y, color) { // 省略时，默认添加 constructor 和 super 的调用
     this.color = color; // ReferenceError
-    super(x, y);
+    super(x, y); // 继承父类
     this.color = color; // 正确
   }
 }
+
+Object.getPrototypeOf(ColorPoint) === Point
+// true 判断一个类的父类
 ```
+
+## super 关键字
