@@ -2,6 +2,31 @@
 
 > https://segmentfault.com/a/1190000008470355?utm_source=tuicool&utm_medium=referral
 
+目录
+
+- [支持环境](#支持环境)
+- [特色](#特色)
+- [安装](#安装)
+- [Get 请求](#get-请求)
+- [Post 请求](#post-请求)
+- [多重并发请求](#多重并发请求)
+- [请求方法的重命名](#请求方法的重命名)
+- [并发方法](#并发方法)
+- [创建一个实例](#创建一个实例)
+- [实例方法](#实例方法)
+- [Config 请求设置](#config-请求设置)
+- [Response 响应结果](#response-响应结果)
+- [默认设置](#默认设置)
+    - [全局默认设置](#全局默认设置)
+    - [实例中自定义默认值](#实例中自定义默认值)
+    - [设置优先级](#设置优先级)
+- [拦截器](#拦截器)
+- [错误处理](#错误处理)
+- [取消](#取消)
+- [使用 application/x-www-form-urlencoded 格式化](#使用-applicationx-www-form-urlencoded-格式化)
+    - [浏览器 Browser](#浏览器-browser)
+    - [Node.js](#nodejs)
+
 ## 支持环境
 
 - 浏览器
