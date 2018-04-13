@@ -54,10 +54,10 @@
     - [cookie 和 session](../../tree/master/front/Browser/cookie-session.md)
     - [DOM 相关资料](../../tree/master/front/Browser/DOM)
     - [Web 攻击](../../tree/master/front/Browser/webAttack.md)
+- [打包相关](../../tree/master/front/PackageManager/)
 
 ## 服务器 ---- 服务器及后台相关知识
 
-- [打包相关](../../tree/master/server/PackageManager/)
 - [HTTP请求头、响应头和状态码](../../tree/master/server/HTTPprotocol.md)
 - [HTTP 2.0](../../tree/master/server/HTTP2.md)
 - [Git](../../tree/master/server/Git.md)
