@@ -485,7 +485,7 @@ babel 的配置选项非常多，每个转译器也都有自己的配置选项�
 
 ### plugins 和 presets 的顺序
 
-详情点[这里](https://babeljs.cn/docs/plugins/#plugin-preset-ordering)
+详情点[这里](https://babeljs.cn/docs/plugins/#pluginpreset-排序)
 
 - 如果同时存在 plugins 和 presets，则先使用 plugins 转译。
 - plugin 的调用顺序是从第一个到最后一个。
