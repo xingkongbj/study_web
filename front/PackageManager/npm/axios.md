@@ -1,4 +1,4 @@
-# husky--git提交触发
+# axios--面向浏览器和nodejs支持http请求
 
 > https://segmentfault.com/a/1190000008470355?utm_source=tuicool&utm_medium=referral
 
