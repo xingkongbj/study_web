@@ -33,7 +33,8 @@
  - 页面无法设置
  - 服务器返回响应头中设置 Access-Control-Allow-Origin: *
  - 服务器返回响应头中设置 Access-Control-Allow-Headers: Origin,X-Requested-With,Content-Type,Accept,Last-Modified
- - 服务器返回响应头中设置 Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS,HEAD
+ - 服务器返回响应头中设置 Access-Control-Allow-Methods: POST,GET,OPTIONS,HEAD
+ - Access-Control-Allow-Methods 中不要包含 PUT 和 DELETE 会对安全有影响，GET、POST、HEAD 是基本方法，不设置也会生效。
 
 ## JSONP
 
