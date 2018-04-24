@@ -58,7 +58,7 @@
 
 ## 服务器 ---- 服务器及后台相关知识
 
-- [HTTP请求头、响应头和状态码](../../tree/master/server/HTTPprotocol.md)
+- [HTTP 首部字段和状态码](../../tree/master/server/HTTPprotocol.md)
 - [HTTP 2.0](../../tree/master/server/HTTP2.md)
 - [Git](../../tree/master/server/Git.md)
 - [Unicode和UTF编码](../../tree/master/server/unicode_utf.md)
