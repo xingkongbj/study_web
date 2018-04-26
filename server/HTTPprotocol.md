@@ -5,7 +5,6 @@
 - [常用状态码](#常用状态码)
 - [请求方法](#请求方法)
 - [状态码](#状态码)
-- [通用首部字段](#通用首部字段)
 - [主体首部字段](#主体首部字段)
 - [请求首部字段](#请求首部字段)
 - [响应首部字段](#响应首部字段)
@@ -158,15 +157,6 @@ Upgrade | 升级为其他协议 | Upgrade: HTTP/2.0, websocket
 Via | 中间网关或代理服务器信息 | Via: 1.0 fred, 1.1 nowhere.com (Apache/1.1)
 Warning | 关于主体的警告信息 | Warn: 199 Miscellaneous warning
 
-## 通用首部字段
-
-Header | 描述 | 示例
-:---: | :--- | :---
-Allow | 允许的请求方法，只在响应返回中存在。不允许则返回 405，并附带该首部字段 | Allow: GET, HEAD
-Content-Encoding | 主体的压缩编码类型，只在响应返回中存在。 | Content-Encoding: gzip
-Content-Language | 主体的自然语言，只在响应返回中存在。  | Content-Language: en,zh
-
-
 ## 请求首部字段
 
 Header | 描述 | 示例
@@ -175,17 +165,14 @@ Accept | 指定客户端能够接收的内容类型 | Accept: text/plain, text/h
 Accept-Encoding | 指定浏览器可以支持的主体内容压缩编码类型 | Accept-Encoding: compress, gzip
 Accept-Language | 浏览器可接受的自然语言 | Accept-Language: en,zh
 Content-Type | 请求的与主体对应的 MIME 信息 | Content-Type: application/x-www-form-urlencoded
-Content-Length | 请求的主体内容长度，当主体内容压缩时不使用 | Content-Length: 348
-Cookie | HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器。 | Cookie: $Version=1; Skin=new;
-Host | 指定请求的服务器的域名和端口号 | Host: www.zcmhi.com
-Referer | 先前网页的地址，当前请求网页紧随其后,即来路 | Referer: http://www.zcmhi.com/archives/71.html
-User-Agent | User-Agent的内容包含发出请求的用户信息 | User-Agent: Mozilla/5.0 (Linux; X11)
-&nbsp; | 以上为常用 | &nbsp;
+Content-Length | 主体的长度，当主体内容压缩时不使用 | Content-Length: 348
+Content-Type | 主体的 MIME 类型和编码格式 | Content-Type: text/html; charset=utf-8
+&nbsp; | 以上为主体部分 | &nbsp;
 Accept-Charset | 浏览器可以接受的字符编码集。 | Accept-Charset: iso-8859-5
-Accept-Ranges | 可以请求网页实体的一个或者多个子范围字段 | Accept-Ranges: bytes
 Authorization | HTTP授权的授权证书 | Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 Expect | 请求的特定的服务器行为 | Expect: 100-continue
 From | 发出请求的用户的Email | From: user@email.com
+Host | 指定请求的服务器的域名和端口号 | Host: www.zcmhi.com
 If-Match | 只有请求内容与实体相匹配才有效 | If-Match: “737060cd8c284d8af7ad3082f209582d”
 If-Modified-Since | 如果请求的部分在指定时间之后被修改则请求成功，未被修改则返回304代码 | If-Modified-Since: Sat, 29 Oct 2010 19:43:31 GMT
 If-None-Match | 如果内容未改变返回304代码，参数为服务器先前发送的Etag，与服务器回应的Etag比较判断是否改变 | If-None-Match: “737060cd8c284d8af7ad3082f209582d”
@@ -194,38 +181,36 @@ If-Unmodified-Since | 只在实体在指定时间之后未被修改才请求成�
 Max-Forwards | 限制信息通过代理和网关传送的时间 | Max-Forwards: 10
 Proxy-Authorization | 连接到代理的授权证书 | Proxy-Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 Range | 只请求实体的一部分，指定范围 | Range: bytes=500-999
+Referer | 先前网页的地址，当前请求网页紧随其后,即来路 | Referer: http://www.zcmhi.com/archives/71.html
 TE | 客户端愿意接受的传输编码，并通知服务器接受接受尾加首部字段信息 | TE: trailers,deflate;q=0.5
-
-
-
+User-Agent | User-Agent的内容包含发出请求的用户信息 | User-Agent: Mozilla/5.0 (Linux; X11)
+Cookie | HTTP请求发送时，会把保存在该请求域名下的所有cookie值一起发送给web服务器。 | Cookie: $Version=1; Skin=new;
 
 ## 响应首部字段
 
 Header | 描述 | 示例
 :---: | :--- | :---
-
-
-Content-Type | 返回内容的MIME类型 | Content-Type: text/html; charset=utf-8
-Content-Length | 响应体的长度，当主体内容压缩时不使用 | Content-Length: 348
-Set-Cookie | 设置Http Cookie | Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1
-Server | web服务器软件名称 | Server: Apache/1.3.27 (Unix) (Red-Hat/Linux)
-Expires | 响应过期的日期和时间 | Expires: Thu, 01 Dec 2010 16:00:00 GMT
-&nbsp; | 以上为常用 | &nbsp;
-Accept-Ranges | 表明服务器是否支持指定范围请求及哪种类型的分段请求 | Accept-Ranges: bytes
-Age | 从原始服务器到代理缓存形成的估算时间（以秒计，非负） | Age: 12
-Content-Location | 请求资源可替代的备用的另一地址 | Content-Location: /index.htm
+Allow | 允许的请求方法。不允许则返回 405，并附带该首部字段 | Allow: GET, HEAD
+Content-Encoding | 主体的压缩编码类型 | Content-Encoding: gzip
+Content-Language | 主体的自然语言  | Content-Language: en,zh
+Content-Location | 报文主体对应的 URI | Content-Location: /index.htm
 Content-MD5 | 返回资源的MD5校验值 | Content-MD5: Q2hlY2sgSW50ZWdyaXR5IQ==
 Content-Range | 在整个返回体中本部分的字节位置 | Content-Range: bytes 21010-47021/47022
+Expires | 主体过期的日期和时间 | Expires: Thu, 01 Dec 2010 16:00:00 GMT
+Last-Modified | 主体的最后修改时间 | Last-Modified: Tue, 15 Nov 2010 12:45:26 GMT
+Content-Length | 主体的长度，当主体内容压缩时不使用 | Content-Length: 348
+Content-Type | 主体的 MIME 类型和编码格式 | Content-Type: text/html; charset=utf-8
+&nbsp; | 以上为主体部分 | &nbsp;
+Accept-Ranges | 表明服务器是否支持指定范围请求及哪种类型的分段请求 | Accept-Ranges: bytes
+Age | 从原始服务器到代理缓存形成的估算时间（以秒计，非负） | Age: 12
 ETag | 请求变量的实体标签的当前值 | ETag: “737060cd8c284d8af7ad3082f209582d”
-Last-Modified | 请求资源的最后修改时间 | Last-Modified: Tue, 15 Nov 2010 12:45:26 GMT
 Location | 用来重定向接收方到非请求URL的位置来完成请求或标识新的资源 | Location: http://www.zcmhi.com/archives/94.html
 Proxy-Authenticate | 它指出认证方案和可应用到代理的该URL上的参数 | Proxy-Authenticate: Basic
-refresh | 应用于重定向或一个新的资源被创造，在5秒之后重定向（由网景提出，被大部分浏览器支持） | Refresh: 5; url=http://www.zcmhi.com/archives/94.html 
 Retry-After | 如果实体暂时不可取，通知客户端在指定时间之后再次尝试 | Retry-After: 120
+Server | web服务器软件名称 | Server: Apache/1.3.27 (Unix) (Red-Hat/Linux)
 Vary | 告诉下游代理是使用缓存响应还是从原始服务器请求 | Vary: *
 WWW-Authenticate | 表明客户端请求实体应该使用的授权方案 | WWW-Authenticate: Basic
-
-
-
+Set-Cookie | 设置Http Cookie | Set-Cookie: UserID=JohnDoe; Max-Age=3600; Version=1
+refresh | 应用于重定向或一个新的资源被创造，在5秒之后重定向（由网景提出，被大部分浏览器支持） | Refresh: 5; url=http://www.zcmhi.com/archives/94.html 
 Trailer | 报文主体之后（分块长度0 之后）出现了首部字段 | Trailer: Expires
 Transfer-Encoding | 传输报文主体时采用的编码方式 | Transfer-Encoding: chunked
