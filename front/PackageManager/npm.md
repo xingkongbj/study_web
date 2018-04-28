@@ -123,3 +123,24 @@ npm 是随同 Node.js 一起安装的包管理工具
 ## 使用淘宝 NPM 镜像
 
     npm install -g cnpm --registry=https://registry.npm.taobao.org  #而后可以使用 cnpm 代替 npm
+    
+## 常用脚本
+
+常用脚本可以简写，如 npm run test 写成 npm test。
+
+npm run script1.js & npm run script2.js 表示 script1 和 script2 同时执行。
+
+npm run script1.js && npm run script2.js 表示 script1 执行成功后执行 script2。
+
+- test - 测试
+- build - 编译
+- start - 启动
+- restart - 重启--先执行 stop 再执行 restart 最后执行 start
+- stop - 停止
+- install - 安装
+- uninstall - 卸载
+- publish - 发布
+
+## hook
+
+钩子--用于在命令执行前后，执行相关语句，写入 scripts 中。pre+脚本在命令之前运行，post+脚本在命令之后运行。如 preclean->clean->postclean。
