@@ -20,8 +20,8 @@ npm 是随同 Node.js 一起安装的包管理工具
     
 ## 安装 Node.js 模块
 
-    npm install <Module Name>@<指定版本> # 安装指定版本
-    npm install <Module Name> -S, --save # 安装包信息将加入到dependencies（生产阶段的依赖）
+    npm install <Module Name>@<指定版本> # 安装指定版本 latest为最新版本
+    npm install <Module Name> -S, --save # 安装包信息将加入到 dependencies（生产阶段的依赖）
     npm install <Module Name> -D, --save-dev # 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它
     npm install <Module Name> -O, --save-optional # 安装包信息将加入到optionalDependencies（可选阶段的依赖）
     npm install <Module Name> -E, --save-exact # 精确安装指定模块版本
@@ -51,17 +51,24 @@ npm 是随同 Node.js 一起安装的包管理工具
 - name - 包名。
 - version - 包的版本号。
 - description - 包的描述。
-- main - main 字段是一个路径，它是一个指向你程序的主要项目。就是说，如果你包的名字叫 express，然后用户安装它，然后require("express")。
+- main - main 字段是一个路径，指向主文件。
 - scripts - npm run 时运行的脚本。
 - license - 许可协议。
 - repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
 - keywords - 关键字
-- author - 包的作者姓名。
+- author - 作者。
 - contributors - 包的其他贡献者姓名。
 - bugs - 提 bug 的地址。
 - homepage - 包的官网 url 。
 - dependencies - 发布时依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在用户根目录的 node_module 目录下。
 - devDependencies - 开发时依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在项目根目录的 node_module 目录下。
+- peerDependencies - 运行时依赖包版本限制列表。
+- files - 数组表示模块包含的文件或目录。
+- bin - 安装可执行命令。
+- config - 模块配置。
+- engines - node 的版本范围。
+- os - 支持的操作系统。
+- cpu - 支持的 cpu 框架。
 
 ## 卸载模块
 
@@ -97,21 +104,21 @@ npm 是随同 Node.js 一起安装的包管理工具
     
 ## 版本号
 
-语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。 
+语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。 
 
-- 如果只是修复bug，需要更新Z位。
-- 如果是新增了功能，但是向下兼容，需要更新Y位。
-- 如果有大变动，向下不兼容，需要更新X位。
+- 如果只是修复 bug，需要更新 Z 位。
+- 如果是新增了功能，但是向下兼容，需要更新 Y 位。
+- 如果有大变动，向下不兼容，需要更新 X 位。
 
 ## 其他命令
 
-- NPM提供了很多命令，例如install和publish，使用npm help可查看所有命令。
-- 使用npm help <command>可查看某条命令的详细帮助，例如npm help install。
-- 在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。
-- 使用npm update <package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。
-- 使用npm update <package> -g可以把全局安装的对应命令行程序更新至最新版。
-- 使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。
-- 使用npm unpublish <package>@<version>可以撤销发布自己发布过的某个版本代码。
+- NPM 提供了很多命令，例如 install 和 publish，使用 npm help 可查看所有命令。
+- 使用 npm help <command> 可查看某条命令的详细帮助，例如 npm help install。
+- 在 package.json 所在目录下使用 npm install . -g 可先在本地安装当前命令行程序，可用于发布前的本地测试。
+- 使用 npm update <package> 可以把当前目录下 node_modules 子目录里边的对应模块更新至最新版本。
+- 使用 npm update <package> -g 可以把全局安装的对应命令行程序更新至最新版。
+- 使用 npm cache clear 可以清空 NPM 本地缓存，用于对付使用相同版本号发布新版本代码的人。
+- 使用 npm unpublish <package>@<version> 可以撤销发布自己发布过的某个版本代码。
 
 ## 使用淘宝 NPM 镜像
 

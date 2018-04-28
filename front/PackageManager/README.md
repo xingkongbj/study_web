@@ -17,3 +17,4 @@
 - [lint-staged--lint检测git下暂存文件](npm/lint-staged.md)
 - [axios--面向浏览器和nodejs支持http请求](npm/axios.md)
 - [Babel--支持ES新特性](npm/Babel.md)
+- moment--时间格式化
