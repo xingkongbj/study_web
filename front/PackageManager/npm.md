@@ -144,3 +144,31 @@ npm run script1.js && npm run script2.js 表示 script1 执行成功后执行 sc
 ## hook
 
 钩子--用于在命令执行前后，执行相关语句，写入 scripts 中。pre+脚本在命令之前运行，post+脚本在命令之后运行。如 preclean->clean->postclean。
+
+## bin
+
+bin 目录存放全局命令，文件首行引入 node
+
+```
+#!/usr/bin/env node 
+```
+
+- node 对于 ES6 的功能分成了 3 个部分: shipping, staged 和 in progress。
+- shipping 功能: 这些功能是已经稳定的。已经写入了 node 中的，直接就可以使用。
+- staged 功能: 此功能是几乎完成的功能，但是 v8 团队考虑稳定性，需要使用 --harmony。
+- in progress 功能: 此功能是需要写出标签的，比如你上面写的 --harmony_destructuring。
+- 你可以通过下面的命令查看 node --v8-options | grep 'in progress'
+
+## shell
+
+shell 文件，一般无后缀，文件首行引入 shell 程序
+
+```
+#!/bin/sh
+
+# 设置全局 node_modules 的路径
+export PATH="$PATH:/usr/local/bin:/usr/local"
+export PATH="$PATH:/c/Program Files/nodejs"
+```
+
+
