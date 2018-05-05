@@ -63,3 +63,9 @@ node --v8-options | grep 'in progress'
 ```
 echo hello world
 ```
+
+## pwd--输出当前路径
+
+```
+pwd
+```
