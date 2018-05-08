@@ -69,3 +69,10 @@ echo hello world
 ```
 pwd
 ```
+
+## exit--退出
+
+```
+# 0为成功
+exit 1
+```

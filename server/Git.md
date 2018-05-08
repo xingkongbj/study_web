@@ -126,6 +126,8 @@ git commit --amend  # 修改上一次提交记录，可以修改提交说明，�
 git status -s  # 简短模式：A新添加，??未添加，右M修改后，左M放入暂存区
 git diff < 文件 >  # 比较工作区文件与暂存区的差异
 git diff < 文件 > --cached  # 比较暂存区文件与本地仓库的差异
+git diff HEAD < 文件 >  # 比较工作区文件与本地仓库的差异
+git diff HEAD --name-only --diff-filter=ACMR # 比较工作区文件与本地仓库的差异，只输出文件名，并且是 A 新增 C 拷贝 M 修改 R 重命名的文件。
 git reflog  # 查看带版本号的提交记录，一行简单日志
 git stash  # 保存工作区，并且清理工作区，可以恢复到任意分支
 git stash list  # 查看已保存的工作区记录，有保存时的分支名称
