@@ -35,3 +35,39 @@ exec('echo "The \\$HOME variable is $HOME"', (error, stdout, stderr) => {
 
 - 返回: Buffer | string 该命令的 stdout。
 - child_process.exec 类似，没有 callback，同步操作。
+
+## child_process.execFile(file[, args][, options][, callback])--异步执行文件
+
+- file string 要运行的可执行文件的名称或路径。
+- args string[] 字符串参数列表。
+- options Object
+    - cwd string 子进程的当前工作目录。
+    - env Object 环境变量键值对。
+    - encoding string 默认为 'utf8'。
+    - timeout number 默认为 0。
+    - maxBuffer number stdout 或 stderr 允许的最大字节数。默认为 200*1024。如果超过限制，则子进程会被终止。详见 maxBuffer与Unicode。
+    - killSignal string | integer 默认为 'SIGTERM'。
+    - uid number 设置进程的用户标识。
+    - gid number 设置进程的组标识。
+    - windowsHide boolean 隐藏子进程的控制台窗口，常用于 Windows 系统。默认为 false。
+    - windowsVerbatimArguments boolean 决定在Windows系统下是否使用转义参数。 在Linux平台下会自动忽略，当指令 shell 存在的时该属性将自动被设置为true。默认为: false。
+- callback Function 进程终止时调用。
+    - error Error
+    - stdout string | Buffer
+    - stderr string | Buffer
+- 返回: ChildProcess
+
+```
+execFile('node', ['--version'], (error, stdout, stderr) => {
+  if (error) {
+    throw error;
+  }
+  console.log(stdout);
+  console.log(stderr);
+});
+```
+
+## child_process.execFileSync(file[, args][, options])--同步执行文件
+
+- 返回: Buffer | string 该命令的 stdout。
+- child_process.exec 类似，没有 callback，同步操作。
