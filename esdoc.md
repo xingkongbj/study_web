@@ -13,7 +13,7 @@ ESDoc 是一个根据 javascript 文件中注释信息，生成 JavaScript 应�
 
 JSDoc 是目前最火的文档生成工具，它存在的时间也比较长，但是功能上还欠缺一些，比如文档覆盖率、自动测试、搜索等，都没有实现。并且它的使用比较复杂，需要严格使用标签，过多依赖备注来实现。
 
- | ESDoc | JSDoc
+&nbsp; | ESDoc | JSDoc
 :---: | --- | ---
 ES标准 | ES6 以上 | ES6
 模块化 | Class、import & export | Class、import & export、CommonJS、AMD、Prototype
