@@ -87,6 +87,15 @@ class MyClass {
 class MyClass{...}
 ```
 
+### @ignore--忽略
+
+```
+/**
+ * @ignore
+ */
+class MyClass{...}
+```
+
 ### @version--版本
 
 ```
