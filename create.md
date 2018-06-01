@@ -1,21 +1,21 @@
-# 安装环境
+## 安装环境
 
-## 安装 node
+### 安装 node
 
 下载对应版本并安装 [node](https://nodejs.org/en/download/) 。
 
-## 安装 Git
+### 安装 Git
 
 - Windows：下载并安装 [git](https://git-scm.com/download/win)。
 - Mac：`brew install git`
 - Linux (Ubuntu, Debian)：`sudo apt-get install git-core`
 - Linux (Fedora, Red Hat, CentOS)：`sudo yum install git-core`
 
-## 安装 Hexo
+### 安装 Hexo
 
 `npm install -g hexo-cli`
 
-# 创建网站
+## 创建网站
 
 请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。
 
@@ -38,9 +38,9 @@ npm install # 安装环境需要的相关程序
 └── themes       主题文件夹
 ```
 
-# 网站配置说明
+## 网站配置说明
 
-## 网站
+### 网站
 
 ```
 title: Hexo # 网站标题
@@ -52,7 +52,7 @@ language:  # 网站使用的语言
 timezone:  # 网站时区
 ```
 
-## 网址
+### 网址
 
 ```
 url: http://yoursite.com # 网址
@@ -61,7 +61,7 @@ permalink: :year/:month/:day/:title/ # 文章的永久链接格式
 permalink_defaults:  # 永久链接中各部分的默认值
 ```
 
-## 目录
+### 目录
 
 ```
 source_dir: source # 资源文件夹，这个文件夹用来存放内容。
@@ -74,7 +74,7 @@ i18n_dir: :lang # 国际化（i18n）文件夹
 skip_render:  # 跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。
 ```
 
-## 文章
+### 文章
 
 ```
 new_post_name: :title.md # 新文章的文件名称
@@ -93,7 +93,7 @@ highlight: # 代码块的设置
   tab_replace:  # tab 替换
 ```
 
-## 首页
+### 首页
 
 ```
 index_generator:
@@ -102,7 +102,7 @@ index_generator:
   order_by: -date # 排序
 ```
 
-## 分类 & 标签
+### 分类 & 标签
 
 ```
 default_category: uncategorized # 默认分类
@@ -110,27 +110,27 @@ category_map:  # 分类别名
 tag_map:  # 标签别名
 ```
 
-## 日期 / 时间格式
+### 日期 / 时间格式
 
 ```
 date_format: YYYY-MM-DD # 日期格式
 time_format: HH:mm:ss # 时间格式
 ```
 
-## 分页
+### 分页
 
 ```
 per_page: 10 # 每页显示的文章量 (0 = 关闭分页功能)
 pagination_dir: page # 分页目录
 ```
 
-## 主题
+### 主题
 
 ```
 theme: landscape
 ```
 
-## 部署
+### 部署
 
 ```
 deploy: 
@@ -139,15 +139,15 @@ deploy:
   branch: master
 ```
 
-# Hexo 命令
+## Hexo 命令
 
-## 新建文章
+### 新建文章
 
 ```
 hexo new [模板] <标题>
 ```
 
-## 生成网站页面
+### 生成网站页面
 
 ```
 hexo g # hexo generate 简写
@@ -155,13 +155,13 @@ hexo g # hexo generate 简写
 # -w, --watch 	监视文件变动
 ```
 
-## 发表草稿
+### 发表草稿
 
 ```
 hexo publish [模板] <标题>
 ```
 
-## 本地查看 http://localhost:4000/
+### 本地查看 http://localhost:4000/
 
 ```
 hexo s # hexo server 简写
@@ -170,27 +170,27 @@ hexo s # hexo server 简写
 # -l, --log 	启动日记记录，使用覆盖记录格式
 ```
 
-## 发布
+### 发布
 
 ```
 hexo d # hexo deploy 简写
 # -g, --generate 	部署之前预先生成静态文件
 ```
 
-## 渲染文件
+### 渲染文件
 
 ```
 hexo render <file1> [file2] ...
 # -o, --output 	设置输出路径
 ```
 
-## 清除缓存
+### 清除缓存
 
 ```
 hexo clean
 ```
 
-## 启动模式
+### 启动模式
 
 ```
 hexo --safe # 安全模式，不会载入插件和脚本
@@ -201,7 +201,7 @@ hexo --draft # 显示 source/_drafts 文件夹中的草稿文章
 hexo --cwd /path/to/cwd # 自定义当前工作目录的路径
 ```
 
-# 部署
+## 部署
 
 安装 hexo-deployer-git
 
@@ -217,7 +217,7 @@ deploy:
   branch: master # 分支
 ``` 
  
-# 网站基本配置
+## 网站基本配置
 
 ```
 # 网站配置文件 _config.yml
@@ -235,14 +235,14 @@ highlight: # 代码块的设置
   auto_detect: true # 自动检测
 ```
 
-# 安装 Next 主题
+## 安装 Next 主题
 
 ```
 cd your-hexo-site # 进入 Hexo 刚创建的主目录
 git clone https://github.com/theme-next/hexo-theme-next themes/next
 ```
 
-## 网站配置
+### 网站配置
 
 ```
 # 网站配置文件 _config.yml
@@ -253,7 +253,7 @@ theme: next
 language: zh-CN
 ```
 
-## 主题配置
+### 主题配置
 
 ```
 # 主题配置文件 themes/next/_config.yml
@@ -269,6 +269,7 @@ favicon:
   
 # 页脚
 footer:
+  since: 2013
   icon:
       name: heart
       animated: true
@@ -358,13 +359,13 @@ links:
   Github: https://xingkongbj.github.io/
 ```
 
-## 开启RSS
+### 开启RSS
 
 ```
 npm install hexo-generator-feed --save
 ```
 
-## 自带库
+### 自带库
 
 需要进入 Next 主题中的 github 地址克隆到 source，并且根据其中的说明进行配置。
 
