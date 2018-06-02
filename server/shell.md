@@ -76,3 +76,53 @@ pwd
 # 0为成功
 exit 1
 ```
+
+## whereis--查看安装目录
+
+```
+whereis nginx
+```
+
+## whoami--查看当前用户
+
+```
+whoami
+```
+
+## netstat--查看网络连接
+
+```
+netstat -ano|grep 80
+```
+
+## ps--查看进程
+
+```
+ps -ef|grep nginx
+```
+
+## kill--关闭进程
+
+```
+# 正常退出
+kill -QUIT 进程号
+
+# 快速停止
+kill -TERM 进程号
+kill -INT 进程号
+
+# 强制退出
+kill -KILL nginx
+```
+
+## useradd--添加用户
+
+```
+useradd -g www www
+```
+
+## groupadd--添加用户组
+
+```
+groupadd www
+```
