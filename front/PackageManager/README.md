@@ -22,3 +22,9 @@
 - shelljs--基于 node 的 shell commands 库
 - command-exists--支持异步的 commands 命令
 - detect-installed--检测 npm 包是否安装
+
+## WebPack 插件
+- extract-text-webpack-plugin--剥离 css
+- CommonsChunkPlugin--抽离 js 第三方库
+- html-webpack-plugin--生成 html 页面
+- HashedModuleIdsPlugin--固定模块ID
