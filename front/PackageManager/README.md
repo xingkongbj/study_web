@@ -25,6 +25,10 @@
 
 ## WebPack 插件
 - extract-text-webpack-plugin--剥离 css
-- CommonsChunkPlugin--抽离 js 第三方库
+- CommonsChunkPlugin--抽离 js 成为第三方库
 - html-webpack-plugin--生成 html 页面
 - HashedModuleIdsPlugin--固定模块ID
+- webpack-visualizer-plugin--分析构成
+- webpack.github.io/analyse/--分析依赖图
+- webpack-uglify-parallel--代码压缩
+- happypack--多进程打包
