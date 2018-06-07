@@ -23,7 +23,7 @@
 - command-exists--检测是否存在 commands 命令
 - detect-installed--检测 npm 包是否安装
 - yargs--命令提示工具
-- command--命令提示工具
+- commander--命令提示工具
 
 ## WebPack 插件
 - extract-text-webpack-plugin--剥离 css
