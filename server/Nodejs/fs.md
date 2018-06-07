@@ -1,4 +1,4 @@
-## fs--文件系统
+# fs--文件系统
 
 ## flags--操作标志位
 
@@ -103,3 +103,14 @@ fs.unlink('/tmp/hello', (err) => {
 ## fs.unlinkSync(path)--同步删除文件
 
 - fs.unlink 类似，没有 callback，同步操作。
+
+## fs.stat(path, callback)--异步获取存储信息
+
+- path string | Buffer | URL
+- callback Function
+    - err Error
+    - stats fs.Stats
+
+## fs.statSync(path)--同步获取存储信息
+
+- fs.stat 类似，没有 callback，同步操作。

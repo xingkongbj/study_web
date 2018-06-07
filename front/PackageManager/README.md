@@ -20,8 +20,10 @@
 - moment--时间格式化
 - chalk--console 输出彩色内容
 - shelljs--基于 node 的 shell commands 库
-- command-exists--支持异步的 commands 命令
+- command-exists--检测是否存在 commands 命令
 - detect-installed--检测 npm 包是否安装
+- yargs--命令提示工具
+- command--命令提示工具
 
 ## WebPack 插件
 - extract-text-webpack-plugin--剥离 css
