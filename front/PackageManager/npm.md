@@ -16,7 +16,7 @@ npm 是随同 Node.js 一起安装的包管理工具
     
 ## npm 升级
 
-    sudo npm install npm -g
+    sudo npm install npm -g  # sudo 表示使用 root 权限操作
     
 ## 安装 Node.js 模块
 
@@ -97,6 +97,10 @@ npm 是随同 Node.js 一起安装的包管理工具
 ## 在 npm 资源库中注册用户（使用邮箱注册）
 
     npm adduser
+    
+## 清除未使用的包
+    
+    npm prune
     
 ## 发布模块
 

@@ -14,3 +14,11 @@ $ node process-args.js one two=three four
     "four",
 ] 
 ```
+
+## process.exit([code])--退出程序
+
+- code integer 结束状态码。默认为0。
+
+## process.exitCode--退出码
+
+- integer 结束状态码。
