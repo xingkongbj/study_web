@@ -6,12 +6,6 @@
 
 注：只做学习使用，禁止用于商业用途，转载请注明出处
 
-目录
-
-- [demo ---- 一些小示例](#demo------一些小示例)
-- [前端 ---- 前端相关知识](#前端------前端相关知识)
-- [服务器 ---- 服务器及后台相关知识](#服务器------服务器及后台相关知识)
-
 ## demo ---- 一些小示例
 
 - [cut ---- 头像剪裁](../../tree/master/demo/cut)
@@ -23,7 +17,6 @@
     - [CSS选择器](../../tree/master/front/CSS/CSS_selector.md)
     - [CSS写图案](../../tree/master/front/CSS/CSS_image.html)
     - [上下左右居中](../../tree/master/front/CSS/center.html)
-    - [BFC、IFC、GFC、FFC](../../tree/master/front/CSS/BFC_IFC_GFC_FFC.md)
     - [清除浮动方法](../../tree/master/front/CSS/clear_float.md)
     - [less用法](../../tree/master/front/CSS/less)
     - [IE6兼容问题](../../tree/master/front/CSS/IE6_fix.docx)
