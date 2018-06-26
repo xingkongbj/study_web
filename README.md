@@ -16,7 +16,6 @@
 - CSS
     - [CSS选择器](../../tree/master/front/CSS/CSS_selector.md)
     - [CSS写图案](../../tree/master/front/CSS/CSS_image.html)
-    - [清除浮动方法](../../tree/master/front/CSS/clear_float.md)
     - [less用法](../../tree/master/front/CSS/less)
     - [IE6兼容问题](../../tree/master/front/CSS/IE6_fix.docx)
 - HTML
