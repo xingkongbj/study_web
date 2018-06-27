@@ -43,8 +43,6 @@
 
 - Browser
     - [知识点拓扑图](../../tree/master/front/Browser/knowledge_structure_graph)
-    - [跨域方式](../../tree/master/front/Browser/cross-origin.md)
-    - [cookie 和 session](../../tree/master/front/Browser/cookie-session.md)
     - [DOM 相关资料](../../tree/master/front/Browser/DOM)
     - [Web 攻击](../../tree/master/front/Browser/webAttack.md)
 - [打包相关](../../tree/master/front/PackageManager/)
