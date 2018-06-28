@@ -175,4 +175,15 @@ export PATH="$PATH:/usr/local/bin:/usr/local"
 export PATH="$PATH:/c/Program Files/nodejs"
 ```
 
+## 本地调试脚本
+
+```
+# 首先在包的跟目录下，把包软连接到全局目录上
+npm link
+
+# 如果想在项目中使用，可以在项目根目录下，把全局的软连接，连接到本项目，需要指定包名
+npm link 包名
+
+# 使用完成后，记得使用 unlink 替代 link 断开软连接
+```
 
