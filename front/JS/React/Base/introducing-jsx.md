@@ -51,6 +51,9 @@ function getGreeting(user) {
 
 ## JSX 属性
 
+- 属性包含在 { } 中
+- 属性不用加“”
+
 ```
 // 定义属性，使用驼峰定义属性
 const element = <div tabIndex="0"></div>;
