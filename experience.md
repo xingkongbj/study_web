@@ -31,3 +31,14 @@
 - [我对知乎前端相关问题的十问十答](https://mp.weixin.qq.com/s/RefTu6GXwUT_myw6RajphQ)
 - [Web 前端知识体系精简](https://mp.weixin.qq.com/s/bGsejgJSfVaFJaXJ3KziDg)
 - [前端大牛们都学过哪些？ - 知乎](www.zhihu.com/question/22146521)
+
+## 面前准备
+
+### 项目介绍
+
+- 最难的部分
+- 有什么收获
+- 最有意思的部分
+- 最难解的bug
+- 最享受的过程
+- 与团队成员的冲突

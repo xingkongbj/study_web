@@ -34,3 +34,4 @@
 - webpack.github.io/analyse/--分析依赖图
 - webpack-uglify-parallel--代码压缩
 - happypack--多进程打包
+- prerender-spa-plugin--vue的预渲染，优化seo体验
