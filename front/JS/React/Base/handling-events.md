@@ -10,6 +10,7 @@
 - React 事件绑定属性的命名采用驼峰式写法，而不是小写。
 - 如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串( DOM 素的写法)。
 - 不能使用返回 false 的方式阻止默认行为。
+- 需要绑定 this，在 constructor 使用 bind，在 class 中使用 ()=>{},再或者在事件定义上使用前面的两种方法均可。
 
 ```
 // 函数定义
@@ -79,6 +80,10 @@ class LoggingButton extends React.Component {
 ```
 
 ## 向事件处理程序传递参数
+
+- 在事件定义上，使用 bind 或 ()=>{} 传参。
+- 事件对象会默认为最后一个参数传入。
+- 由于放在 render 中，每次渲染都会重新生成事件处理函数。
 
 ```
 class Popper extends React.Component{
