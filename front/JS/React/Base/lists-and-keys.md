@@ -11,6 +11,8 @@
 
 ## 渲染多个组件
 
+- 标签或组件可以放在数组中，方便无顶部标签的渲染。
+
 ```
 const numbers = [1, 2, 3, 4, 5];
 const listItems = numbers.map((number) =>
@@ -47,7 +49,7 @@ ReactDOM.render(
 
 ## Keys
 
-- 一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。
+- 一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串，非index序号。
 
 ## 用keys提取组件
 
