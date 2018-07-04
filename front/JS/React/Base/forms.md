@@ -9,6 +9,9 @@
 
 ## 受控组件
 
+- value 绑定在 state 上。
+- 通过 onChange 更新 state 达到修改 input 的效果。
+
 ```
 class NameForm extends React.Component {
   constructor(props) {

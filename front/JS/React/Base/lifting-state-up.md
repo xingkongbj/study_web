@@ -74,6 +74,8 @@ function tryConvert(temperature, convert) {
 
 ## 状态提升
 
+- 将共享的状态提升至他们最近的父组件当中进行管理。
+
 ```
 class TemperatureInput extends React.Component {
   constructor(props) {
