@@ -462,7 +462,7 @@ function vueMerge(t, obj1, obj2) {
 ### Vue 比较变量
 
 ```
-// 判断两个变量是否内容一致，不对内存地址进行比较
+// 判断两个变量是否内容一致，内存地址不进行比较，会遍历数组或对象内容进行比较
 function vueComp(obj1, obj2) {
     let type = true;
     let typeString = function (param) {
