@@ -33,7 +33,6 @@
         - [requirejs用法](../../tree/master/front/JS/plug-in/requirejs.js)
         - [seejs用法](../../tree/master/front/JS/plug-in/seejs.js)
     - [常用函数和算法](../../tree/master/front/JS/common_function_algorithm.md)
-    - [继承](../../tree/master/front/JS/inherit.md)
     - [严格模式](../../tree/master/front/JS/use_strict.md)
     - [运算符优先级](../../tree/master/front/JS/operator.md)
     - [转义字符](../../tree/master/front/JS/escape_character.md)
