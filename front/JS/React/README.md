@@ -9,7 +9,10 @@
 - render 会在 state 改变后执行，如在标签上通过 bind 或 ()=>{} 绑定事件，会影响性能。
 - 节流：在 constructor 中，调用 throttle 生成绑定函数，并在 componentWillUnmount 中取消节流。实现防止快速点击。
 - 防抖：在 constructor 中，调用 debounce 生成更新函数，并在绑定函数中执行，componentWillUnmount 中取消防抖。实现函数上次执行后的一段时间内，不会再次执行。
-- requestAnimationFrame节流：在 constructor 中，调用 rafSchedule 生成更新函数，并在绑定函数中执行，componentWillUnmount 中取消防抖。实现函数更新频率不大于浏览器更新频率。
+- requestAnimationFrame 节流：在 constructor 中，调用 rafSchedule 生成更新函数，并在绑定函数中执行，componentWillUnmount 中取消防抖。实现函数更新频率不大于浏览器更新频率。
+- render() 函数应该纯净，意味着其不应该改变组件的状态。
+- shouldComponentUpdate() 返回 false，render() 函数将不会被调用。
+- 可以通过使用一个数组让 render() 返回多个元素。
 
 基础
 
@@ -23,6 +26,8 @@
 - [表单](Base/forms.md)
 - [状态提升](Base/lifting-state-up.md)
 - [组合 vs 继承](Base/composition-vs-inheritance.md)
+- [React API](React-API.md)
+- [生命周期函数](Life-Cycle.md)
 
 插件
 
