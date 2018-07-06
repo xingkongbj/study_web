@@ -35,7 +35,15 @@
 - [列表渲染](Base/列表渲染.md)
 - [事件处理](Base/事件处理.md)
 - [表单输入绑定](Base/表单输入绑定.md)
-- [组件](Base/组件.md)
+
+组件
+
+- [定义组件模板的7种方法](Base/Component/定义组件模板的7种方法.md)
+- [使用方法](Base/Component/使用方法.md)
+- [Prop](Base/Component/Prop.md)
+- [自定义事件](Base/Component/自定义事件.md)
+- [插槽分发内容](Base/Component/插槽分发内容.md)
+- [杂项](Base/Component/杂项.md)
 
 过渡 & 动画
 
