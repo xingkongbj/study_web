@@ -19,7 +19,7 @@
 
 该状态码代表服务器接收的请求已成功处理，但在返回的响应报文中不含实体的主体部分。另外，也不允许返回任何实体的主体。比如，当从浏览器发出请求处理后，返回 204 响应，那么浏览器显示的页面不发生更新。
 
-一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。如使用 PUT 上传的文件已经存在，使用 DELETE 删除的文件已经删除。
+一般在只需要从客户端往服务器发送信息，而服务器不需要发送新信息内容的情况下使用。如使用 PUT 上传的文件已经存在，使用 DELETE 删除的文件已经删除。
 
 ### 206 Partial Content / 局部内容
 
@@ -86,10 +86,10 @@
 方法 | 描述
 :--- | :---
 GET | 请求指定的页面信息，并返回实体主体。
-HEAD | 类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取响应首部字段
-POST | 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。
-PUT | 从客户端向服务器传送的数据取代指定的文档的内容。
-DELETE | 请求服务器删除指定的页面。
+POST | 向指定资源提交数据（例如提交表单或者上传文件）。数据被包含在请求体中。
+HEAD | 类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取响应首部字段。
+PUT | 从客户端向服务器传送的数据，取代服务器指定文档的内容。
+DELETE | 请求服务器删除指定的文档。
 CONNECT | HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器。
 OPTIONS | 客户端查看服务器支持的方法。
 TRACE | 回显服务器收到的请求，主要用于测试或诊断。
@@ -164,7 +164,6 @@ Header | 描述 | 示例
 Accept | 指定客户端能够接收的内容类型 | Accept: text/plain, text/html
 Accept-Encoding | 指定浏览器可以支持的主体内容压缩编码类型 | Accept-Encoding: compress, gzip
 Accept-Language | 浏览器可接受的自然语言 | Accept-Language: en,zh
-Content-Type | 请求的与主体对应的 MIME 信息 | Content-Type: application/x-www-form-urlencoded
 Content-Length | 主体的长度，当主体内容压缩时不使用 | Content-Length: 348
 Content-Type | 主体的 MIME 类型和编码格式 | Content-Type: text/html; charset=utf-8
 &nbsp; | 以上为主体部分 | &nbsp;
