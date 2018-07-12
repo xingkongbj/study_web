@@ -126,3 +126,11 @@ useradd -g www www
 ```
 groupadd www
 ```
+
+## >/dev/null--输出到黑洞
+
+```
+>/dev/null # 默认是1，标准输出，即屏幕显示
+2>/dev/null # 错误输出到黑洞
+2>&1 # 把错误输出2重定向到标准输出1
+```
