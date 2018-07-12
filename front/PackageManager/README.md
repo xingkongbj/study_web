@@ -35,3 +35,13 @@
 - webpack-uglify-parallel--代码压缩
 - happypack--多进程打包
 - prerender-spa-plugin--vue的预渲染，优化seo体验
+- webpack-hot-middleware--热加载中间件
+- eventsource-polyfill--支持eventsource
+- webpack-merge--专用merge
+- css-loader--解析css
+- less-loader--解析less
+- url-loader--解析图片和字库
+- babel-loader--解析js
+- mini-css-extract-plugin--解析css
+- uglifyjs-webpack-plugin--代码压缩
+- optimize-css-assets-webpack-plugin--css压缩
