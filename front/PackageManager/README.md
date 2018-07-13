@@ -35,7 +35,8 @@
 - webpack-uglify-parallel--代码压缩
 - happypack--多进程打包
 - prerender-spa-plugin--vue的预渲染，优化seo体验
-- webpack-hot-middleware--热加载中间件
+- webpack-hot-middleware--热加载中间件，跟页面即时交互
+- webpack-dev-middleware--开发模式中间件，检测代码改动
 - eventsource-polyfill--支持eventsource
 - webpack-merge--专用merge
 - css-loader--解析css
@@ -45,3 +46,11 @@
 - mini-css-extract-plugin--解析css
 - uglifyjs-webpack-plugin--代码压缩
 - optimize-css-assets-webpack-plugin--css压缩
+
+## koa 插件
+
+- koa-router--路由
+- koa-static--静态资源
+- koa-proxies--代理
+- koa-body--处理post上传信息
+- express-to-koa--middleware
