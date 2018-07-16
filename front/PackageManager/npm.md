@@ -52,6 +52,7 @@ npm 是随同 Node.js 一起安装的包管理工具
 - version - 包的版本号。
 - description - 包的描述。
 - main - main 字段是一个路径，指向主文件。
+- private - 设置 true 表示私有包，不发布
 - scripts - npm run 时运行的脚本。
 - license - 许可协议。
 - repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
@@ -129,8 +130,6 @@ npm 是随同 Node.js 一起安装的包管理工具
     npm install -g cnpm --registry=https://registry.npm.taobao.org  #而后可以使用 cnpm 代替 npm
     
 ## 常用脚本
-
-常用脚本可以简写，如 npm run test 写成 npm test。
 
 npm run script1.js & npm run script2.js 表示 script1 和 script2 同时执行。
 
