@@ -37,6 +37,7 @@
     - [构造函数替代品](#构造函数替代品)
     - [高阶函数](#高阶函数)
     - [柯里化](#柯里化)
+    - [原型挂载](#原型挂载)
 
 ## 排序
 
@@ -667,4 +668,13 @@ function decoratorArgs(decorator, func) {
 function currying(func, ...args) {
     return func.bind(null, ...args);
 }
+```
+
+### 原型挂载
+
+- 逻辑：将传入的对象作为新对象的原型，进行挂载。
+- 作用：新对象可以读取旧对象的所有属性，并且修改只对新对象生效，不影响旧对象。
+
+```
+let newObj = Object.creat(obj);
 ```
