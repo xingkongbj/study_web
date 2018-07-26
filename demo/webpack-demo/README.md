@@ -5,7 +5,7 @@
 - 使用 webpack 最新版本。
 - 区分 dev 和 prod 模式。
 - 实现多文件打包到 dist 目录。
-- 使用 postcss 插件 支持类似 sass 的特性，支持 vendor 浏览器前缀。
+- 使用 postcss 插件 支持类似 sass 的特性，自动匹配浏览器私有前缀。
 - 支持 src/assets 目录下的内容拷贝到 dist 目录。
 - 分离 css、image、js ，使用相对路径进行引用。
 - 使用 babel 插件支持新的 ES 语法特性。
