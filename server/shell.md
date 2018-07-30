@@ -92,7 +92,13 @@ whoami
 ## netstat--查看网络连接
 
 ```
-netstat -ano|grep 80
+netstat -an|grep 80
+```
+
+## lsof--查看端口服务
+
+```
+lsof -n -P | grep :9999
 ```
 
 ## ps--查看进程
