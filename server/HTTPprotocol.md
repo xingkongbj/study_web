@@ -213,3 +213,78 @@ Set-Cookie | 设置Http Cookie | Set-Cookie: UserID=JohnDoe; Max-Age=3600; Versi
 refresh | 应用于重定向或一个新的资源被创造，在5秒之后重定向（由网景提出，被大部分浏览器支持） | Refresh: 5; url=http://www.zcmhi.com/archives/94.html 
 Trailer | 报文主体之后（分块长度0 之后）出现了首部字段 | Trailer: Expires
 Transfer-Encoding | 传输报文主体时采用的编码方式 | Transfer-Encoding: chunked
+
+## Post 常用的四种 Content-Type
+
+### 提交表单
+
+- application/x-www-form-urlencoded 用于 form 表单的提交。
+- 主体中的参数与 URL 中的参数格式相同。
+
+```
+请求头
+POST http://www.example.com HTTP/1.1
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+请求主体
+title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3
+```
+
+### 表单上传文件
+
+- multipart/form-data 用于表单提交时包含文件内容。
+- 通过 boundary 定义的分割符，区分内容。
+
+```
+请求头
+POST http://www.example.com HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
+
+请求主体
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="file"; filename="chrome.png"
+Content-Type: image/png
+
+PNG ... content of chrome.png ...
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA--
+```
+
+### 传输 JSON 数据
+
+- application/json 用于后端识别 json 数据。
+- 请求主体需要手动转换为 json 格式。
+
+```
+请求头
+POST http://www.example.com HTTP/1.1
+Content-Type: application/json;charset=utf-8
+
+请求主体
+{"title":"test","sub":[1,2,3]}
+```
+
+### 传输 XML 数据
+
+- text/xml 用于后端识别 xml 数据。
+- 请求主体需要手动转换为 xml 格式。
+
+```
+请求头
+POST http://www.example.com HTTP/1.1
+Content-Type: text/xml
+
+请求主体
+<!--?xml version="1.0"?-->
+<methodcall>
+    <methodname>examples.getStateName</methodname>
+    <params>
+        <param>
+            <value><i4>41</i4></value>
+        
+    </params>
+</methodcall>
+```
