@@ -41,6 +41,7 @@
     - [知识点拓扑图](../../tree/master/front/Browser/knowledge_structure_graph)
     - [DOM 相关资料](../../tree/master/front/Browser/DOM)
     - [Web 攻击](../../tree/master/front/Browser/webAttack.md)
+    - [fetch 请求](../../tree/master/front/Browser/BOM/fetch.md)
 - [打包相关](../../tree/master/front/PackageManager/)
 
 ## 服务器 ---- 服务器及后台相关知识
