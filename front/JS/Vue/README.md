@@ -27,6 +27,7 @@
 
 基础
 
+- [双向绑定原理](Base/theory.md)
 - [生命周期](Base/lifecycle.md)
 - [模板语法](Base/template.md)
 - [计算属性和观察者](Base/计算属性和观察者.md)
