@@ -13,6 +13,7 @@
 - render() 函数应该纯净，意味着其不应该改变组件的状态。
 - shouldComponentUpdate() 返回 false，render() 函数将不会被调用。
 - 可以通过使用一个数组让 render() 返回多个元素。
+- 当返回数据是 true 或 false 或 null 时，不渲染成文字。
 
 基础
 
