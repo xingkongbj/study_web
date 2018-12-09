@@ -18,4 +18,11 @@
 
 ## 性能优化
 
-
+- 通过 optimize-css-assets-webpack-plugin 对 css 进行压缩。
+- 通过 uglifyjs-webpack-plugin 对 js 进行压缩。
+- 通过 externals 阻止外部引入的文件被打包。
+- 通过 optimization 把 npm 相关包打入 vendor 文件，并且根据参数控制包的大小和拆分个数。
+- 通过 webpack-visualizer-plugin 在根目录生成 statistics.html 分析 bundle 构成，减少打包文件的大小。
+- 把打包生成的 profile.json 上传到webpack官网 http://webpack.github.io/analyse/ 查看详细 chunk 构成和依赖，减少无关依赖的打包。
+- 在私有包中不进行 babel-loader；在项目打包时，把私有包从 node_modules 的忽略中排除。本示例没有实现该功能。
+- 通过

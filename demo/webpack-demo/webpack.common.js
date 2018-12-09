@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VisualizerPlugin = require('webpack-visualizer-plugin');
 
 module.exports = {
     mode: 'none', // 设置环境变量，优先级最高 'production' 自动压缩代码 | 'development' | 'none'
@@ -172,6 +173,9 @@ module.exports = {
                 collapseWhitespace: true,
                 removeEmptyAttributes: true
             },
+        }),
+        new VisualizerPlugin({ // 生成 bundle 构成
+            filename: './statistics.html'
         }),
     ],
 };
