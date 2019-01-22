@@ -71,6 +71,7 @@ const p2 = new Promise(function (resolve, reject) {
 
 - 返回的是一个新的 Promise 实例，不是原来那个 Promise 实例。
 - 状态传递，前一个状态，决定后一个状态，前一个失败会导致后面都失败。
+- 前一个返回值传入后一个 then，前一个不传，后一个为 undefined。
 - retrun 一个 Promise 实例，后面的 then 会捕获该 Promise 的状态和返回参数；否则把当前 then 前面的状态，和当前 then 的返回值，提供给后面的 then。
 
 ```
