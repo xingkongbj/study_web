@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    //模块加载器规范
+    "module": "commonjs",
+    // ECMAScript目标版本，即编译后的版本
+    "target": "es5",
+    // 生成 sourceMap
+    "sourceMap": true,
+    // 删除所有注释
+    "removeComments": true,
+    // 保留 const 和 enum 声明
+    "preserveConstEnums": true,
+    // null 和 undefined 只能赋值给 void 和它们各自
+    "strictNullChecks": true,
+    // 开启实时编译
+    "watch": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
