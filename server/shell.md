@@ -98,7 +98,7 @@ netstat -an|grep 80
 ## lsof--查看端口服务
 
 ```
-lsof -n -P | grep :9999
+lsof -i :9999
 ```
 
 ## ps--查看进程
@@ -112,13 +112,17 @@ ps -ef|grep nginx
 ```
 # 正常退出
 kill -QUIT 进程号
+kill -3 进程号
 
 # 快速停止
-kill -TERM 进程号
 kill -INT 进程号
+kill -2 进程号
+kill -TERM 进程号
+kill -15 进程号
 
 # 强制退出
 kill -KILL nginx
+kill -9 nginx
 ```
 
 ## useradd--添加用户
