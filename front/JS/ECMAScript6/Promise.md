@@ -22,7 +22,7 @@
 特点
 
 - 对象的状态不受外界影响。Promise 对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和 rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
-- 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise 对象的状态改变，只有两种可能：从 pending 变为 fulfilled 和 从 pending 变为 rejected。
+- 一旦状态改变，就不会再变，任何时候都可以得到这个结果。Promise 对象的状态改变，只有两种可能：从 pending 变为 fulfilled 和 从 pending 变为 rejected。then 方法除外，它接收的是新的 Promise。
 
 缺点
 
@@ -70,9 +70,9 @@ const p2 = new Promise(function (resolve, reject) {
 ## Promise.prototype.then()
 
 - 返回的是一个新的 Promise 实例，不是原来那个 Promise 实例。
-- 状态传递，前一个状态，决定后一个状态，前一个失败会导致后面都失败。
 - 前一个返回值传入后一个 then，前一个不传，后一个为 undefined。
-- retrun 一个 Promise 实例，后面的 then 会捕获该 Promise 的状态和返回参数；否则把当前 then 前面的状态，和当前 then 的返回值，提供给后面的 then。
+- 前一个函数返回 Promise 实例，后面的 then 会捕获该 Promise 的状态和返回参数。
+- 前一个函数报错，只会影响好后面第一个 then 为失败状态，再后面的为成功状态。
 
 ```
 getJSON("/post/1.json").then(function(post) {
