@@ -7,13 +7,27 @@ let list2: Array<number> = [1, 2, 3];
 let x: [string, number] = ['string',5];
 enum Color { Red, Green = '2', Blue='3' }
 
-interface SquareConfig {
-    color?: string;
-    width?: number;
+
+
+class Greeter {
+    static standardGreeting = "Hello, there";
+    greeting: string;
+    greet() {
+        if (this.greeting) {
+            return "Hello, " + this.greeting;
+        }
+        else {
+            return Greeter.standardGreeting;
+        }
+    }
 }
 
-function createSquare(config: SquareConfig): { color: string; area: number } {
-    // ...
-}
+let greeter1: Greeter;
+greeter1 = new Greeter();
+console.log(greeter1.greet());
 
-let mySquare = createSquare({ tar: "red", width: 100 });
+let greeterMaker: Greeter;
+greeterMaker.standardGreeting = "Hey there!";
+
+let greeter2: Greeter = new greeterMaker();
+console.log(greeter2.greet());
