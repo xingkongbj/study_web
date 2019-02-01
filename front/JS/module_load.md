@@ -3,8 +3,8 @@
 目录
 
 - [简介](#简介)
-- [CommonJs 使用示例](#commonjs-使用示例)
 - [AMD 使用示例](#amd-使用示例)
+- [CommonJs 使用示例](#commonjs-使用示例)
 - [ES6 Module 使用示例](#es6-module-使用示例)
 
 ## 简介
@@ -13,42 +13,6 @@
 - AMD：浏览器环境，异步加载，如 RequireJS。
 - ES6 Module：由于浏览器目前支持性不好，用于 webpack 打包前语法。
 - AMD 与 CMD 区别：AMD 提前执行依赖模块的代码；CMD 延迟执行依赖模块的代码，即调用时才执行。CMD 代表 SeaJS，浏览器环境。
-
-## CommonJs 使用示例
-
-- JS：输出值的拷贝。
-- JS：每次引用，生成一个新的实例，互相不干扰。
-- Node: 输出值的引用。
-- Node: 同一个脚本只要参数不同，就会被加载多次，并且保存成不同的缓存。
-
-输出函数
-
-```
-// square.js
-module.exports = (width) => {
-  return {
-    area: () => width ** 2
-  };
-};
-
-// index.js
-const square = require('./square.js');
-const mySquare = square(2);
-console.log(`正方形的面积是 ${mySquare.area()}`);
-```
-
-输出对象
-
-```
-// circle.js
-const { PI } = Math;
-module.exports.area = (r) => PI * r ** 2;
-module.exports.circumference = (r) => 2 * PI * r;
-
-// index.js
-const circle = require('./circle.js');
-console.log(`半径为 4 的圆的面积是 ${circle.area(4)}`);
-```
 
 ## AMD 使用示例
 
@@ -90,10 +54,49 @@ requirejs(['./circle.js'], function (circle) {
 });
 ```
 
+## CommonJs 使用示例
+
+- 模块是运行时加载。
+- 数值类型输出值的拷贝。
+- 同一个模块只加载一次，共用一个缓存。
+- 异步加载模块。
+
+输出函数
+
+```
+// square.js
+module.exports = (width) => {
+  return {
+    area: () => width ** 2
+  };
+};
+
+// index.js
+const square = require('./square.js');
+const mySquare = square(2);
+console.log(`正方形的面积是 ${mySquare.area()}`);
+```
+
+输出对象
+
+```
+// circle.js
+const { PI } = Math;
+module.exports.area = (r) => PI * r ** 2;
+module.exports.circumference = (r) => 2 * PI * r;
+
+// index.js
+const circle = require('./circle.js');
+console.log(`半径为 4 的圆的面积是 ${circle.area(4)}`);
+```
+
 ## ES6 Module 使用示例
 
-- 输出值的引用。
+- 模块是编译时输出接口。
+- 数值类型输出值的引用，输出对象时绑定除外。
 - 同一个模块只加载一次，共用一个实例。
+- 异步加载模块。
+- Node: 同一个脚本只要参数不同，就会被加载多次，并且保存成不同的缓存。
 
 输出对象
 
