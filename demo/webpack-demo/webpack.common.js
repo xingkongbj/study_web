@@ -177,7 +177,7 @@ module.exports = {
             },
         }),
         new VisualizerPlugin({ // 生成 bundle 构成
-            filename: './statistics.html'
+            filename: '../profile/statistics.html'
         }),
     ],
 };

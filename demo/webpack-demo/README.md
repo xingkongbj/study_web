@@ -2,7 +2,7 @@
 
 ## 特点
 
-- 使用 webpack 最新版本。
+- 使用 webpack、babel 最新版本。
 - 区分 dev 和 prod 模式。
 - 实现多文件打包到 dist 目录。
 - 使用 postcss 插件 支持类似 sass 的特性，自动匹配浏览器私有前缀。

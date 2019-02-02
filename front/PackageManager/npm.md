@@ -125,7 +125,6 @@ Package.json 版本定义
 
 - NPM 提供了很多命令，例如 install 和 publish，使用 npm help 可查看所有命令。
 - 使用 npm help <command> 可查看某条命令的详细帮助，例如 npm help install。
-- 在 package.json 所在目录下使用 npm install . -g 可先在本地安装当前命令行程序，可用于发布前的本地测试。
 - 使用 npm update <package> 可以把当前目录下 node_modules 子目录里边的对应模块更新至最新版本。
 - 使用 npm update <package> -g 可以把全局安装的对应命令行程序更新至最新版。
 - 使用 npm cache clear 可以清空 NPM 本地缓存，用于对付使用相同版本号发布新版本代码的人。
