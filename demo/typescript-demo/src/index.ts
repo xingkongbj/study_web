@@ -6,9 +6,8 @@ let list: number[] = [1, 2, 3];
 let list2: Array<number> = [1, 2, 3];
 let y: [string, number] = ['string',5];
 
-enum Direction {
-    Up ,
-    Down="a",
-    Left="b",
-    Right=3
+declare enum Enum {
+    A = 1,
+    B,
+    C = 2
 }

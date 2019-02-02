@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VisualizerPlugin = require('webpack-visualizer-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'none', // 设置环境变量，优先级最高 'production' 自动压缩代码 | 'development' | 'none'
@@ -94,8 +95,8 @@ module.exports = {
                 exclude: /node_modules/, // 排除目录
                 loader: 'babel-loader', // 编译js文件，使之支持es新的语法特性
                 options:{
-                    presets: ['env', 'react'], // 支持按需加载，自动支持最新 ES 版本，转换 react 语法
-                    plugins: ['transform-runtime'] // 保证 babel-polyfill 不会污染全局环境，供编译模块复用工具函数，减少打包体积， babel-runtime 生产环境使用
+                    presets: ['@babel/preset-env', '@babel/preset-react'], // 支持按需加载，自动支持最新 ES 版本，转换 react 语法
+                    plugins: ['@babel/plugin-transform-runtime'] // 保证 babel-polyfill 不会污染全局环境，供编译模块复用工具函数，减少打包体积， babel-runtime 生产环境使用
                 }
             }
         ]
@@ -146,6 +147,7 @@ module.exports = {
         }
     },
     plugins: [ // 插件，按上下顺序执行
+        new CleanWebpackPlugin(['dist']), //清理dist文件夹
         new CopyWebpackPlugin([  // src/assets 下文件直接复制到 dist 目录下
             { from:'src/assets/' }
         ]),
