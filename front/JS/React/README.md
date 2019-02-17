@@ -12,8 +12,9 @@
 - requestAnimationFrame 节流：在 constructor 中，调用 rafSchedule 生成更新函数，并在绑定函数中执行，componentWillUnmount 中取消防抖。实现函数更新频率不大于浏览器更新频率。
 - render() 函数应该纯净，意味着其不应该改变组件的状态。
 - shouldComponentUpdate() 返回 false，render() 函数将不会被调用。
-- 可以通过使用一个数组让 render() 返回多个元素。
-- 当返回数据是 true 或 false 或 null 时，不渲染成文字。
+- 可以通过数组,空标签<>,React.Fragment 让 render() 返回多个元素。
+- 当返回数据是 true 或 false 或 null 时，不渲染成文字，使用 && 时要确保前面是bool类型。
+- setState 是异步生效的，当前触发进程不会更新，可以使用其回调函数获取最新值。
 
 基础
 
