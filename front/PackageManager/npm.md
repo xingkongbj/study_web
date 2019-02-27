@@ -1,7 +1,5 @@
 # npm 简单教程
 
-> 教程 http://www.runoob.com/nodejs/nodejs-npm.html
-
 npm 是随同 Node.js 一起安装的包管理工具
 
 ## 使用场景
@@ -79,9 +77,9 @@ npm 是随同 Node.js 一起安装的包管理工具
 
     npm run <Script Name>
     
-## 查看目录下信息
+## 查看包的依赖信息
 
-    npm ls
+    npm ls <Module Name>
     
 ## 更新模块
 
@@ -107,6 +105,15 @@ npm 是随同 Node.js 一起安装的包管理工具
 
     npm publish
     
+## 项目内运行程序
+
+- 调用项目内的安装的程序，非全局包。
+- 如果包没安装，会临时下载文件使用。
+
+```
+npx <Module Name>
+```
+
 ## 版本号
 
 语义版本号分为 X.Y.Z 三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。 
