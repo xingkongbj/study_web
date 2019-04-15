@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.common');
 const proxyHost = '8.8.8.8';
-const proxyPort = 8888;
+const proxyPort = 8080;
 const proxy = {
     target: 'http://' + proxyHost + '/',
     changeOrigin: true,
@@ -11,7 +11,7 @@ const proxy = {
     bypass: function(req, res) {
         //设置代理的响应头
         if (req.headers && req.headers.referer){
-            req.headers.referer = req.headers.referer.replace(/(127\.0\.0\.1|localhost):8888/, proxyHost)
+            req.headers.referer = req.headers.referer.replace(/(127\.0\.0\.1|localhost):8080/, proxyHost)
         }
     }
 };

@@ -59,5 +59,3 @@
 [一些经验](../../tree/master/experience.md)
 
 [时间管理](../../tree/master/time_manage.md)
-
-[项目管理](../../tree/master/project_manage.md)
