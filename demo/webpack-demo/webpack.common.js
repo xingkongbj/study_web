@@ -126,13 +126,15 @@ module.exports = {
                 vendor: {
                     name: 'vendor',
                     chunks: 'initial',
-                    priority: -10, // 优先级
+                    priority: 20, // 优先级
                     reuseExistingChunk: false, // 允许复用已经存在的代码块
                     test: /node_modules\/(.*)\.js/,
                 },
-                default: {
+                common: {
+                    name: 'common',
+                    chunks: 'initial',
                     minChunks: 2,
-                    priority: -20,
+                    priority: 10,
                     reuseExistingChunk: true
                 }
             },
