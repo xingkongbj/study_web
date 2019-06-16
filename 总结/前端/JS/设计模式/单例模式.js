@@ -1,16 +1,27 @@
-var single = (function(){
-    var unique;
-    function getInstance(){
-        // 如果该实例存在，则直接返回，否则就对其实例化
-        if( unique === undefined ){
-            unique = new Construct();
+// 用于节省内存，只生成一个实例
+
+// 惰性载入单例
+var LazySingle = (function(){
+    // 单例实例引用
+    var _instance = null;
+    // 单例
+    function Single(){
+        /*这里定义私有属性和方法*/
+        return {
+            publicMethod: function () { },
+            publicProperty: '1.0',
+        };
+    }
+    // 获取单例对象接口
+    return function (){
+        // 如果为创建单例将创建单例
+        if(!_instance) {
+            _instance = Single();
         }
-        return unique;
-    }
-    function Construct(){
-        // ... 生成单例的构造函数的代码
-    }
-    return {
-        getInstance : getInstance
+        // 返回单例
+        return _instance;
     }
 })();
+
+// 使用方法
+LazySingle().publicMethod();
