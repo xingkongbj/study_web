@@ -1,3 +1,5 @@
+// 通过算法的提炼，实现不同的策略
+
 // 对于vip客户
 function vipPrice() {
     this.discount = 0.5;
@@ -37,6 +39,8 @@ Context.prototype.getResult = function() {
     console.log(this.name + ' 的结账价为: ' + this.strategy.getPrice(this.price));
 };
 
+
+// 使用方法
 var context = new Context();
 var vip = new vipPrice();
 context.set ('vip客户', vip, 200);

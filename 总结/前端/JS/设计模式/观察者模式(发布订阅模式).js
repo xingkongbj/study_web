@@ -1,3 +1,5 @@
+// 解决对象间的依赖，通过通知的形式，进行传递
+
 var pubsub = {};  // 定义发布者
 (function (q) {
     var list = [], //回调函数存放的数组，也就是记录有多少人订阅了我们东西
@@ -51,6 +53,7 @@ var pubsub = {};  // 定义发布者
     };
 })(pubsub);
 
+// 使用方法
 //将订阅赋值给一个变量，以便退订
 var girlA = pubsub.subscribe('js类的文章', function (type, content) {
     console.log('girlA订阅的'+type + ": 内容内容为：" + content);

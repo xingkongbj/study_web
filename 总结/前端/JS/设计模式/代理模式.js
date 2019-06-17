@@ -1,3 +1,5 @@
+// 为其他对象提供一种代理以控制对这个对象的访问
+
 // 补打卡事件
 var fillOut = function (lateDate) {
     this.lateDate = lateDate;
@@ -14,7 +16,8 @@ var proxyAssis = function (fillOut) {
         (new bigBoss(fillOut)).state(isSuccess); // 替bigBoss审批
     }
 };
-// 调用方法：
+
+// 使用方法
 var proxyAssis = new proxyAssis(new fillOut("2016-9-11"));
 proxyAssis.state("补打卡成功");
 // 忘记打卡的日期为：2016-9-11, 补打卡状态：补打卡成功
