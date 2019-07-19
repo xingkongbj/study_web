@@ -1,10 +1,36 @@
 # shell
 
+## date--日期时间
+
+## man--查看命令说明
+
+```
+man ls
+```
+
+## echo--输出内容
+
+```
+echo hello world
+
+# 显示变量
+echo $LANG
+
+# 变量配置
+ZSH=/Users/xingkongbj/.oh-my-zsh
+```
+
 ## ls--查看文件和目录
 
 ```
 ls
 ```
+
+
+
+
+
+
 
 ## export--定义变量
 
@@ -58,11 +84,6 @@ node --v8-options | grep 'in progress'
 node --v8-options | grep 'in progress'
 ```
 
-## echo--输出内容
-
-```
-echo hello world
-```
 
 ## pwd--输出当前路径
 

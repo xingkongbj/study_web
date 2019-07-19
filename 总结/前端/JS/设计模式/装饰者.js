@@ -1,4 +1,6 @@
-// 不改变原有功能的基础上，进行封装，增加功能
+// 不改变原有功能的基础上，进行迭代，增加功能
+// 不用关心对之前功能的影响。
+// 用于扩展信息
 
 var decorator = function (input, fn) {
     var input = document.getElementById(input);
@@ -15,11 +17,8 @@ var decorator = function (input, fn) {
 
 // 使用方法
 decorator('tel_input', function () {
-   document.getElementById('tel_demo_text').style.display = 'none';
+   document.getElementById('tel_demo_text').style.color = 'red';
 });
-decorator('name_input', function () {
-    document.getElementById('name_demo_text').style.display = 'none';
-});
-decorator('address_input', function () {
-    document.getElementById('address_demo_text').style.display = 'none';
+decorator('tel_input', function () {
+    document.getElementById('tel_demo_text').style.display = 'inline-block';
 });

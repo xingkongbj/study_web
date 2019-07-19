@@ -1,4 +1,5 @@
 // 对外提供统一的接口，内部进行兼容处理
+// 简化使用方式，提炼公共部分，方便外部对接，不会对内产生影响。
 
 function addEvent(dom, type, fn){
     if (dom.addEventListener) {
