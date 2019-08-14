@@ -17,7 +17,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // 编译后输出路径
         // filename: 'bundle.js', // 只支持单页面
         filename: 'js/[name].[chunkhash].js', // 支持多页面
+        chunkFilename: 'js/[name].[chunkhash].js',
         // [name]模块名称
+
         // [id]模块标识符
         // [hash]compilation 生命周期的 hash
         // [chunkhash]chunk 内容的 hash
@@ -29,6 +31,22 @@ module.exports = {
     module: { // 模块配置
         rules: [ // 由下至上，由右至左执行
             {
+                test: /\.js?x$/,
+                exclude: /node_modules/, // 排除目录
+                loader: 'babel-loader', // 编译js文件，使之支持es新的语法特性
+                options:{
+                    presets: [['@babel/preset-env', {
+                        modules: false,
+                        targets: {
+                            ie: '9',
+                        },
+                    }], '@babel/preset-react'], // 支持按需加载，自动支持最新 ES 版本，转换 react 语法
+                    plugins: [['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: false }], // 装饰器语法
+                        '@babel/plugin-proposal-class-properties', // 类的私有属性语法
+                        '@babel/plugin-transform-runtime'] // 保证 babel-polyfill 不会污染全局环境，供编译模块复用工具函数，减少打包体积， babel-runtime 生产环境使用
+                }
+            },
+            {
                 test: /\.css$/, // 正则匹配文件路径
                 exclude: /node_modules/,
                 use: [
@@ -36,7 +54,8 @@ module.exports = {
                     {
                         loader: 'css-loader', // 解析 @import 和 url() 为 import/require() 方式处理
                         options: {
-                            importLoaders: 1 // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+                            modules: false,
+                            importLoaders: 1, // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
                         }
                     },
                     {
@@ -90,15 +109,6 @@ module.exports = {
                 options: { // 解析时的参数
                     name: 'fonts/[name].[hash].[ext]', // 可配置信息很多，可以查询api
                 },
-            },
-            {
-                test: /\.js?x$/,
-                exclude: /node_modules/, // 排除目录
-                loader: 'babel-loader', // 编译js文件，使之支持es新的语法特性
-                options:{
-                    presets: ['@babel/preset-env', '@babel/preset-react'], // 支持按需加载，自动支持最新 ES 版本，转换 react 语法
-                    plugins: ['@babel/plugin-transform-runtime'] // 保证 babel-polyfill 不会污染全局环境，供编译模块复用工具函数，减少打包体积， babel-runtime 生产环境使用
-                }
             }
         ]
     },
@@ -113,9 +123,9 @@ module.exports = {
         jquery: 'jQuery'
     },
     optimization: { // 性能配置
-        runtimeChunk: true, // 开启 manifest 缓存，每个入口单独创建
+        runtimeChunk: false, // 开启 manifest 缓存，每个入口单独创建
         splitChunks: {
-            chunks: 'async', // 提取的 chunk 类型，all: 所有，async: 异步，initial: 初始
+            // chunks: 'async', // 提取的 chunk 类型，all: 所有，async: 异步，initial: 初始
             // minSize: 30000, // 默认值，新 chunk 产生的最小限制 整数类型（以字节为单位）
             // maxSize: 0, // 默认值，新 chunk 产生的最大限制，0为无限 整数类型（以字节为单位）
             // minChunks: 1, // 默认值，新 chunk 被引用的最少次数
@@ -124,18 +134,11 @@ module.exports = {
             // name: true, // 默认值，控制 chunk 的命名
             cacheGroups: { // 配置缓存组
                 vendor: {
+                    test: /[\\/]node_modules[\\/]/,
                     name: 'vendor',
                     chunks: 'initial',
                     priority: 20, // 优先级
                     reuseExistingChunk: false, // 允许复用已经存在的代码块
-                    test: /node_modules\/(.*)\.js/,
-                },
-                common: {
-                    name: 'common',
-                    chunks: 'initial',
-                    minChunks: 2,
-                    priority: 10,
-                    reuseExistingChunk: true
                 }
             },
         },
@@ -155,13 +158,15 @@ module.exports = {
             { from:'src/assets/' }
         ]),
         new MiniCssExtractPlugin({ // 分离 css
-            filename: "css/[name].[chunkhash].css"
+            filename: "css/[name].[contenthash].css",
+            chunkFilename: "css/[name].[contenthash].css"
         }),
         new HtmlWebpackPlugin({ // 动态生成页面
             template: path.resolve(__dirname, './src/default_index.ejs'),
             title: 'index',
             filename:'index.html',
-            chunks:['index'], // js 入口文件
+            chunks:['vendor', 'index', 'runtimeChunk'], // js 入口文件
+            chunksSortMode: 'dependency', // 按chunks的顺序对js进行引入
             minify: {
                 removeComments: true,        // 去注释
                 collapseWhitespace: true,    // 压缩空格
@@ -172,7 +177,8 @@ module.exports = {
             template: path.resolve(__dirname, './src/default_index.ejs'),
             title: 'index2',
             filename:'index2.html',
-            chunks:['index2'],
+            chunks:['index2', 'vendor', 'runtime'],
+            chunksSortMode: 'dependency',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
