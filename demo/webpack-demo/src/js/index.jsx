@@ -1,16 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
-
-import '../css/common';
+import '../css/common.css';
 import '../css/index.css';
 
-
 document.title = process.env.NODE_ENV;
-const element = () => (
-    <h1>是大幅度发</h1>
-);
 
 render(
-    <h1>Hello, world2!</h1>,
+    <h1>Hello, world!</h1>,
     document.getElementById('pageContent')
 );
+
+// 模块热加载，不刷新加载
+if (module.hot) {
+    module.hot.accept();
+}

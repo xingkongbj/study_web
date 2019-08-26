@@ -1,5 +1,5 @@
 div {
     background: url('../image/a.jpg');
-    background: red;
-    flex: 1;
+    width: 533px;
+    height: 300px;
 }

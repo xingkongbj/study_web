@@ -1,3 +1,3 @@
-export default  a = 6;
+const a = 634634;
 
-
+export default a;
