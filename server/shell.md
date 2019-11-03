@@ -1,57 +1,84 @@
 # shell
 
-## date--日期时间
-
-## man--查看命令说明
+## alias--指令别名
 
 ```
-man ls
+alias runios="react-native run-ios"
+alias rn=react-native
 ```
 
-## echo--输出内容
+## echo--输出变量
 
 ```
 echo hello world
 
 # 显示变量
 echo $LANG
+echo ${LANG}
 
-# 变量配置
+# 内部变量定义
 ZSH=/Users/xingkongbj/.oh-my-zsh
 ```
 
-## ls--查看文件和目录
+## export--设置全局变量
 
 ```
-ls
-```
-
-
-
-
-
-
-
-## export--定义变量
-
-```
-# 定义变量
+# 定义全局变量
 export ZSH=/Users/xingkongbj/.oh-my-zsh
 
-# 修改环境变量
+# 修改全局变量，PATH是环境变量
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+```
+
+## unset--取消变量
+
+```
+unset ZSH
+```
+
+## ""、''、``的作用
+
+```
+# $name 会识别为变量
+myname="$name its me"
+
+# $name 会识别为字符串
+myname='$name its me'
+
+# locate crontab 优先执行
+ls -l `locate crontab`
+ls -l $(locate crontab)
+```
+
+## 常用环境变量
+
+```
+# 用户根目录，常用cd ~ 切换
+HOME
+
+# 当前 SHELL 文件位置
+SHELL
+
+# 历史命令记录条数
+HISTSIZE
+
+# 邮件保存位置
+MAIL
+
+# 可执行文件的搜索目录，用:分隔
+PATH
+
+# 系统编码格式
+LANG
+
+# 随机数
+RANDOM
 ```
 
 ## source--引入文件
 
 ```
 source $ZSH/oh-my-zsh.sh
-```
-
-## alias--语句别名
-
-```
-alias runios="react-native run-ios"
 ```
 
 ## &--前后语句同时执行
@@ -84,30 +111,11 @@ node --v8-options | grep 'in progress'
 node --v8-options | grep 'in progress'
 ```
 
-
-## pwd--输出当前路径
-
-```
-pwd
-```
-
 ## exit--退出
 
 ```
 # 0为成功
 exit 1
-```
-
-## whereis--查看安装目录
-
-```
-whereis nginx
-```
-
-## whoami--查看当前用户
-
-```
-whoami
 ```
 
 ## netstat--查看网络连接
@@ -144,18 +152,6 @@ kill -15 进程号
 # 强制退出
 kill -KILL nginx
 kill -9 nginx
-```
-
-## useradd--添加用户
-
-```
-useradd -g www www
-```
-
-## groupadd--添加用户组
-
-```
-groupadd www
 ```
 
 ## >/dev/null--输出到黑洞
