@@ -95,7 +95,11 @@ npm 是随同 Node.js 一起安装的包管理工具
     
 ## 在 npm 资源库中注册用户（使用邮箱注册）
 
-    npm adduser
+    npm adduser <User>
+    
+## 在 npm 资源库中添加管理员
+
+    npm owner add <User>
     
 ## 清除未使用的包
     
@@ -104,6 +108,42 @@ npm 是随同 Node.js 一起安装的包管理工具
 ## 发布模块
 
     npm publish
+    
+## 发布测试模块
+
+    npm publish --tag=beta
+    
+## 撤销发布
+
+    npm unpublish
+    
+## 废弃版本
+
+    npm deprecate <packageName>[@<version>] <message>
+    
+## 查看包基本信息
+
+    npm info <packageName>
+
+## 查看包所有版本号
+
+    npm view <packageName> versions
+
+## 查看包 tag 信息
+
+    npm dist-tag ls <packageName>
+    
+## 更新主版本
+
+    npm version major
+
+## 更新小版本
+
+    npm version minor
+
+## 更新bug版本
+
+    npm version patch
     
 ## 项目内运行程序
 
