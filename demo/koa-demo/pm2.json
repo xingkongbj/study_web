@@ -1,0 +1,7 @@
+{
+    "apps": [{
+        "name": "app",
+        "script": "./dist/app.js",
+        "instances": "8"
+    }]
+}

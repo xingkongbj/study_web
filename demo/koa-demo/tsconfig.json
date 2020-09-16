@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "emitDecoratorMetadata": true, // 给源码里的装饰器声明加上设计类型元数据
+      "experimentalDecorators": true, // 启用实验性的ES装饰器
+      "incremental": true, // 编译缓存
+      "inlineSourceMap": true, // 生成单个sourcemaps文件，而不是将每sourcemaps生成不同的文件
+      "module": "commonjs", //模块加载器规范
+      "newLine": "lf", // 当生成文件时指定行结束符
+      "noFallthroughCasesInSwitch": true, // 报告switch语句的fallthrough错误
+      "noUnusedLocals": true, // 若有未使用的局部变量则抛错
+      "noUnusedParameters": true, // 若有未使用的参数则抛错
+      "outDir": "dist", // 输出目录
+      "pretty": true, // 给错误和消息设置样式，使用颜色和上下文
+      "skipLibCheck": true, // 忽略所有的声明文件（ *.d.ts）的类型检查
+      "strict": true, // 启用所有严格类型检查选项
+      "stripInternal": true, // 不对具有 /** @internal */ JSDoc注解的代码生成代码
+      "target": "ES2015", // ECMAScript目标版本，即编译后的版本
+      "lib": ["ES2015"], // 编译时需要引入的库版本
+      "baseUrl": "." // 解析非相对模块名的基准目录
+    },
+    // 编译的文件
+    "include": [
+      "src/**/*.ts",
+      "**/*.d.ts"
+    ],
+    // 排除的文件
+    "exclude": [
+      "app/public",
+      "app/views",
+      "dist",
+      "node_modules"
+    ]
+  }
