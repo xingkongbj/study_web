@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "rm -rf dist && tsc && NODE_ENV=local node dist/app.js",
+    "start": "rm -rf dist && tsc && NODE_ENV=local nodemon --watch dist --inspect dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

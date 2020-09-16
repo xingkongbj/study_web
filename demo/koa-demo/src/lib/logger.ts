@@ -69,7 +69,7 @@ if (!NODE_ENV || NODE_ENV === 'local') {
         appenders: {
             out: {
                 type: 'dateFile',
-                filename: '/opt/www/logs/app.log',
+                filename: '~/www/logs/app.log',
                 daysToKeep: 15, // 保存 15 天
                 keepFileExt: true,
                 layout: {
@@ -78,7 +78,7 @@ if (!NODE_ENV || NODE_ENV === 'local') {
             },
             sequelize: {
                 type: 'dateFile',
-                filename: '/opt/www/logs/sequelize.log',
+                filename: '~/www/logs/sequelize.log',
                 daysToKeep: 3,
                 keepFileExt: true,
                 layout: {

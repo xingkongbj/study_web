@@ -11,10 +11,8 @@ export default (app: Application) => {
     const project = new Project();
 
     router.get('/', home.hello);
-
     router.get('/api/v1/get', project.get);
-
     router.post('/api/v1/post', project.post);
-
     router.all('/api/v1/all', project.all);
+    router.all('/api/v1/jump', project.jump);
 };
