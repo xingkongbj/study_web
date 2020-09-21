@@ -491,24 +491,24 @@
         "signature": "ba8028da8de248180714cc0f8d4861cbed71bf508b464066cc30beba44e83cff",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/koa-send/index.d.ts": {
+        "version": "1b940b37af7c3bbf27bb76e081370326a85aa242849a0a7fb345967bb5e561b9",
+        "signature": "1b940b37af7c3bbf27bb76e081370326a85aa242849a0a7fb345967bb5e561b9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/koa-static/index.d.ts": {
+        "version": "215712cbf38642a0f2ed1496a0fd5a9ae67c230bad9c50c92d8cce475c31379d",
+        "signature": "215712cbf38642a0f2ed1496a0fd5a9ae67c230bad9c50c92d8cce475c31379d",
+        "affectsGlobalScope": false
+      },
       "../src/config/config.local.ts": {
         "version": "ac9391daea420845a287fdc3abca7b5abb0abef560e33cf269342f95bb7980a3",
         "signature": "f85257c66c91838b09b05b615145725c60894fc90bbb3e2b3219febae14044e6",
         "affectsGlobalScope": false
       },
-      "../node_modules/@types/koa-router/index.d.ts": {
-        "version": "f394c991a6ac820eeec0877ec9db024d73d088c89ceb504278e50ce7dfbc7987",
-        "signature": "f394c991a6ac820eeec0877ec9db024d73d088c89ceb504278e50ce7dfbc7987",
-        "affectsGlobalScope": false
-      },
-      "../src/lib/application.ts": {
-        "version": "ce3cd6208f58eb2be3ea8e077976d19cf295be3ada68c8280dbd86b81ea1081f",
-        "signature": "4b2bd15d6c2da8c294e2a22ce93b6a4c8334889ebbfe6ba1532936896ddc6311",
-        "affectsGlobalScope": false
-      },
       "../src/config/index.ts": {
-        "version": "882ffd1e3a753e229c7bec0792979ac896b5b353eabb845aab5ec57e4a80089f",
-        "signature": "e451e3e6208e6306c5d3f1841d0ed2017d6882a6f0f5478e6d2889ddb5454ed4",
+        "version": "c9c300d5987baa27b98d47f5b16c749a26cf72afbf8bcb63b8109a5f656621f0",
+        "signature": "cda9aae7c6da4c4021a412da131472943c3e227067cf52732b7a4cd0eea24f3f",
         "affectsGlobalScope": false
       },
       "../node_modules/log4js/types/log4js.d.ts": {
@@ -542,8 +542,13 @@
         "affectsGlobalScope": false
       },
       "../src/middleware/catch-error.ts": {
-        "version": "7201277f6caaa0f7150d1a31163ee2d628f65fd93f0cc09af8c3a11102566efc",
+        "version": "0eae146a17e666fcc89eea28235ff0774531bbd4c1f114ceef40f4fdc82d47ae",
         "signature": "e4f502fa34ce480cc3c7adaa7396d5264991c7c345a82861c36f5827550eea99",
+        "affectsGlobalScope": false
+      },
+      "../src/middleware/not-found.ts": {
+        "version": "194ed3ecf8d65a3d81f9aba30818cbf5b968114f67f107994b1cec9fd7c7ac89",
+        "signature": "a5f58669d859c6ceb3816bc25544b44c0b20f36e8d9495679434c50a99e0f0cd",
         "affectsGlobalScope": false
       },
       "../node_modules/nanoid/index.d.ts": {
@@ -556,23 +561,33 @@
         "signature": "4624b1a96e5f2259e09b5ba4edc716b4a9542646bbd909757af93fa188f6d9cf",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/koa-router/index.d.ts": {
+        "version": "f394c991a6ac820eeec0877ec9db024d73d088c89ceb504278e50ce7dfbc7987",
+        "signature": "f394c991a6ac820eeec0877ec9db024d73d088c89ceb504278e50ce7dfbc7987",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/application.ts": {
+        "version": "ae924c2db2c22fd64f4be73a3f16a2fbcbf8745f2cc8eb05686e21ee395d06b7",
+        "signature": "a263fce10dee2e2d17d005f5470bf97f18b573edb89cb872ba1091d23d2a9ef7",
+        "affectsGlobalScope": false
+      },
       "../src/controller/home.ts": {
         "version": "c1f37f022dfb8d59cd728fb9e454a7c0c11d4c1e44901cadc6e8a28bc45dff3f",
         "signature": "73c17c0022b3e7fa2c54f867ad115c3ad538325e350d668a7de74dfe8e4907f5",
         "affectsGlobalScope": false
       },
       "../src/controller/project.ts": {
-        "version": "977ac3298fe2574500aef6cfe61b1cef096784765af4f1f3801b816e8d22c546",
-        "signature": "89a951242e5b0284f4830d2204a3c4a8866a66081f006070f78f1764d17d3604",
+        "version": "79e55eb0355633b2c5900d01437cbac6dda4cda0d99c13837b1d5ca80f7f6c6b",
+        "signature": "e91c84930fd6d7e4ae45cf9b967f97b271a023b321104e6b6bf39ea2f4bd4dd3",
         "affectsGlobalScope": false
       },
       "../src/router.ts": {
-        "version": "4e2bf27912528921e68ad435149ef2d8bb79be22564a9c27199ed7560af99e39",
+        "version": "00dab419102e0299ad43b750e1d320aa87b0cf30a98cf306cef188ecd2d5290f",
         "signature": "4313813e84e551bca3803707284fbd489e95e6701cbe16ab190236f705bd2208",
         "affectsGlobalScope": false
       },
       "../src/app.ts": {
-        "version": "a9376fe0eb3873a856f80c5917df7c572435cc51b540cd2894f65bb42521fd48",
+        "version": "50d92cad7733d9ffda59d7118aa4d6219708411d5ea5508dfcaa89a609fadc0b",
         "signature": "85879d7d276f3d6c4f32d3aef66b2a50990abd8ed26f78bb500717c6af5a6d37",
         "affectsGlobalScope": false
       },
@@ -884,6 +899,25 @@
         "../node_modules/@types/node/ts3.4/util.d.ts"
       ],
       "../node_modules/@types/koa-router/index.d.ts": [
+        "../node_modules/@types/koa/index.d.ts",
+        "../node_modules/@types/node/ts3.1/fs.d.ts",
+        "../node_modules/@types/node/ts3.1/process.d.ts",
+        "../node_modules/@types/node/ts3.1/util.d.ts",
+        "../node_modules/@types/node/ts3.4/fs.d.ts",
+        "../node_modules/@types/node/ts3.4/process.d.ts",
+        "../node_modules/@types/node/ts3.4/util.d.ts"
+      ],
+      "../node_modules/@types/koa-send/index.d.ts": [
+        "../node_modules/@types/koa/index.d.ts",
+        "../node_modules/@types/node/ts3.1/fs.d.ts",
+        "../node_modules/@types/node/ts3.1/process.d.ts",
+        "../node_modules/@types/node/ts3.1/util.d.ts",
+        "../node_modules/@types/node/ts3.4/fs.d.ts",
+        "../node_modules/@types/node/ts3.4/process.d.ts",
+        "../node_modules/@types/node/ts3.4/util.d.ts"
+      ],
+      "../node_modules/@types/koa-static/index.d.ts": [
+        "../node_modules/@types/koa-send/index.d.ts",
         "../node_modules/@types/koa/index.d.ts",
         "../node_modules/@types/node/ts3.1/fs.d.ts",
         "../node_modules/@types/node/ts3.1/process.d.ts",
@@ -1996,17 +2030,21 @@
         "../node_modules/@types/node/ts3.4/util.d.ts"
       ],
       "../src/app.ts": [
+        "../node_modules/@types/koa-static/index.d.ts",
         "../node_modules/@types/node/ts3.1/fs.d.ts",
+        "../node_modules/@types/node/ts3.1/http.d.ts",
         "../node_modules/@types/node/ts3.1/process.d.ts",
         "../node_modules/@types/node/ts3.1/util.d.ts",
         "../node_modules/@types/node/ts3.4/fs.d.ts",
         "../node_modules/@types/node/ts3.4/process.d.ts",
         "../node_modules/@types/node/ts3.4/util.d.ts",
         "../node_modules/koa-body/index.d.ts",
+        "../node_modules/log4js/types/log4js.d.ts",
         "../src/config/index.ts",
         "../src/lib/application.ts",
         "../src/lib/logger.ts",
         "../src/middleware/catch-error.ts",
+        "../src/middleware/not-found.ts",
         "../src/middleware/trace.ts",
         "../src/router.ts"
       ],
@@ -2025,8 +2063,7 @@
         "../node_modules/@types/node/ts3.4/fs.d.ts",
         "../node_modules/@types/node/ts3.4/process.d.ts",
         "../node_modules/@types/node/ts3.4/util.d.ts",
-        "../src/config/config.local.ts",
-        "../src/lib/application.ts"
+        "../src/config/config.local.ts"
       ],
       "../src/controller/home.ts": [
         "../node_modules/@types/koa/index.d.ts",
@@ -2085,6 +2122,16 @@
         "../node_modules/@types/node/ts3.4/util.d.ts",
         "../node_modules/log4js/types/log4js.d.ts",
         "../src/lib/error.ts"
+      ],
+      "../src/middleware/not-found.ts": [
+        "../node_modules/@types/koa/index.d.ts",
+        "../node_modules/@types/node/ts3.1/fs.d.ts",
+        "../node_modules/@types/node/ts3.1/process.d.ts",
+        "../node_modules/@types/node/ts3.1/util.d.ts",
+        "../node_modules/@types/node/ts3.4/fs.d.ts",
+        "../node_modules/@types/node/ts3.4/process.d.ts",
+        "../node_modules/@types/node/ts3.4/util.d.ts",
+        "../node_modules/log4js/types/log4js.d.ts"
       ],
       "../src/middleware/trace.ts": [
         "../node_modules/@types/koa/index.d.ts",
@@ -2279,6 +2326,25 @@
         "../node_modules/@types/node/ts3.4/util.d.ts"
       ],
       "../node_modules/@types/koa-router/index.d.ts": [
+        "../node_modules/@types/koa/index.d.ts",
+        "../node_modules/@types/node/ts3.1/fs.d.ts",
+        "../node_modules/@types/node/ts3.1/process.d.ts",
+        "../node_modules/@types/node/ts3.1/util.d.ts",
+        "../node_modules/@types/node/ts3.4/fs.d.ts",
+        "../node_modules/@types/node/ts3.4/process.d.ts",
+        "../node_modules/@types/node/ts3.4/util.d.ts"
+      ],
+      "../node_modules/@types/koa-send/index.d.ts": [
+        "../node_modules/@types/koa/index.d.ts",
+        "../node_modules/@types/node/ts3.1/fs.d.ts",
+        "../node_modules/@types/node/ts3.1/process.d.ts",
+        "../node_modules/@types/node/ts3.1/util.d.ts",
+        "../node_modules/@types/node/ts3.4/fs.d.ts",
+        "../node_modules/@types/node/ts3.4/process.d.ts",
+        "../node_modules/@types/node/ts3.4/util.d.ts"
+      ],
+      "../node_modules/@types/koa-static/index.d.ts": [
+        "../node_modules/@types/koa-send/index.d.ts",
         "../node_modules/@types/koa/index.d.ts",
         "../node_modules/@types/node/ts3.1/fs.d.ts",
         "../node_modules/@types/node/ts3.1/process.d.ts",
@@ -3393,9 +3459,6 @@
       "../src/app.ts": [
         "../src/lib/logger.ts"
       ],
-      "../src/config/index.ts": [
-        "../src/lib/application.ts"
-      ],
       "../src/controller/home.ts": [
         "../node_modules/@types/koa/index.d.ts"
       ],
@@ -3407,6 +3470,9 @@
         "../node_modules/@types/koa/index.d.ts"
       ],
       "../src/middleware/catch-error.ts": [
+        "../node_modules/@types/koa/index.d.ts"
+      ],
+      "../src/middleware/not-found.ts": [
         "../node_modules/@types/koa/index.d.ts"
       ],
       "../src/middleware/trace.ts": [
@@ -3442,6 +3508,8 @@
       "../node_modules/@types/keygrip/index.d.ts",
       "../node_modules/@types/koa-compose/index.d.ts",
       "../node_modules/@types/koa-router/index.d.ts",
+      "../node_modules/@types/koa-send/index.d.ts",
+      "../node_modules/@types/koa-static/index.d.ts",
       "../node_modules/@types/koa/index.d.ts",
       "../node_modules/@types/mime/index.d.ts",
       "../node_modules/@types/node/assert.d.ts",
@@ -3566,6 +3634,7 @@
       "../src/lib/error.ts",
       "../src/lib/logger.ts",
       "../src/middleware/catch-error.ts",
+      "../src/middleware/not-found.ts",
       "../src/middleware/trace.ts",
       "../src/model/index.ts",
       "../src/model/project.ts",

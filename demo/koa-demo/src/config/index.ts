@@ -1,6 +1,8 @@
 import * as localConfig from './config.local';
 
-import { AppConfig } from '../lib/application';
+interface AppConfig {
+    [key: string]: any;
+}
 
 export default ((): AppConfig => {
     const { NODE_ENV } = process.env;

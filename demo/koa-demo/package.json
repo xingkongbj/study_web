@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "rm -rf dist && tsc && NODE_ENV=local nodemon --watch dist --inspect dist/app.js",
+    "start": "rm -rf dist && tsc && cp -rf src/static dist/static/ && NODE_ENV=local nodemon --watch dist --inspect dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +14,7 @@
     "koa": "2.13.0",
     "koa-body": "4.2.0",
     "koa-router": "9.4.0",
+    "koa-static": "5.0.0",
     "log4js": "6.3.0",
     "mysql2": "2.1.0",
     "nanoid": "3.1.12",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/koa": "2.11.4",
     "@types/koa-router": "7.4.1",
+    "@types/koa-static": "4.0.1",
     "nodemon": "2.0.4",
     "typescript": "4.0.2"
   }

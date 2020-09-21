@@ -7,7 +7,7 @@ export default async function catchError(ctx: Context, next: () => Promise<any>)
         await next();
     } catch (err) {
         if (ctx.logger) {
-            (ctx.logger as Logger).error(`${ctx.method} ${ctx.path} ${err.name}:${err.message}`);
+            (ctx.logger as Logger).error(`${ctx.method} ${ctx.path} ${err.stack}`);
         }
 
         let code: number = 1;
