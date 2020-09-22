@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cls-hooked": "4.2.2",
     "dayjs": "1.8.35",
     "koa": "2.13.0",
     "koa-body": "4.2.0",
@@ -21,6 +22,7 @@
     "sequelize": "6.3.5"
   },
   "devDependencies": {
+    "@types/cls-hooked": "4.3.1",
     "@types/koa": "2.11.4",
     "@types/koa-router": "7.4.1",
     "@types/koa-static": "4.0.1",

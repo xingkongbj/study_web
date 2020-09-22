@@ -73,7 +73,7 @@ process.on('unhandledRejection', (err: Error) => {
 
         const bind = `Port ${port}`;
 
-        // handle specific listen errors with friendly messages
+        // 处理特殊报错
         switch (err.code) {
             case 'EACCES':
                 logger.error('startError');

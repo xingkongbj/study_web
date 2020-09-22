@@ -15,4 +15,6 @@ export default (app: Application) => {
     router.post('/api/v1/post', project.post);
     router.all('/api/v1/all', project.all);
     router.all('/api/v1/jump', project.jump);
+    router.all('/api/v1/getList', project.getList);
+    router.all('/api/v1/setList', project.setList);
 };
