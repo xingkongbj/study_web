@@ -16,7 +16,7 @@
     "koa-body": "4.2.0",
     "koa-router": "9.4.0",
     "koa-static": "5.0.0",
-    "log4js": "6.3.0",
+    "log4js": "6.4.0",
     "mysql2": "2.1.0",
     "nanoid": "3.1.12",
     "sequelize": "6.3.5"
