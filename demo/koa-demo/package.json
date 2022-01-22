@@ -18,7 +18,7 @@
     "koa-static": "5.0.0",
     "log4js": "6.3.0",
     "mysql2": "2.1.0",
-    "nanoid": "3.1.12",
+    "nanoid": "3.1.31",
     "sequelize": "6.3.5"
   },
   "devDependencies": {
